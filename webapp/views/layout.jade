@@ -1,0 +1,13 @@
+doctype html
+html(style='background-color:#1e3759')
+  head
+    title Webapp Boilerplate
+    link(rel='stylesheet', href='/stylesheets/all.css')
+    
+    script(type='text/javascript')
+      | var JS_VARS = !{JSON.stringify(JS_VARS)}
+
+  body
+    div#app
+      block content
+    script(src='/javascripts/all.js')

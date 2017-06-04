@@ -1,0 +1,144 @@
+<template>
+  <div id="app">
+    <svgdefs></svgdefs>
+    <template v-if="ready">
+      <header id="header">
+        <router-link to="/" tag="span" class="logo" exact>{{ config.about.website.name }}</router-link>
+      </header>
+
+      <nav id="mainmenu">
+        <ul class="inline text-center">
+          <li><router-link to="/" exact>Home</router-link></li>
+          <li class="sep">·</li>
+          <li><router-link to="/demo" exact>Components</router-link></li>
+          <li class="sep">·</li>
+          <li><router-link to="/this-url-dont-exists" exact>Not found</router-link></li>
+        </ul>
+      </nav>
+
+      <main id="main">
+        <transition name="fadein" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </main>
+
+      <footer id="footer">
+        <p v-html="copyrightNotice"></p>
+      </footer>
+    </template>
+    <template v-else>
+      <loader :quickExit="true"></loader>
+    </template>
+  </div>
+</template>
+
+<script>
+import moment from 'moment'
+import config from './../models/config.js'
+import SvgDefsComponent from './SvgDefs.vue'
+
+export default {
+  name: 'app',
+  components: {
+    svgdefs: SvgDefsComponent
+  },
+  data () {
+    return {
+      JS_VARS: JS_VARS,
+      ready: false,
+      config: null,
+    }
+  },
+  computed: {
+    copyrightNotice: function(){
+      if(this.config){
+        var currentYear = (new Date()).getFullYear();
+        var launched = this.config.about.website.launched;
+        var author = this.config.about.author.name;
+        if(this.config.about.author.website){
+          author = '<a href="'+this.config.about.author.website+'">'+author+'</a>';
+        }
+        return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
+      } else {
+        return '';
+      }
+    }
+  },
+  created: function(){
+    config.getConfigFromAPI(function(config){
+      // define default locale
+      moment.locale('en-gb');
+
+      this.config = config;
+      this.ready = true;
+    }.bind(this));
+  }
+}
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
+
+@import "webapp/src/styles/config";
+@import "webapp/src/styles/utils";
+@import "webapp/src/styles/base";
+@import "webapp/src/styles/classes";
+@import "webapp/src/styles/animate";
+@import "webapp/src/styles/transitions";
+
+/**
+ *  App style
+ */
+#app {
+  #header {
+    padding: $globalPadding;
+    text-align: center;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: fixed;
+
+    > .logo {
+      $color: lighten($colorPrimary, 40%);
+
+      white-space: nowrap;
+      font-family: 'Play', sans-serif;
+      font-size: 60px;
+      line-height: 1.5em;
+      font-weight: bold;
+      text-shadow: 0px 1px 0px darken($color, 25%), 0px 2px 0px darken($color, 30%), 0px 3px 0px darken($color, 35%), 0px 7px 0px rgba(black, 0.1);
+      color: $color;
+      transition: all $mouseEffectsDuration ease-out;
+      @include clickable;
+
+      &:hover {
+        $color: lighten($color, $mouseEffectsLightnessIncrease);
+        color: $color;
+        text-shadow: 0px 1px 0px darken($color, 25%), 0px 2px 0px darken($color, 30%), 0px 3px 0px darken($color, 35%), 0px 7px 0px rgba(black, 0.1);
+      }
+    }
+  }
+  #mainmenu {
+    margin-bottom: $globalSpacing;
+    .sep {
+      vertical-align: middle;
+      font-size: 2em;
+      color: $colorTertiary;
+    }
+  }
+  #main {
+    position: relative;
+    min-height: 50vh;
+    padding: $globalPadding 0px;
+  }
+  #footer {
+    padding: $globalPadding;
+    text-align: center;
+    font-size: 12px;
+    color: lighten($colorPrimary, 15%);
+
+    > p {
+      margin: 0.5em;
+    }
+  }
+}
+</style>

@@ -1,0 +1,77 @@
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0px;
+  border: none;
+  box-shadow: rgba(white, 0.05) 1px 1px 0px inset, rgba(white, 0.05) -1px -1px 0px inset;
+  background-color: $colorSecondary;
+  color: $colorPrimary;
+  border-radius: $globalRoundness;
+  @include clickable;
+
+  .icon {
+    vertical-align: middle;
+    font-size: 1.3em;
+  }
+
+  &:hover {
+    background-color: $colorTertiary;
+    color: #fff;
+  }
+}
+
+.limit-width {
+  max-width: $maxWidth;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.padded {
+    max-width: $maxWidth - ($globalPadding * 2);
+    padding-left: $globalPadding;
+    padding-right: $globalPadding;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.shy {
+  opacity: 0.5;
+}
+
+.ok {
+  color: $colorOk;
+}
+
+.bad {
+  color: $colorBad;
+}
+
+.text-primary {
+  color: $colorPrimary;
+}
+
+.text-secondary {
+  color: $colorSecondary;
+}
+
+.text-tertiary {
+  color: $colorTertiary;
+}
+
+.bg-primary {
+  background-color: $colorPrimary;
+}
+
+.bg-secondary {
+  background-color: $colorSecondary;
+}
+
+.bg-tertiary {
+  background-color: $colorTertiary;
+}

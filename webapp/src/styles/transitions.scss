@@ -1,0 +1,23 @@
+
+/**
+ *  Fade in and out
+ */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+.fade-move {
+  transition: all 0.5s;
+}
+
+/**
+ *  Fade in
+ */
+.fadein-enter-active {
+  transition: opacity .5s
+}
+.fadein-enter, .fadein-leave-to {
+  opacity: 0
+}

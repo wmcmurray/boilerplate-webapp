@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# project specific
+config/default.json5
+webapp/public/javascripts/all.js
+webapp/public/stylesheets/all.css

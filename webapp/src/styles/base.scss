@@ -1,0 +1,116 @@
+html {
+  background-color: $colorPrimary!important; // because the color is set on the html tag
+}
+
+body {
+  margin: 0px;
+}
+
+body, input, textarea, button, select {
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: $colorSecondary;
+}
+
+input, button, select {
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &:first-child {
+    margin-top: 0px;
+  }
+
+  select {
+    float: right;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: $globalPadding;
+}
+
+h2 {
+  font-size: 1.75em;
+  line-height: 1.5em;
+  margin-top: 1.25em;
+  margin-bottom: $globalPadding;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin: $globalPadding 0px;
+}
+
+a, button, select, input {
+  transition: all $mouseEffectsDuration ease-out;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dashed rgba($colorSecondary, 0.2);
+
+  &:hover, &.router-link-active {
+    color: $colorTertiary;
+    border-bottom-color: rgba($colorTertiary, 0.5);
+    border-bottom-style: solid;
+  }
+}
+
+p {
+  &:first-child {
+    margin-top: 0px;
+  }
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
+  &.styled {
+    list-style: disc inside;
+  }
+  &.inline {
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+select {
+  min-width: 150px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: rgba($colorSecondary, 0.5);
+  box-shadow: 1px 1px 0px rgba(black, 0.2) inset, -1px -1px 0px rgba(black, 0.2) inset;
+  border-radius: $globalRoundness;
+  @include clickable;
+
+  &:hover {
+    box-shadow: 1px 1px 0px rgba(white, 0.05) inset, -1px -1px 0px rgba(white, 0.05) inset, 0px 2px 0px rgba(black, 0.15);
+    color: $colorSecondary;
+  }
+}
+
+input[type="text"], input[type="password"] {
+  min-width: 250px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: rgba($colorSecondary, 0.5);
+  box-shadow: 1px 1px 0px rgba(black, 0.2) inset, -1px -1px 0px rgba(black, 0.2) inset;
+
+  &:hover {
+    color: $colorSecondary;
+  }
+}

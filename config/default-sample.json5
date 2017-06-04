@@ -1,0 +1,24 @@
+{
+  about: {
+    website: {
+      name: 'HELLO WORLD',
+      launched: 2017,
+    },
+    author: {
+      name: 'John Doe',
+      website: 'http://exemple.com',
+    }
+  },
+
+  database: {
+    url: 'mongodb://localhost/webapp'
+  },
+
+  session: {
+    secret: 'SUPER_SECRET_PASSWORD'
+  },
+
+  cors: {
+    origin: ['*']
+  }
+}
