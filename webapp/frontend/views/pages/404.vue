@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/src/styles/config";
+@import "webapp/frontend/styles/config";
 
 .notfound-page {
   text-align: center;

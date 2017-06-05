@@ -39,10 +39,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/src/styles/config";
-@import "webapp/src/styles/utils";
-@import "webapp/src/styles/animate";
-@import "webapp/src/styles/grid";
+@import "webapp/frontend/styles/config";
+@import "webapp/frontend/styles/utils";
+@import "webapp/frontend/styles/animate";
+@import "webapp/frontend/styles/grid";
 
 .demo-page {
   > section {

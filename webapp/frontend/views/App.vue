@@ -79,12 +79,12 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
 
-@import "webapp/src/styles/config";
-@import "webapp/src/styles/utils";
-@import "webapp/src/styles/base";
-@import "webapp/src/styles/classes";
-@import "webapp/src/styles/animate";
-@import "webapp/src/styles/transitions";
+@import "webapp/frontend/styles/config";
+@import "webapp/frontend/styles/utils";
+@import "webapp/frontend/styles/base";
+@import "webapp/frontend/styles/classes";
+@import "webapp/frontend/styles/animate";
+@import "webapp/frontend/styles/transitions";
 
 /**
  *  App style

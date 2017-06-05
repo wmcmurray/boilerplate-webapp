@@ -32,7 +32,7 @@ databaseCtrl.connect(function(){
 
 
   // view engine setup
-  app.set('views', path.join(__dirname, 'webapp/views'));
+  app.set('views', path.join(__dirname, 'webapp/backend/views'));
   app.set('view engine', 'jade');
 
   // uncomment after placing your favicon in /public
@@ -43,8 +43,8 @@ databaseCtrl.connect(function(){
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'webapp/public')));
 
-  app.use('/', require('./webapp/routes/index'));
-  app.use('/', require('./webapp/routes/fallback'));
+  app.use('/', require('./webapp/backend/routes/index'));
+  app.use('/', require('./webapp/backend/routes/fallback'));
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
