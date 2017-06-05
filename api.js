@@ -5,7 +5,7 @@ var config = require('config');
 var databaseCtrl = require('./controllers/database.js');
 
 // Create a server with a host and port
-const server = new Hapi.Server();
+const server = new Hapi.Server({load: { sampleInterval: 1000 }});
 server.connection({
   host: '0.0.0.0',
   port: 3001,
@@ -17,20 +17,31 @@ server.connection({
 });
 
 databaseCtrl.connect(function() {
-  /**
-   *  Return public config data
-   */
+
+  // all required routes
+  var routes = [].concat(
+    // require('./api/server'),
+    require('./api/config'),
+    require('./api/users')
+  );
+
+  // add route that list all routes
   server.route({
     method: 'GET',
-    path: '/config',
+    path: '/',
     handler: function (request, reply) {
       reply({
-        about: config.about,
+        about: 'This is the API of '+config.about.website.name+'.',
+        available_routes: routes.map(function(route){
+          return [route.method, route.path].join(' ');
+        })
       });
     }
   });
 
-  // Start the server
+  // bind all required routes
+  server.route(routes);
+
   server.start((err) => {
     if (err) {
       throw err;
@@ -38,3 +49,5 @@ databaseCtrl.connect(function() {
     console.log('API running at:', server.info.uri);
   });
 });
+
+module.exports = server;
