@@ -2,15 +2,13 @@
 
 A NodeJS backend outputing a VueJS one-pager that connects to the backend with an Hapi REST API.
 
-**Current state :** functional but will be refactored a little bit.
-
 ## Main technologies used
 
 ### Backend
 
 - [NodeJS](https://nodejs.org)
-- [ExpressJS](https://github.com/expressjs/express)
 - [Mongoose](https://github.com/Automattic/mongoose)
+- [ExpressJS](https://github.com/expressjs/express)
 - [Pug](https://github.com/pugjs/pug) (formely known as Jade)
 
 ### Frontend
@@ -36,4 +34,4 @@ A NodeJS backend outputing a VueJS one-pager that connects to the backend with a
 
 - API : `node api.js`
 - Web app : `npm start`
-- (optional) Webpack dev : `npm run dev`
+- Webpack dev : `npm run dev`
