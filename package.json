@@ -5,9 +5,10 @@
   "main": "webapp.js",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "debug": "DEBUG=myapp:* npm start",
+    "start": "concurrently -k -p \"{name}\" -n \"WWW,API\" -c \"magenta.bold,blue.bold\" \"node ./bin/www\" \"node api.js\"",
+    "build": "webpack -p --progress",
     "dev": "webpack --watch",
+    "debug": "DEBUG=myapp:* npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "body-parser": "~1.13.2",
     "boom": "^4.2.0",
     "colors": "^1.1.2",
+    "concurrently": "^3.4.0",
     "config": "^1.24.0",
     "connect-mongo": "^1.3.2",
     "cookie-parser": "~1.3.5",

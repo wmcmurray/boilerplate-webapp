@@ -25,7 +25,7 @@ databaseCtrl.connect(function(){
       httpOnly: true
     },
     store: new MongoStore({
-      url: config.database.url,
+      url: databaseCtrl.getDatabaseURL(),
       touchAfter: 24 * 3600 // time period in seconds
     })
   }));

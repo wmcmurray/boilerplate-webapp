@@ -32,6 +32,9 @@ A NodeJS backend outputing a VueJS one-pager that connects to the backend with a
 
 ## Running the app
 
-- API : `node api.js`
-- Web app : `npm start`
-- Webpack dev : `npm run dev`
+- `npm start` will start the web server and the API
+
+## Developing
+
+- `npm run dev` will compile frontend assets in realtime
+- `npm run build` will compile frontend assets for production

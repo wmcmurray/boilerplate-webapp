@@ -11,7 +11,8 @@
   },
 
   database: {
-    url: 'mongodb://localhost/webapp'
+    host: 'localhost',
+    name: 'webapp'
   },
 
   session: {

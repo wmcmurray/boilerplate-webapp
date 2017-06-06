@@ -9,14 +9,20 @@ module.exports = {
    *  Starts the connection to the database
    */
   connect: function(cb){
-    console.log('Connecting to database at "'+config.database.url+'"...');
-    mongoose.connect(config.database.url);
+    mongoose.connect(this.getDatabaseURL());
     DB = mongoose.connection;
     DB.on('error', console.error.bind(console, 'connection error:'));
     DB.once('open', function() {
-      console.log('Connected to database.');
+      console.log('Connected to "'+config.database.name+'" database ');
       cb.call(this);
     });
+  },
+
+  /**
+   *  Return the database URL from config
+   */
+  getDatabaseURL: function(){
+    return 'mongodb://'+config.database.host+'/'+config.database.name;
   },
 
   /**
