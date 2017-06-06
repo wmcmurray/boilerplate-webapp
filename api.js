@@ -25,6 +25,11 @@ databaseCtrl.connect(function() {
     require('./api/users')
   );
 
+  // log all requests
+  server.on('response', function (request) {
+    console.log(request.method.toUpperCase() + ' ' + request.url.path + ' ' + request.response.statusCode);
+  });
+
   // add route that list all routes
   server.route({
     method: 'GET',
@@ -46,7 +51,7 @@ databaseCtrl.connect(function() {
     if (err) {
       throw err;
     }
-    console.log('API running at:', server.info.uri);
+    console.log('Running at '+server.info.uri);
   });
 });
 
