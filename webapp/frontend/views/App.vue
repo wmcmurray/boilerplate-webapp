@@ -42,7 +42,7 @@ export default {
   components: {
     svgdefs: SvgDefsComponent
   },
-  data () {
+  data: function(){
     return {
       JS_VARS: JS_VARS,
       ready: false,

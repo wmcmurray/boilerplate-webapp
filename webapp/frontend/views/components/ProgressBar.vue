@@ -39,7 +39,7 @@ export default {
       return this.infos || (Math.round(this.current) + ' / ' + Math.round(this.to))
     }
   },
-  data () {
+  data: function(){
     return {}
   }
 }

@@ -19,7 +19,7 @@ export default {
       default: 250
     }
   },
-  data () {
+  data: function(){
     return {
       dots: []
     }

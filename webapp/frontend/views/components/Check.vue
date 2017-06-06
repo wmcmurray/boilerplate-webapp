@@ -11,7 +11,7 @@ export default {
   props: {
     ok: Boolean
   },
-  data () {
+  data: function(){
     return {}
   }
 }

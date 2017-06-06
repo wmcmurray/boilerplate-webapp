@@ -17,7 +17,7 @@
 <script>
 export default {
   name: 'svg-defs',
-  data () {
+  data: function(){
     return {}
   }
 }

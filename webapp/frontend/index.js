@@ -14,9 +14,11 @@ Vue.component('loader', LoaderComponent);
 Vue.component('progress-bar', ProgressBarComponent);
 Vue.component('three-dots', ThreeDotsComponent);
 
-const app = new Vue({
+var app = new Vue({
   el: '#app',
   router: Router,
   store: Store,
-  render: h => h(App)
+  render: function render(h) {
+    return h(App);
+  }
 });

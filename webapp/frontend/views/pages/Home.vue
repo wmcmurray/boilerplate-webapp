@@ -14,7 +14,7 @@ import _ from 'lodash'
 
 export default {
   name: 'home-page',
-  data () {
+  data: function(){
     return {
       config: config.get()
     }

@@ -16,7 +16,7 @@ export default {
   props: {
     quickExit: Boolean
   },
-  data () {
+  data: function(){
     return {}
   }
 }

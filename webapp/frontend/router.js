@@ -7,13 +7,13 @@ import NotFound from './views/pages/404.vue';
 
 Vue.use(VueRouter);
 
-const routes = [
+var routes = [
   { path: '/', component: Home },
   { path: '/demo', component: Demo },
   { path: '*', component: NotFound },
 ];
 
-const router = new VueRouter({
+var router = new VueRouter({
   routes: routes,
   mode: 'history',
   scrollBehavior: function(to, from, savedPosition){

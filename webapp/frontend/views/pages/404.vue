@@ -14,7 +14,7 @@ import config from './../../models/config.js'
 
 export default {
   name: 'notfound-page',
-  data () {
+  data: function(){
     return {
       config: config.get()
     }

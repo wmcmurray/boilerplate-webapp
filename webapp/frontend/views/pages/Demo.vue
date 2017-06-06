@@ -30,7 +30,7 @@ import _ from 'lodash'
 
 export default {
   name: 'demo-page',
-  data () {
+  data: function(){
     return {
       config: config.get()
     }
