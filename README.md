@@ -1,38 +1,26 @@
 # boilerplate-webapp
 
-A NodeJS backend outputing a VueJS one-pager that connects to the backend with an Hapi REST API.
+A *NodeJS* + *Mongoose* backend outputing a *VueJS* one-pager that connects to the backend with an *Hapi* REST API.
 
 ## Main technologies used
 
-### Backend
+**Backend :** [NodeJS](https://nodejs.org), [Mongoose](https://github.com/Automattic/mongoose), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug) (formely known as Jade)
 
-- [NodeJS](https://nodejs.org)
-- [Mongoose](https://github.com/Automattic/mongoose)
-- [ExpressJS](https://github.com/expressjs/express)
-- [Pug](https://github.com/pugjs/pug) (formely known as Jade)
+**Frontend :** [Webpack](https://github.com/webpack/webpack), [VueJS](https://github.com/vuejs/vue), [VueX](https://github.com/vuejs/vuex), [SCSS](https://github.com/sass/sass), [gridlex](https://github.com/devlint/gridlex)
 
-### Frontend
-
-- [Webpack](https://github.com/webpack/webpack)
-- [VueJS](https://github.com/vuejs/vue)
-- [VueX](https://github.com/vuejs/vuex)
-- [SCSS](https://github.com/sass/sass)
-- [gridlex](https://github.com/devlint/gridlex)
-
-### API
-
-- [Hapi](https://github.com/hapijs/hapi)
-- [Boom](https://github.com/hapijs/boom)
-- [Joi](https://github.com/hapijs/joi)
+**API :** [Hapi](https://github.com/hapijs/hapi), [Boom](https://github.com/hapijs/boom), [Joi](https://github.com/hapijs/joi)
 
 ## Installation
 
-1. Make a copy of `config/default-sample.json5` => `config/default.json5` and change settings.
-2. Run `npm install`.
+1. Run `npm install`
+2. Make sure you have MongoDB installed
+3. Copy `/config/default-sample.json5` to `/config/default.json5` and change settings
 
 ## Running the app
 
-- `npm start` will start the web server and the API
+**NOTE :** If it's the **first time you start the app**, don't forget to run `npm run build` before because frontend assets are not commited.
+
+- `npm start` will start both web app and API
 
 ## Developing
 
