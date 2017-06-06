@@ -4,7 +4,7 @@ A *NodeJS* + *Mongoose* backend outputing a *VueJS* one-pager that connects to t
 
 ## Main technologies used
 
-**Backend :** [NodeJS](https://nodejs.org), [Mongoose](https://github.com/Automattic/mongoose), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug) (formely known as Jade)
+**Backend :** [NodeJS](https://nodejs.org), [Mongoose](https://github.com/Automattic/mongoose), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug) *(formely known as Jade)*
 
 **Frontend :** [Webpack](https://github.com/webpack/webpack), [VueJS](https://github.com/vuejs/vue), [VueX](https://github.com/vuejs/vuex), [SCSS](https://github.com/sass/sass), [gridlex](https://github.com/devlint/gridlex)
 
@@ -16,10 +16,9 @@ A *NodeJS* + *Mongoose* backend outputing a *VueJS* one-pager that connects to t
 2. Make sure you have MongoDB installed
 3. Copy `/config/default-sample.json5` to `/config/default.json5` and change settings
 
-## Running the app
+## Starting the app
 
-**NOTE :** If it's the **first time you start the app**, don't forget to run `npm run build` before because frontend assets are not commited.
-
+- `npm run build` *(do this only if you've never built frontend assets before)*
 - `npm start` will start both web app and API
 
 ## Developing
