@@ -13,6 +13,8 @@
           <li><router-link to="/demo" exact>Components</router-link></li>
           <li class="sep">·</li>
           <li><router-link to="/this-url-dont-exists" exact>Not found</router-link></li>
+          <li class="sep">·</li>
+          <li><a href="https://github.com/wmcmurray/boilerplate-webapp" target="_blank">Github</a></li>
         </ul>
       </nav>
 

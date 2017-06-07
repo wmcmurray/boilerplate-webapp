@@ -2,7 +2,7 @@
   <div class="home-page">
 
     <section class="limit-width padded text-center">
-      <p>This boilerplate was made with <span class="text-tertiary animated rubberBand infinite" id="heart">&hearts;</span> by <a href="http://wimantis.ninja" target="_blank">wimantis</a>.</p>
+      <p>This boilerplate was made with care by <a href="http://wimantis.ninja" target="_blank">wimantis</a>.</p>
     </section>
 
   </div>
@@ -29,9 +29,6 @@ export default {
 @import "webapp/frontend/styles/grid";
 
 .home-page {
-  #heart {
-    display: inline-block;
-    font-size: 1.5em;
-  }
+
 }
 </style>
