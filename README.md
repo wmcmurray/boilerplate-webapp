@@ -13,12 +13,12 @@
 ## Install
 
 1. Run `npm install`
-2. Make sure you have MongoDB installed
-3. Copy `/config/default-sample.json5` to `/config/default.json5` and change settings
+2. Make sure you have [MongoDB](https://www.mongodb.com) installed
+3. Copy `/config/default-sample.json5` to `/config/default.json5` and check settings
+4. Run `npm run build` to compile assets for the first time
 
 ## Run
 
-- `npm run build` *(do this only if you've never built frontend assets before)*
 - `npm start` will start both web app and API
 
 ## Develop
