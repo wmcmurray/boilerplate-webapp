@@ -2,7 +2,7 @@ const Hapi = require('hapi');
 const Boom = require('boom');
 const Joi = require('joi');
 var config = require('config');
-var databaseCtrl = require('./controllers/database.js');
+var DB = require('./managers/database.js');
 
 // Create a server with a host and port
 const server = new Hapi.Server({load: { sampleInterval: 1000 }});
@@ -16,7 +16,7 @@ server.connection({
   }
 });
 
-databaseCtrl.connect(function() {
+DB.connect(function() {
 
   // all required routes
   var routes = [].concat(

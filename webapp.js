@@ -6,12 +6,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var databaseCtrl = require('./controllers/database.js');
+var DB = require('./managers/database.js');
 
 var app = express();
 
 // Connect to database then initialize the app
-databaseCtrl.connect(function(){
+DB.connect(function(){
   /**
   *  Sessions related
   */
@@ -26,7 +26,7 @@ databaseCtrl.connect(function(){
       httpOnly: true
     },
     store: new MongoStore({
-      url: databaseCtrl.getDatabaseURL(),
+      url: DB.getURL(),
       touchAfter: 24 * 3600 // time period in seconds
     })
   }));

@@ -9,7 +9,7 @@ module.exports = {
    *  Starts the connection to the database
    */
   connect: function(cb){
-    mongoose.connect(this.getDatabaseURL());
+    mongoose.connect(this.getURL());
     DB = mongoose.connection;
     DB.on('error', console.error.bind(console, 'connection error:'));
     DB.once('open', function() {
@@ -21,7 +21,7 @@ module.exports = {
   /**
    *  Return the database URL from config
    */
-  getDatabaseURL: function(){
+  getURL: function(){
     return 'mongodb://'+config.database.host+'/'+config.database.name;
   },
 
