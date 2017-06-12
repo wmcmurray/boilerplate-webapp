@@ -2,10 +2,10 @@
   "name": "boilerplate-webapp",
   "version": "0.1.0",
   "description": "",
-  "main": "webapp.js",
+  "main": "app.js",
   "private": true,
   "scripts": {
-    "start": "concurrently -k -p \"{name}\" -n \"WWW,API\" -c \"magenta.bold,blue.bold\" \"node webapp.js\" \"node api.js\"",
+    "start": "concurrently -k -p \"{name}\" -n \"APP,API\" -c \"magenta.bold,blue.bold\" \"node app.js\" \"node api.js\"",
     "build": "webpack -p --progress",
     "dev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"

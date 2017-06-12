@@ -4,12 +4,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   resolve: {
     alias: {
-      ROOT: path.resolve(__dirname, 'webapp/frontend/')
+      ROOT: path.resolve(__dirname, 'app/frontend/')
     }
   },
-  entry: './webapp/frontend/index.js',
+  entry: './app/frontend/index.js',
   output: {
-    filename: 'webapp/public/javascripts/all.js'
+    filename: 'app/public/javascripts/all.js'
   },
   module: {
     rules: [
@@ -29,7 +29,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('webapp/public/stylesheets/all.css')
+    new ExtractTextPlugin('app/public/stylesheets/all.css')
   ],
   node: {
     fs: 'empty'
