@@ -26,6 +26,7 @@ export default {
 @import "~ROOT/styles/config";
 
 .notfound-page {
+  overflow: hidden;
   text-align: center;
   font-size: 26px;
 

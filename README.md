@@ -4,7 +4,7 @@
 
 **Backend :** [NodeJS](https://nodejs.org), [Mongoose](https://github.com/Automattic/mongoose), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug)
 
-**Frontend :** [Webpack](https://github.com/webpack/webpack), [VueJS](https://github.com/vuejs/vue), [VueX](https://github.com/vuejs/vuex), [SCSS](https://github.com/sass/sass), [gridlex](https://github.com/devlint/gridlex)
+**Frontend :** [Webpack 2](https://github.com/webpack/webpack), [VueJS 2](https://github.com/vuejs/vue), [VueX](https://github.com/vuejs/vuex), [SCSS](https://github.com/sass/sass), [gridlex](https://github.com/devlint/gridlex)
 
 **API :** [Hapi](https://github.com/hapijs/hapi), [Boom](https://github.com/hapijs/boom), [Joi](https://github.com/hapijs/joi)
 
