@@ -36,8 +36,8 @@
 
 <script>
 import moment from 'moment'
-import config from './../models/config.js'
-import SvgDefsComponent from './SvgDefs.vue'
+import config from 'ROOT/models/config.js'
+import SvgDefsComponent from 'ROOT/views/SvgDefs.vue'
 
 export default {
   name: 'app',
@@ -81,12 +81,12 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
 
-@import "webapp/frontend/styles/config";
-@import "webapp/frontend/styles/utils";
-@import "webapp/frontend/styles/base";
-@import "webapp/frontend/styles/classes";
-@import "webapp/frontend/styles/animate";
-@import "webapp/frontend/styles/transitions";
+@import "~ROOT/styles/config";
+@import "~ROOT/styles/utils";
+@import "~ROOT/styles/base";
+@import "~ROOT/styles/classes";
+@import "~ROOT/styles/animate";
+@import "~ROOT/styles/transitions";
 
 /**
  *  App style

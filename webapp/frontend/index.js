@@ -1,13 +1,13 @@
 import Vue from 'vue';
-import App from './views/App.vue';
-import Router from './router.js';
-import Store from './store.js';
+import App from 'ROOT/views/App.vue';
+import Router from 'ROOT/router.js';
+import Store from 'ROOT/store.js';
 
 // components
-import CheckComponent from './views/components/Check.vue'
-import LoaderComponent from './views/components/Loader.vue'
-import ProgressBarComponent from './views/components/ProgressBar.vue'
-import ThreeDotsComponent from './views/components/ThreeDots.vue'
+import CheckComponent from 'ROOT/views/components/Check.vue'
+import LoaderComponent from 'ROOT/views/components/Loader.vue'
+import ProgressBarComponent from 'ROOT/views/components/ProgressBar.vue'
+import ThreeDotsComponent from 'ROOT/views/components/ThreeDots.vue'
 
 Vue.component('check', CheckComponent);
 Vue.component('loader', LoaderComponent);

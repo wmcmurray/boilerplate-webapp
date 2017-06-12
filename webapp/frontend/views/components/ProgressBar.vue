@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/frontend/styles/config";
+@import "~ROOT/styles/config";
 
 .progress-bar {
   $color: lighten($colorTertiary, 20%);

@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/frontend/styles/config";
+@import "~ROOT/styles/config";
 
 .check {
   display: inline-block;

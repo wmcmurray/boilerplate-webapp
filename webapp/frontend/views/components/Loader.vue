@@ -23,8 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/frontend/styles/config";
-@import "webapp/frontend/styles/utils";
+@import "~ROOT/styles/config";
+@import "~ROOT/styles/utils";
 
 .loader {
   position: absolute;

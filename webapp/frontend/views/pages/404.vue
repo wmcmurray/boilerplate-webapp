@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import config from './../../models/config.js'
+import config from 'ROOT/models/config.js'
 
 export default {
   name: 'notfound-page',
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/frontend/styles/config";
+@import "~ROOT/styles/config";
 
 .notfound-page {
   text-align: center;

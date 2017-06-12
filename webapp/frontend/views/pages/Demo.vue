@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import config from './../../models/config.js'
 import _ from 'lodash'
+import config from 'ROOT/models/config.js'
 
 export default {
   name: 'demo-page',
@@ -39,10 +39,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "webapp/frontend/styles/config";
-@import "webapp/frontend/styles/utils";
-@import "webapp/frontend/styles/animate";
-@import "webapp/frontend/styles/grid";
+@import "~ROOT/styles/config";
+@import "~ROOT/styles/utils";
+@import "~ROOT/styles/animate";
+@import "~ROOT/styles/grid";
 
 .demo-page {
   > section {

@@ -1,4 +1,4 @@
-import API from './../controllers/api.js'
+import API from 'ROOT/controllers/api.js'
 
 var Config = {
   config: null,
