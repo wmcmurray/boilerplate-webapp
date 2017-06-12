@@ -51,7 +51,7 @@ databaseCtrl.connect(function() {
     if (err) {
       throw err;
     }
-    console.log('Running at '+server.info.uri);
+    console.log('Running on port '+server.info.port);
   });
 });
 

@@ -5,7 +5,7 @@
   "main": "webapp.js",
   "private": true,
   "scripts": {
-    "start": "concurrently -k -p \"{name}\" -n \"WWW,API\" -c \"magenta.bold,blue.bold\" \"node ./bin/www\" \"node api.js\"",
+    "start": "concurrently -k -p \"{name}\" -n \"WWW,API\" -c \"magenta.bold,blue.bold\" \"node webapp.js\" \"node api.js\"",
     "build": "webpack -p --progress",
     "dev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
