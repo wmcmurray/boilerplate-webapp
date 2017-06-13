@@ -12,21 +12,20 @@ router.get(/.*\.(map)$/, function(req, res, next) {
  *  Set data passed from backend to frontend
  */
 router.use(function(req, res, next) {
-  var JS_VARS = {};
+  var JS_VARS = {
+    config: {
+      about: config.about
+    }
+  };
 
   // check if session exists
   if(req.session){
     JS_VARS.session = true;
-    done();
-  } else {
-    done();
   }
 
-  // call this upon completion
-  function done(){
-    res.locals.JS_VARS = JS_VARS;
-    next();
-  }
+  // set data in res.locals
+  res.locals.JS_VARS = JS_VARS;
+  next();
 });
 
 module.exports = router;

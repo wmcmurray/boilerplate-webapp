@@ -48,7 +48,7 @@ export default {
     return {
       JS_VARS: JS_VARS,
       ready: false,
-      config: null,
+      config: config.get(),
     }
   },
   computed: {
@@ -67,13 +67,11 @@ export default {
     }
   },
   created: function(){
-    config.getConfigFromAPI(function(config){
-      // define default locale
-      moment.locale('en-gb');
+    // define default locale
+    moment.locale('en-gb');
 
-      this.config = config;
-      this.ready = true;
-    }.bind(this));
+    // the app is ready
+    this.ready = true;
   }
 }
 </script>

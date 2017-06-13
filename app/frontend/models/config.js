@@ -1,23 +1,12 @@
-import API from 'ROOT/controllers/api.js'
-
 var Config = {
-  config: null,
-
-  /**
-   *  Get the config from the API
-   */
-  getConfigFromAPI: function(cb){
-    API('/config').then(function(res){
-      this.config = res.entity;
-      cb(res.entity);
-    }.bind(this));
-  },
+  // load config from JS_VARS
+  config: JS_VARS.config || {},
 
   /**
    *  Get the config from front-end cache
    */
   get: function(){
-    return this.config || {};
+    return this.config;
   }
 };
 

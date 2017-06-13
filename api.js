@@ -21,7 +21,6 @@ DB.connect(function() {
   // all required routes
   var routes = [].concat(
     // require('./api/server'),
-    require('./api/config'),
     require('./api/users')
   );
 
