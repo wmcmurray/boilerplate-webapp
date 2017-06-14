@@ -1,6 +1,7 @@
 const Hapi = require('hapi');
 const Boom = require('boom');
 const Joi = require('joi');
+const chalk = require('chalk');
 var config = require('config');
 var DB = require('./managers/database.js');
 
@@ -26,7 +27,15 @@ DB.connect(function() {
 
   // log all requests
   server.on('response', function (request) {
-    console.log(request.method.toUpperCase() + ' ' + request.url.path + ' ' + request.response.statusCode);
+    var code = request.response.statusCode;
+    if(code >= 200 && code < 300){
+      code = chalk.green(code);
+    } else if(code >= 300 && code < 400){
+      code = chalk.cyan(code);
+    } else if(code >= 400){
+      code = chalk.red(code);
+    }
+    console.log([code, request.method.toUpperCase(), request.url.path].join(' '));
   });
 
   // add route that list all routes
