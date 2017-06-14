@@ -40,7 +40,7 @@ export default {
     h1 {
       margin-bottom: 20px;
       font-size: 46px;
-      color: $colorTertiary;
+      color: $colorBad;
       text-shadow: 0px 4px 0px rgba(black, 0.15);
     }
   }

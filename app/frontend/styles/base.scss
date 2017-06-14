@@ -1,5 +1,5 @@
 html {
-  background-color: $colorPrimary!important; // because the color is set on the html tag
+  background-color: $colorBackground!important; // because the color is set on the html tag
 }
 
 body {
@@ -11,7 +11,7 @@ body, input, textarea, button, select {
   font-family: 'Oxygen', sans-serif;
   font-weight: 300;
   font-size: 15px;
-  color: $colorSecondary;
+  color: $colorText;
 }
 
 input, button, select {
@@ -57,11 +57,11 @@ a, button, select, input {
 a {
   text-decoration: none;
   color: inherit;
-  border-bottom: 1px dashed rgba($colorSecondary, 0.2);
+  border-bottom: 1px dashed rgba($colorText, 0.2);
 
   &:hover, &.router-link-active {
-    color: $colorTertiary;
-    border-bottom-color: rgba($colorTertiary, 0.5);
+    color: $colorHighlight;
+    border-bottom-color: rgba($colorHighlight, 0.5);
     border-bottom-style: solid;
   }
 }
@@ -92,14 +92,14 @@ select {
   padding: 10px;
   border: none;
   outline: none;
-  color: rgba($colorSecondary, 0.5);
+  color: rgba($colorText, 0.5);
   box-shadow: 1px 1px 0px rgba(black, 0.2) inset, -1px -1px 0px rgba(black, 0.2) inset;
   border-radius: $globalRoundness;
   @include clickable;
 
   &:hover {
     box-shadow: 1px 1px 0px rgba(white, 0.05) inset, -1px -1px 0px rgba(white, 0.05) inset, 0px 2px 0px rgba(black, 0.15);
-    color: $colorSecondary;
+    color: $colorText;
   }
 }
 
@@ -108,10 +108,10 @@ input[type="text"], input[type="password"] {
   padding: 10px;
   border: none;
   outline: none;
-  color: rgba($colorSecondary, 0.5);
+  color: rgba($colorText, 0.5);
   box-shadow: 1px 1px 0px rgba(black, 0.2) inset, -1px -1px 0px rgba(black, 0.2) inset;
 
   &:hover {
-    color: $colorSecondary;
+    color: $colorText;
   }
 }

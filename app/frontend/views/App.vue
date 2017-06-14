@@ -3,18 +3,14 @@
     <svgdefs></svgdefs>
     <template v-if="ready">
       <header id="header">
-        <router-link to="/" tag="span" class="logo" exact>{{ config.about.website.name }}</router-link>
+        <router-link :to="{name:'home'}" tag="span" class="logo" exact>{{ config.about.website.name }}</router-link>
       </header>
 
       <nav id="mainmenu">
         <ul class="inline text-center">
-          <li><router-link to="/" exact>Home</router-link></li>
+          <li><router-link :to="{name:'home'}" exact>Home</router-link></li>
           <li class="sep">·</li>
-          <li><router-link to="/demo" exact>Components</router-link></li>
-          <li class="sep">·</li>
-          <li><router-link to="/this-url-dont-exists" exact>Not found</router-link></li>
-          <li class="sep">·</li>
-          <li><a href="https://github.com/wmcmurray/boilerplate-webapp" target="_blank">Github</a></li>
+          <li><router-link :to="{name:'demo'}" exact>Components</router-link></li>
         </ul>
       </nav>
 
@@ -93,19 +89,22 @@ export default {
   #header {
     padding: $globalPadding;
     text-align: center;
-    background-position: center top;
-    background-repeat: repeat;
-    background-attachment: fixed;
 
     > .logo {
-      $color: lighten($colorPrimary, 40%);
+      $color: lighten($colorHighlight, 10%);
+      $gradientStart: 15%;
+      $gradientSpeed: 5%;
+
+      $gradient1: $gradientStart;
+      $gradient2: ($gradientStart + ($gradientSpeed * 1));
+      $gradient3: ($gradientStart + ($gradientSpeed * 2));
 
       white-space: nowrap;
       font-family: 'Play', sans-serif;
       font-size: 60px;
       line-height: 1.5em;
       font-weight: bold;
-      text-shadow: 0px 1px 0px darken($color, 25%), 0px 2px 0px darken($color, 30%), 0px 3px 0px darken($color, 35%), 0px 7px 0px rgba(black, 0.1);
+      text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
       color: $color;
       transition: all $mouseEffectsDuration ease-out;
       @include clickable;
@@ -113,7 +112,7 @@ export default {
       &:hover {
         $color: lighten($color, $mouseEffectsLightnessIncrease);
         color: $color;
-        text-shadow: 0px 1px 0px darken($color, 25%), 0px 2px 0px darken($color, 30%), 0px 3px 0px darken($color, 35%), 0px 7px 0px rgba(black, 0.1);
+        text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
       }
     }
   }
@@ -122,7 +121,7 @@ export default {
     .sep {
       vertical-align: middle;
       font-size: 2em;
-      color: $colorTertiary;
+      color: $colorHighlight;
     }
   }
   #main {
@@ -134,7 +133,7 @@ export default {
     padding: $globalPadding;
     text-align: center;
     font-size: 12px;
-    color: lighten($colorPrimary, 15%);
+    color: rgba($colorText, 0.5);
 
     > p {
       margin: 0.5em;

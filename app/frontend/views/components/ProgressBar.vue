@@ -49,8 +49,8 @@ export default {
 @import "~ROOT/styles/config";
 
 .progress-bar {
-  $color: lighten($colorTertiary, 20%);
-  $bg: darken(mix(rgba($colorPrimary, 0.5), $color), 10%);
+  $color: lighten($colorHighlight, 10%);
+  $bg: darken(mix(rgba($colorBackground, 0.5), $color), 10%);
   $height: 25px;
   $heightSmall: 6px;
   $roundness: $globalRoundness;
@@ -68,19 +68,21 @@ export default {
     left: 0px;
     width: 100%;
     height: 100%;
-    color: $colorPrimary;
+    color: $colorText;
     text-align: center;
     line-height: $height;
     font-size: $height * 0.45;
   }
 
   .current-bar {
+    $currentBarColor: lighten($color, 10%);
+
     position: relative;
     height: inherit;
     border-radius: $roundness 0px 0px $roundness;
-    background-color: $color;
-    border-top: 1px solid lighten($color, 10%);
-    border-bottom: 1px solid darken($color, 10%);
+    background-color: $currentBarColor;
+    border-top: 1px solid lighten($currentBarColor, 10%);
+    border-bottom: 1px solid darken($currentBarColor, 10%);
   }
 
   &.small {

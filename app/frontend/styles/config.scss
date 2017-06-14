@@ -9,9 +9,9 @@ $globalRoundness: 4px;
 /**
  *  Colors
  */
-$colorPrimary: #1e3759;
-$colorSecondary: #5079af;
-$colorTertiary: #7daa64;
+$colorBackground: #ddd;
+$colorText: #333;
+$colorHighlight: darken(#7daa64, 10%);
 
 $colorOk: #50af54;
 $colorBad: #af5050;

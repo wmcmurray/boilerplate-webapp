@@ -8,9 +8,20 @@ import NotFound from 'ROOT/views/pages/404.vue';
 Vue.use(VueRouter);
 
 var routes = [
-  { path: '/', component: Home },
-  { path: '/demo', component: Demo },
-  { path: '*', component: NotFound },
+  {
+    path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/demo',
+    name: 'demo',
+    component: Demo
+  },
+  {
+    path: '*',
+    component: NotFound
+  },
 ];
 
 var router = new VueRouter({

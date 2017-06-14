@@ -33,13 +33,13 @@ export default {
   z-index: 999;
   width: 100%;
   height: 100%;
-  background-color: rgba(lighten(desaturate($colorPrimary, 10%), 10%), 0.5);
+  background-color: rgba(lighten(desaturate($colorBackground, 10%), 10%), 0.5);
   @include busy;
   @include disable-select;
 
   .loader-center {
     $size: 32px;
-    $color: lighten($colorTertiary, 20%);
+    $color: lighten($colorHighlight, 20%);
     $glowColor: rgba(black, 0.15);
     $glowSize: 0px;
 
