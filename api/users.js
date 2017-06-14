@@ -58,8 +58,37 @@ module.exports = [
             username: request.params.username,
           });
 
-          user.save(function(){
-            reply(user);
+          user.save(function(err){
+            if(err){
+              reply(Boom.badImplementation());
+            } else {
+              reply(user);
+            }
+          });
+        }
+      });
+    }
+  },
+
+  /**
+   *  Delete a user from username
+   */
+  {
+    method: 'DELETE',
+    path: '/users/{username}',
+    handler: function (request, reply) {
+      User.findByUsername(request.params.username, function(err, doc){
+        if(err){
+          reply(Boom.badImplementation());
+        } else if(!doc){
+          reply(Boom.notFound());
+        } else {
+          doc.remove(function(err){
+            if(err){
+              reply(Boom.badImplementation());
+            } else {
+              reply(true);
+            }
           });
         }
       });

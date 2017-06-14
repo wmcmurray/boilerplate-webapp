@@ -10,7 +10,9 @@
         <ul class="inline text-center">
           <li><router-link :to="{name:'home'}" exact>Home</router-link></li>
           <li class="sep">·</li>
-          <li><router-link :to="{name:'demo'}" exact>Components</router-link></li>
+          <li><router-link :to="{name:'components'}" exact>Components</router-link></li>
+          <li class="sep">·</li>
+          <li><router-link :to="{name:'api'}" exact>API</router-link></li>
         </ul>
       </nav>
 
@@ -78,6 +80,7 @@ export default {
 @import "~ROOT/styles/config";
 @import "~ROOT/styles/utils";
 @import "~ROOT/styles/base";
+@import "~ROOT/styles/grid";
 @import "~ROOT/styles/classes";
 @import "~ROOT/styles/animate";
 @import "~ROOT/styles/transitions";

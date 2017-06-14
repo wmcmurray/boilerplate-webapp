@@ -9,24 +9,16 @@
 </template>
 
 <script>
-import _ from 'lodash'
-import config from 'ROOT/models/config.js'
-
 export default {
   name: 'home-page',
   data: function(){
-    return {
-      config: config.get()
-    }
+    return {}
   }
 }
 </script>
 
 <style lang="scss">
 @import "~ROOT/styles/config";
-@import "~ROOT/styles/utils";
-@import "~ROOT/styles/animate";
-@import "~ROOT/styles/grid";
 
 .home-page {
 

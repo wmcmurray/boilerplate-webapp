@@ -8,11 +8,11 @@ var API_BASE_URL = 'http://localhost:3001';
 
 var client = rest.wrap(mime).wrap(template);
 
-var api = function(endpoint, params){
-  return client({
-    path: API_BASE_URL + endpoint,
-    params: params || {}
-  });
+var api = function(endpoint, props){
+  props = props || {};
+  props.path = API_BASE_URL + endpoint;
+
+  return client(props);
 }
 
 export default api;

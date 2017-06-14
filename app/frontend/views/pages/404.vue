@@ -10,14 +10,10 @@
 </template>
 
 <script>
-import config from 'ROOT/models/config.js'
-
 export default {
   name: 'notfound-page',
   data: function(){
-    return {
-      config: config.get()
-    }
+    return {}
   }
 }
 </script>

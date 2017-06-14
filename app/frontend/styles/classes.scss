@@ -40,6 +40,10 @@
   text-align: center;
 }
 
+.clickable {
+  @include clickable;
+}
+
 .shy {
   opacity: 0.5;
 }
@@ -50,4 +54,12 @@
 
 .bad {
   color: $colorBad;
+}
+
+.bg-default {
+  background-color: $colorBackground;
+}
+
+.bg-white {
+  background-color: #fff;
 }

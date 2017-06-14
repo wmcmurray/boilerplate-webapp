@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from 'ROOT/views/pages/Home.vue';
-import Demo from 'ROOT/views/pages/Demo.vue';
+import Components from 'ROOT/views/pages/Components.vue';
+import Api from 'ROOT/views/pages/Api.vue';
 import NotFound from 'ROOT/views/pages/404.vue';
 
 Vue.use(VueRouter);
@@ -14,9 +15,14 @@ var routes = [
     component: Home
   },
   {
-    path: '/demo',
-    name: 'demo',
-    component: Demo
+    path: '/components',
+    name: 'components',
+    component: Components
+  },
+  {
+    path: '/api',
+    name: 'api',
+    component: Api
   },
   {
     path: '*',

@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-page">
+  <div class="components-page">
 
     <section class="limit-width padded text-center">
       <div class="grid-4-middle-noBottom">
@@ -25,26 +25,18 @@
 </template>
 
 <script>
-import _ from 'lodash'
-import config from 'ROOT/models/config.js'
-
 export default {
-  name: 'demo-page',
+  name: 'components-page',
   data: function(){
-    return {
-      config: config.get()
-    }
+    return {}
   }
 }
 </script>
 
 <style lang="scss">
 @import "~ROOT/styles/config";
-@import "~ROOT/styles/utils";
-@import "~ROOT/styles/animate";
-@import "~ROOT/styles/grid";
 
-.demo-page {
+.components-page {
   > section {
     padding-top: $globalSpacing;
     padding-bottom: $globalSpacing;
