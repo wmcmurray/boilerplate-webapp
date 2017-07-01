@@ -18,7 +18,7 @@
 
       <main id="main">
         <transition name="fadein" mode="out-in">
-          <router-view></router-view>
+          <router-view/>
         </transition>
       </main>
 
@@ -27,7 +27,7 @@
       </footer>
     </template>
     <template v-else>
-      <loader :quickExit="true"></loader>
+      <loader :quickExit="true"/>
     </template>
   </div>
 </template>

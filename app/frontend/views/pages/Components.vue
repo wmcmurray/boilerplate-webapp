@@ -5,18 +5,18 @@
       <div class="grid-4-middle-noBottom">
         <div class="col">
           <div id="loader-container">
-            <loader></loader>
+            <loader/>
           </div>
         </div>
         <div class="col">
-          loading<three-dots></three-dots>
+          loading<three-dots/>
         </div>
         <div class="col">
-          <progress-bar></progress-bar>
+          <progress-bar/>
         </div>
         <div class="col">
-          <check :ok="false"></check>
-          <check :ok="true"></check>
+          <check :ok="false"/>
+          <check :ok="true"/>
         </div>
       </div>
     </section>

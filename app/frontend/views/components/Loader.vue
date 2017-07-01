@@ -3,7 +3,7 @@
     <div class="loader">
       <div class="loader-center">
         <div class="loader-center-spinner animated infinite rubberBand">
-          <three-dots dot="&middot"></three-dots>
+          <three-dots dot="&middot"/>
         </div>
       </div>
     </div>
