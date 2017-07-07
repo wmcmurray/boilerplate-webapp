@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 var Config = {
   // load config from JS_VARS
   config: JS_VARS.config || {},
@@ -5,8 +7,8 @@ var Config = {
   /**
    *  Get the config from front-end cache
    */
-  get: function(){
-    return this.config;
+  get: function(path){
+    return typeof path === 'string' ? _.get(this.config, path, null) : this.config;
   }
 };
 
