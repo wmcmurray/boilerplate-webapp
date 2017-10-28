@@ -4,7 +4,7 @@
     <section class="limit-width padded text-center">
       <div class="grid-4-middle-noBottom">
         <div class="col">
-          <div id="loader-container">
+          <div class="loader-container">
             <loader/>
           </div>
         </div>
@@ -29,7 +29,7 @@ export default {
   name: 'components-page',
   data: function(){
     return {}
-  }
+  },
 }
 </script>
 
@@ -40,13 +40,6 @@ export default {
   > section {
     padding-top: $globalSpacing;
     padding-bottom: $globalSpacing;
-  }
-
-  #loader-container {
-    position: relative;
-    height: 150px;
-    border-radius: $globalRoundness;
-    overflow: hidden;
   }
 }
 </style>

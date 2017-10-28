@@ -13,7 +13,7 @@ export default {
   name: 'home-page',
   data: function(){
     return {}
-  }
+  },
 }
 </script>
 

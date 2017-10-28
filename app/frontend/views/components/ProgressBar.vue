@@ -6,29 +6,43 @@
 </template>
 
 <script>
+/**
+ * Displays a progress bar
+ *
+ * How to use :
+ * <progress-bar :from="0" :to="5" :current="4" />
+*/
 export default {
   name: 'progress-bar',
   props: {
+    // values starts from
     from: {
       type: Number,
-      default: 0
+      default: 0,
     },
+    // maximum value
     to: {
       type: Number,
-      default: 100
+      default: 100,
     },
+    // current value of the progress bar
     current: {
       type: Number,
-      default: 25
+      default: 25,
     },
+    // text displayed on top of the progress bar
     infos: {
       type: String,
-      default: null
+      default: null,
     },
+    // if the bar should be thin (small height)
     small: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+  },
+  data: function(){
+    return {}
   },
   computed: {
     perct: function(){
@@ -37,11 +51,8 @@ export default {
     },
     displayedInfos: function(){
       return this.infos || (Math.round(this.current) + ' / ' + Math.round(this.to))
-    }
+    },
   },
-  data: function(){
-    return {}
-  }
 }
 </script>
 

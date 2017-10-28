@@ -6,14 +6,25 @@
 </template>
 
 <script>
+/**
+ * Displays a checkmark or an X icon with proper colors
+ *
+ * How to use :
+ * <check :ok="false" />
+ * <check :ok="true" />
+*/
 export default {
   name: 'check',
   props: {
-    ok: Boolean
+    // if it's a green checkmark or a red cross
+    ok: {
+      type: Boolean,
+      default: true,
+    },
   },
   data: function(){
     return {}
-  }
+  },
 }
 </script>
 

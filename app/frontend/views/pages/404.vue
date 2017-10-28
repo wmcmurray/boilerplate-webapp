@@ -14,7 +14,7 @@ export default {
   name: 'notfound-page',
   data: function(){
     return {}
-  }
+  },
 }
 </script>
 

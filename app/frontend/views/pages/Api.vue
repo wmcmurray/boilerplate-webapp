@@ -48,15 +48,6 @@ export default {
       about: {},
     }
   },
-  created: function(){
-    // get initial users list
-    this.getUsers();
-
-    // get infos about api
-    API('/').then(function(res){
-      this.about = res.entity;
-    }.bind(this));
-  },
   methods: {
     // get all users from API and update view
     getUsers: function(){
@@ -99,8 +90,17 @@ export default {
           }
         }.bind(this));
       }
-    }
-  }
+    },
+  },
+  created: function(){
+    // get initial users list
+    this.getUsers();
+
+    // get infos about api
+    API('/').then(function(res){
+      this.about = res.entity;
+    }.bind(this));
+  },
 }
 </script>
 

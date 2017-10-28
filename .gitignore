@@ -58,6 +58,7 @@ typings/
 .env
 
 # project specific
+package-lock.json
 config/default.json5
 app/public/javascripts/all.js
 app/public/stylesheets/all.css

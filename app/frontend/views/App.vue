@@ -122,6 +122,7 @@ export default {
   #mainmenu {
     margin-bottom: $globalSpacing;
     .sep {
+      padding: 0px 3px;
       vertical-align: middle;
       font-size: 2em;
       color: $colorHighlight;
