@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="col">
-          loading<three-dots/>
+          loading<three-dots :fillVoid="true"/>
         </div>
         <div class="col">
           <progress-bar/>
