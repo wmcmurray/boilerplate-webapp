@@ -42,7 +42,7 @@ export default {
     }
   },
   computed: {
-    dotsSanitized() {
+    dotsSanitized: function () {
       if(this.fillVoid){
         var dots = [].concat(this.dots);
 
