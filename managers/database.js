@@ -9,7 +9,9 @@ module.exports = {
    *  Starts the connection to the database
    */
   connect: function(cb){
-    mongoose.connect(this.getURL());
+    mongoose.connect(this.getURL(), {
+      useMongoClient: true,
+    });
     DB = mongoose.connection;
     DB.on('error', console.error.bind(console, 'connection error:'));
     DB.once('open', function() {
