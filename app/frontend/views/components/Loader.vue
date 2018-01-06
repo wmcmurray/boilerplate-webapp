@@ -83,7 +83,6 @@ export default {
 .loader-container {
     position: relative;
     min-height: 150px;
-    border-radius: $globalRoundness;
     overflow: hidden;
 }
 </style>
