@@ -1,18 +1,21 @@
-// doc : https://github.com/cujojs/rest/blob/master/docs/interfaces.md
-
-import rest from 'rest';
-import mime from 'rest/interceptor/mime';
-import template from 'rest/interceptor/template';
+import axios from 'axios';
 
 var API_BASE_URL = window.location.protocol + '//' + window.location.host + '/api';
 
-var client = rest.wrap(mime).wrap(template);
+var api = function(method, endpoint, data){
+  data = data || {};
 
-var api = function(endpoint, props){
-  props = props || {};
-  props.path = API_BASE_URL + endpoint;
-
-  return client(props);
+  return axios({
+    method    : method,
+    url       : API_BASE_URL + endpoint,
+    data      : data,
+  }).then(function(res) {
+    return res.data;
+  }).catch(function(err) {
+    // console.error(err);
+    // throw err;
+    return null;
+  });
 }
 
 export default api;

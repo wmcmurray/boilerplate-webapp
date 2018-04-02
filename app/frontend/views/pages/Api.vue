@@ -51,8 +51,8 @@ export default {
   methods: {
     // get all users from API and update view
     getUsers: function(){
-      API('/users').then(function(res){
-        this.users = res.entity;
+      return API('get', '/users').then(function(res){
+        this.users = res;
       }.bind(this));
     },
 
@@ -60,15 +60,11 @@ export default {
     createUser: function(){
       this.feedback = '';
       if(this.newusername != ''){
-        API('/users/'+this.newusername, {
-          method: 'POST'
-        }).then(function(res){
-          if(res.status.code === 200){
-            this.feedback = 'Success !';
-            this.getUsers();
-          } else {
-            this.feedback = res.entity.message || res.entity.error || res.entity.statusCode;
-          }
+        API('post', '/users/'+this.newusername).then(function(res){
+          this.feedback = 'Success !';
+          this.getUsers();
+        }.bind(this)).catch(function(err){
+          this.feedback = err;
         }.bind(this));
       } else {
         this.feedback = 'Write down a username please.';
@@ -79,15 +75,11 @@ export default {
     deleteUser: function(user){
       this.feedback = '';
       if(user.username){
-        API('/users/'+user.username, {
-          method: 'DELETE'
-        }).then(function(res){
-          if(res.status.code === 200){
-            this.feedback = 'Success !';
-            this.getUsers();
-          } else {
-            this.feedback = res.entity.message || res.entity.error || res.entity.statusCode;
-          }
+        API('delete', '/users/'+user.username).then(function(res){
+          this.feedback = 'Success !';
+          this.getUsers();
+        }.bind(this)).catch(function(err){
+          this.feedback = err;
         }.bind(this));
       }
     },
@@ -97,8 +89,8 @@ export default {
     this.getUsers();
 
     // get infos about api
-    API('/').then(function(res){
-      this.about = res.entity;
+    API('get', '/').then(function(res){
+      this.about = res;
     }.bind(this));
   },
 }
