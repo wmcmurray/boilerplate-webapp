@@ -45,6 +45,7 @@ DB.connect(function(){
   app.use(express.static(path.join(__dirname, 'app/public')));
 
   app.use('/', require('./app/backend/routes/index'));
+  app.use('/api', require('./app/backend/routes/api'));
   app.use('/', require('./app/backend/routes/fallback'));
 
   // catch 404 and forward to error handler

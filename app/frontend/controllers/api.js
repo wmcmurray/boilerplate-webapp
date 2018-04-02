@@ -4,7 +4,7 @@ import rest from 'rest';
 import mime from 'rest/interceptor/mime';
 import template from 'rest/interceptor/template';
 
-var API_BASE_URL = window.location.protocol + '//' + window.location.hostname + ':3001';
+var API_BASE_URL = window.location.protocol + '//' + window.location.host + '/api';
 
 var client = rest.wrap(mime).wrap(template);
 

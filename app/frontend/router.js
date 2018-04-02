@@ -15,12 +15,12 @@ var routes = [
     component: Home
   },
   {
-    path: '/components',
+    path: '/samples/components',
     name: 'components',
     component: Components
   },
   {
-    path: '/api',
+    path: '/samples/api',
     name: 'api',
     component: Api
   },
