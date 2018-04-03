@@ -25,8 +25,8 @@ server.route({
 
 // all required routes
 var routes = [].concat(
-  // require('../../../api/server'),
-  require('../../../api/users'),
+  // require('api/server'),
+  require('api/users'),
 );
 
 // bind all required routes

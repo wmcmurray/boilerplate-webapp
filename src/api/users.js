@@ -1,7 +1,7 @@
 const Boom = require('boom');
 const Joi = require('joi');
 
-var User = require('./../models/User');
+var User = require('models/User');
 
 module.exports = [
 

@@ -6,7 +6,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var DB = require('./managers/database.js');
+var DB = require('managers/database.js');
 
 var app = express();
 
@@ -33,20 +33,20 @@ DB.connect(function(){
 
 
   // view engine setup
-  app.set('views', path.join(__dirname, 'app/backend/views'));
+  app.set('views', path.join(__dirname, 'src/backend/views'));
   app.set('view engine', 'pug');
 
   // uncomment after placing your favicon in /public
-  // app.use(favicon(path.join(__dirname, 'app/public/images', 'favicon.ico')));
+  // app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use(express.static(path.join(__dirname, 'app/public')));
+  app.use(express.static(path.join(__dirname, 'public')));
 
-  app.use('/', require('./app/backend/routes/index'));
-  app.use('/api', require('./app/backend/routes/api'));
-  app.use('/', require('./app/backend/routes/fallback'));
+  app.use('/', require('backend/routes/index'));
+  app.use('/api', require('backend/routes/api'));
+  app.use('/', require('backend/routes/fallback'));
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
