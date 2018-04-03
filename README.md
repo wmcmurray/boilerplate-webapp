@@ -19,7 +19,7 @@
 
 ## Run
 
-- `npm start` will start both web app and API
+- `npm start` (or `pm2 start pm2.config.js`)
 
 ## Develop
 
