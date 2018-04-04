@@ -14,7 +14,7 @@
 
 1. Run `npm install`
 2. Make sure you have [MongoDB](https://www.mongodb.com) installed
-3. Copy `/config/default-sample.json5` to `/config/default.json5` and check settings
+3. Copy `/config/default-sample.js` to `/config/default.js` and check settings
 4. Run `npm run build` to compile assets for the first time
 
 ## Run

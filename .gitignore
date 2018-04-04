@@ -58,6 +58,6 @@ typings/
 
 # project specific
 package-lock.json
-config/default.json5
+config/default.js
 public/javascripts/all.js
 public/stylesheets/all.css
