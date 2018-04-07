@@ -3,7 +3,7 @@
     <svgdefs></svgdefs>
     <template v-if="ready">
       <header id="header">
-        <router-link :to="{name:'home'}" tag="span" class="logo" exact>{{ config.about.website.name }}</router-link>
+        <router-link :to="{name:'home'}" tag="span" class="logo" exact>{{ about.website.name }}</router-link>
       </header>
 
       <nav id="mainmenu">
@@ -34,7 +34,7 @@
 
 <script>
 import moment from 'moment'
-import config from 'ROOT/models/config.js'
+import store from 'ROOT/store.js'
 import SvgDefsComponent from 'ROOT/views/SvgDefs.vue'
 
 export default {
@@ -44,24 +44,19 @@ export default {
   },
   data: function(){
     return {
-      JS_VARS: JS_VARS,
       ready: false,
-      config: config.get(),
+      about: store.state.jsVars.about,
     }
   },
   computed: {
     copyrightNotice: function(){
-      if(this.config){
-        var currentYear = (new Date()).getFullYear();
-        var launched = this.config.about.website.launched;
-        var author = this.config.about.author.name;
-        if(this.config.about.author.website){
-          author = '<a href="'+this.config.about.author.website+'">'+author+'</a>';
-        }
-        return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
-      } else {
-        return '';
+      var currentYear = (new Date()).getFullYear();
+      var launched = this.about.website.launched;
+      var author = this.about.author.name;
+      if(this.about.author.website){
+        author = '<a href="'+this.about.author.website+'">'+author+'</a>';
       }
+      return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
     }
   },
   created: function(){

@@ -13,11 +13,9 @@ router.get(/.*\.(map|css)$/, function(req, res, next) {
  */
 router.use(function(req, res, next) {
   var JS_VARS = {
-    // session: req.session ? true : false,
-    config: {
-      about: config.about,
-      google_analytics_account: config.google_analytics.account,
-    },
+    // session     : req.session ? true : false,
+    about       : config.about,
+    ga_account  : config.google_analytics.account,
   };
 
   // set data in res.locals

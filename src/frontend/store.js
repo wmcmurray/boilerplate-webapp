@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 // the root, initial state object
 var state = {
+  jsVars : JS_VARS || {},
 }
 
 // define the possible mutations that can be applied to our state
@@ -15,5 +16,5 @@ var mutations = {
 // then export the Vuex store for use by our components
 export default new Vuex.Store({
   state: state,
-  mutations: mutations
+  mutations: mutations,
 })
