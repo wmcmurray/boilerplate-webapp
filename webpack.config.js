@@ -1,5 +1,4 @@
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -28,9 +27,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('public/stylesheets/all.css')
-  ],
   node: {
     fs: 'empty'
   }

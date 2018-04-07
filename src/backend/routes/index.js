@@ -2,8 +2,8 @@ var express = require('express');
 var config = require('config');
 var router = express.Router();
 
-/* GET not found map files */
-router.get(/.*\.(map)$/, function(req, res, next) {
+/* GET not found static files */
+router.get(/.*\.(map|css)$/, function(req, res, next) {
   res.status(404);
   res.send();
 });
