@@ -12,8 +12,8 @@ module.exports = {
       combine_logs    : true,
       log_date_format : 'YYYY-MM-DD HH:mm:ss',
       env: {
-        PORT              : 3000,
-        // NODE_ENV          : 'production',
+        PORT              : config.port,
+        NODE_ENV          : 'production',
         NODE_PATH         : './src',
         NODE_APP_INSTANCE : '',
       },
