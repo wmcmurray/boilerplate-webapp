@@ -6,7 +6,8 @@ import Store from 'ROOT/store.js';
 // components
 Vue.component('icon', require('ROOT/views/components/Icon.vue'));
 Vue.component('check', require('ROOT/views/components/Check.vue'));
-Vue.component('loader', require('ROOT/views/components/Loader.vue'));
+Vue.component('spinner', require('ROOT/views/components/SpinnerRipples.vue')); // or SpinnerClassic
+Vue.component('overlay-spinner', require('ROOT/views/components/OverlaySpinner.vue'));
 Vue.component('progress-bar', require('ROOT/views/components/ProgressBar.vue'));
 Vue.component('three-dots', require('ROOT/views/components/ThreeDots.vue'));
 

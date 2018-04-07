@@ -27,7 +27,7 @@
       </footer>
     </template>
     <template v-else>
-      <loader :quickExit="true"/>
+      <overlay-spinner :quickExit="true"/>
     </template>
   </div>
 </template>

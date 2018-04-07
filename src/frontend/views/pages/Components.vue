@@ -4,19 +4,19 @@
     <section class="limit-width padded text-center">
       <div class="grid-4-middle-noBottom">
         <div class="col">
-          <div class="loader-container">
-            <loader/>
+          <div id="spinner-container">
+            <overlay-spinner />
           </div>
         </div>
         <div class="col">
-          loading<three-dots :fillVoid="true"/>
+          loading<three-dots :fillVoid="true" />
         </div>
         <div class="col">
-          <progress-bar/>
+          <progress-bar />
         </div>
         <div class="col">
-          <check :ok="false"/>
-          <check :ok="true"/>
+          <check :ok="false" />
+          <check :ok="true" />
         </div>
       </div>
     </section>
@@ -40,6 +40,12 @@ export default {
   > section {
     padding-top: $globalSpacing;
     padding-bottom: $globalSpacing;
+  }
+
+  #spinner-container {
+    position: relative;
+    min-height: 150px;
+    overflow: hidden;
   }
 }
 </style>
