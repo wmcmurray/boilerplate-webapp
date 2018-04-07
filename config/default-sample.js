@@ -1,7 +1,7 @@
-const _ = require('lodash');
+const _merge = require('lodash/merge');
 const base = require('./base.js');
 
-module.exports = _.merge({}, base, {
+module.exports = _merge({}, base, {
   port: 3000,
 
   database: {
