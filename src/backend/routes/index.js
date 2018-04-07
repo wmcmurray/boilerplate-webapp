@@ -13,15 +13,12 @@ router.get(/.*\.(map)$/, function(req, res, next) {
  */
 router.use(function(req, res, next) {
   var JS_VARS = {
+    // session: req.session ? true : false,
     config: {
-      about: config.about
-    }
+      about: config.about,
+      google_analytics_account: config.google_analytics.account,
+    },
   };
-
-  // check if session exists
-  if(req.session){
-    JS_VARS.session = true;
-  }
 
   // set data in res.locals
   res.locals.JS_VARS = JS_VARS;

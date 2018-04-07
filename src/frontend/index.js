@@ -17,3 +17,11 @@ var app = new Vue({
     return h(App);
   }
 });
+
+// register google analytics page views (if GA is loaded somewhere)
+Router.afterEach(function(to, from){
+  if(typeof ga !== 'undefined'){
+    ga('set', 'page', to.path);
+    ga('send', 'pageview');
+  }
+});

@@ -13,5 +13,9 @@ module.exports = _.merge({}, base, {
 
   cors: {
     origin: ['*']
-  }
+  },
+
+  google_analytics: {
+    account: '',
+  },
 });
