@@ -22,6 +22,9 @@ router.use(function(req, res, next) {
 
   // set data in res.locals
   res.locals.JS_VARS = JS_VARS;
+  res.locals.seo = config.seo;
+  res.locals.base_url = req.protocol + '://' + req.get('host');
+  res.locals.canonical_url = req.protocol + '://' + req.get('host') + req.path;
   next();
 });
 

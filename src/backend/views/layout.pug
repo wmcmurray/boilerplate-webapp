@@ -1,8 +1,20 @@
 doctype html
 html(style='background-color:#ddd')
   head
-    title Webapp Boilerplate
+    title= seo.title
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='keywords', content=seo.keywords)
+    meta(name='description', content=seo.description)
+
+    meta(property='og:type', content=seo.og_type)
+    meta(property='og:locale', content=seo.og_locale)
+    meta(property='og:title', content=seo.title)
+    meta(property='og:description', content=seo.description)
+    meta(property='og:site_name', content=seo.og_site_name)
+    meta(property='og:url', content=canonical_url)
+
+    if seo.og_image
+      meta(property='og:image', content=base_url+seo.og_image)
 
     script(type='text/javascript')
       | var JS_VARS = !{JSON.stringify(JS_VARS)}

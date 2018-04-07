@@ -12,4 +12,13 @@ module.exports = {
       website: 'http://wimantis.ninja',
     }
   },
+  seo: {
+    title         : 'Webapp Boilerplate',
+    description   : '',
+    keywords      : '',
+    og_type       : 'website',
+    og_locale     : 'en_CA',
+    og_site_name  : '',
+    og_image      : '',
+  }
 };
