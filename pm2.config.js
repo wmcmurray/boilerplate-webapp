@@ -13,7 +13,7 @@ module.exports = {
       log_date_format : 'YYYY-MM-DD HH:mm:ss',
       env: {
         PORT              : config.port,
-        NODE_ENV          : 'production',
+        // NODE_ENV          : 'production',
         NODE_PATH         : './src',
         NODE_APP_INSTANCE : '',
       },

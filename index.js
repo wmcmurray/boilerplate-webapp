@@ -44,9 +44,8 @@ DB.connect(function(){
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
 
-  app.use('/', require('backend/routes/index'));
   app.use('/api', require('backend/routes/api'));
-  app.use('/', require('backend/routes/fallback'));
+  app.use('/', require('backend/routes/website'));
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
