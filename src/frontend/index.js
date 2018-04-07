@@ -4,6 +4,7 @@ import Router from 'ROOT/router.js';
 import Store from 'ROOT/store.js';
 
 // components
+Vue.component('icon', require('ROOT/views/components/Icon.vue'));
 Vue.component('check', require('ROOT/views/components/Check.vue'));
 Vue.component('loader', require('ROOT/views/components/Loader.vue'));
 Vue.component('progress-bar', require('ROOT/views/components/ProgressBar.vue'));

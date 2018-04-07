@@ -1,7 +1,7 @@
 <template>
   <div class="check">
-    <svg v-if="ok" class="icon icon-check animated tada"><use xlink:href="#icon-check"></use></svg>
-    <svg v-else class="icon icon-close animated bounceIn"><use xlink:href="#icon-close"></use></svg>
+    <icon v-if="ok" name="check" class="animated tada" />
+    <icon v-else name="close" class="animated bounceIn" />
   </div>
 </template>
 
