@@ -79,6 +79,7 @@ export default {
 @import "~ROOT/styles/classes";
 @import "~ROOT/styles/animate";
 @import "~ROOT/styles/transitions";
+@import "~ROOT/styles/easings";
 
 /**
  *  App style

@@ -63,3 +63,27 @@
 .bg-white {
   background-color: #fff;
 }
+
+.hidden-xs {
+  @media (max-width: $xs){
+    display: none;
+  }
+}
+
+.hidden-sm {
+  @media (max-width: $sm){
+    display: none;
+  }
+}
+
+.hidden-md {
+  @media (max-width: $md){
+    display: none;
+  }
+}
+
+.hidden-lg {
+  @media (max-width: $lg){
+    display: none;
+  }
+}
