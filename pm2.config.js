@@ -5,7 +5,7 @@ module.exports = {
     {
       name            : 'boilerplate-webapp',
       script          : 'index.js',
-      watch           : ['config', 'src/api', 'src/backend', 'src/managers', 'src/models', 'index.js'],
+      watch           : ['config', 'src/backend', 'index.js'],
       restart_delay   : 3000,
       error_file      : 'logs/err.log',
       out_file        : 'logs/out.log',
@@ -14,7 +14,7 @@ module.exports = {
       env: {
         PORT              : config.port,
         // NODE_ENV          : 'production',
-        NODE_PATH         : './src',
+        NODE_PATH         : './src/backend',
         NODE_APP_INSTANCE : '',
       },
     },

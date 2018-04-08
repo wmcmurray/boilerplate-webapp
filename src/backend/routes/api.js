@@ -9,6 +9,12 @@ const Joi = require('joi');
 const server = new Hapi.Server();
 server.connection();
 
+// all required routes
+var routes = [].concat(
+  // require('routes/api/server'),
+  require('routes/api/users'),
+);
+
 // add route listing all routes
 server.route({
   method: 'GET',
@@ -22,12 +28,6 @@ server.route({
     });
   }
 });
-
-// all required routes
-var routes = [].concat(
-  // require('api/server'),
-  require('api/users'),
-);
 
 // bind all required routes
 server.route(routes);

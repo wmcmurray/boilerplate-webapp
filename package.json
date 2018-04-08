@@ -1,11 +1,11 @@
 {
   "name": "boilerplate-webapp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./src node index.js",
+    "start": "NODE_PATH=./src/backend node index.js",
     "build": "webpack -p --progress",
     "dev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
