@@ -37,6 +37,7 @@
 <script>
 import moment from 'moment'
 import store from 'ROOT/store.js'
+import Mediator from 'ROOT/mediator.js'
 import SvgDefsComponent from 'ROOT/views/SvgDefs.vue'
 import ScrollToTopBtn from 'ROOT/views/components/ScrollToTopBtn.vue'
 
@@ -69,7 +70,14 @@ export default {
 
     // the app is ready
     this.ready = true;
-  }
+  },
+  watch: {
+    ready: function(nv, ov){
+      if(!ov && nv){
+        Mediator.emit('APP_READY');
+      }
+    },
+  },
 }
 </script>
 
