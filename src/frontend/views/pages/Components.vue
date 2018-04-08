@@ -22,9 +22,39 @@
     </section>
 
     <section class="limit-width padded text-center">
-      <div style="width:800px;margin-left:auto;margin-right:auto;">
-        <lazyimg src="https://placebear.com/800/450" />
-      </div>
+      <tabs>
+        <tab title="Bear landscape">
+          <div style="max-width:800px;margin-left:auto;margin-right:auto;">
+            <lazyimg src="https://placebear.com/800/450" ratio="landscape" />
+          </div>
+        </tab>
+        <tab title="Bears portrait">
+          <div class="grid-2">
+            <div class="col">
+              <lazyimg src="https://placebear.com/450/800" ratio="portrait" />
+            </div>
+            <div class="col">
+              <lazyimg src="https://placebear.com/900/1600" ratio="portrait" />
+            </div>
+          </div>
+        </tab>
+        <tab title="Bears square">
+          <div class="grid-4">
+            <div class="col">
+              <lazyimg src="https://placebear.com/500/500" ratio="square" />
+            </div>
+            <div class="col">
+              <lazyimg src="https://placebear.com/400/400" ratio="square" />
+            </div>
+            <div class="col">
+              <lazyimg src="https://placebear.com/600/600" ratio="square" />
+            </div>
+            <div class="col">
+              <lazyimg src="https://placebear.com/700/700" ratio="square" />
+            </div>
+          </div>
+        </tab>
+      </tabs>
     </section>
 
   </div>

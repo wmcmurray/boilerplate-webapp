@@ -14,6 +14,8 @@ Vue.component('overlay-spinner', require('ROOT/views/components/OverlaySpinner.v
 Vue.component('progress-bar', require('ROOT/views/components/ProgressBar.vue'));
 Vue.component('three-dots', require('ROOT/views/components/ThreeDots.vue'));
 Vue.component('lazyimg', require('ROOT/views/components/Image.vue'));
+Vue.component('tabs', require('ROOT/views/components/Tabs.vue'));
+Vue.component('tab', require('ROOT/views/components/Tab.vue'));
 
 var app = new Vue({
   el: '#app',
