@@ -10,6 +10,7 @@ Vue.component('spinner', require('ROOT/views/components/SpinnerRipples.vue')); /
 Vue.component('overlay-spinner', require('ROOT/views/components/OverlaySpinner.vue'));
 Vue.component('progress-bar', require('ROOT/views/components/ProgressBar.vue'));
 Vue.component('three-dots', require('ROOT/views/components/ThreeDots.vue'));
+Vue.component('lazyimg', require('ROOT/views/components/Image.vue'));
 
 var app = new Vue({
   el: '#app',

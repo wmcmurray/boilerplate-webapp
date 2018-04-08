@@ -21,6 +21,12 @@
       </div>
     </section>
 
+    <section class="limit-width padded text-center">
+      <div style="width:800px;margin-left:auto;margin-right:auto;">
+        <lazyimg src="https://placebear.com/800/450" />
+      </div>
+    </section>
+
   </div>
 </template>
 
