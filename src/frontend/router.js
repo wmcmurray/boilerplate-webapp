@@ -34,6 +34,12 @@ var router = new VueRouter({
   routes: routes,
   mode: 'history',
   scrollBehavior: function(to, from, savedPosition){
+    // smooth scroll back to top
+    if(from.name != to.name){
+      var app = router.app.$children[0];
+      app.$SmoothScroll(app.$el);
+    }
+
     return savedPosition;
   }
 });

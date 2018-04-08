@@ -3,6 +3,9 @@ import App from 'ROOT/views/App.vue';
 import Router from 'ROOT/router.js';
 import Store from 'ROOT/store.js';
 
+// vendors
+Vue.use(require('vue-smoothscroll'));
+
 // components
 Vue.component('icon', require('ROOT/views/components/Icon.vue'));
 Vue.component('check', require('ROOT/views/components/Check.vue'));

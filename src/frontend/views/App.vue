@@ -25,6 +25,8 @@
       <footer id="footer">
         <p v-html="copyrightNotice"></p>
       </footer>
+
+      <scroll-to-top-btn />
     </template>
     <template v-else>
       <overlay-spinner :quickExit="true"/>
@@ -36,11 +38,13 @@
 import moment from 'moment'
 import store from 'ROOT/store.js'
 import SvgDefsComponent from 'ROOT/views/SvgDefs.vue'
+import ScrollToTopBtn from 'ROOT/views/components/ScrollToTopBtn.vue'
 
 export default {
   name: 'app',
   components: {
-    svgdefs: SvgDefsComponent
+    svgdefs: SvgDefsComponent,
+    scrollToTopBtn: ScrollToTopBtn,
   },
   data: function(){
     return {
