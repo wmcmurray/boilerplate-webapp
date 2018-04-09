@@ -6,7 +6,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var DB = require('managers/database.js');
+var DB = require('databases/mongo.js');
 
 var app = express();
 var port = normalizePort(process.env.PORT || '3000');

@@ -4,7 +4,7 @@ const base = require('./base.js');
 module.exports = _merge({}, base, {
   port: 3000,
 
-  database: {
+  mongo: {
     host: 'localhost',
     name: 'webapp'
   },
