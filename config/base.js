@@ -2,6 +2,8 @@
  * Config shared across all environments
  */
 module.exports = {
+  database_object_modeling: 'sequelize', // (mongoose | sequelize | null)
+  sessions_enabled: false,
   about: {
     website: {
       name: 'boilerplate-webapp',

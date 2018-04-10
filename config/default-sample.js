@@ -4,9 +4,21 @@ const base = require('./base.js');
 module.exports = _merge({}, base, {
   port: 3000,
 
-  mongo: {
+  mongoose: {
     host: 'localhost',
     name: 'webapp'
+  },
+
+  sequelize: {
+    database: 'webapp',
+    username: 'postgres',
+    password: '',
+    options: {
+      host: 'localhost',
+      dialect: 'postgres', // (mysql | sqlite | postgres | mssql)
+      operatorsAliases: false,
+      logging: false,
+    }
   },
 
   session: {

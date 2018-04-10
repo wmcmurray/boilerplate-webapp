@@ -12,10 +12,10 @@
       <div class="grid-12">
         <div class="col-8">
           <h2>Users list</h2>
-          <template v-if="users.length">
+          <template v-if="users && users.length">
             <ul>
               <li v-for="user in users">
-                <p><b>{{user.username}} #{{user._id}}</b> <span class="shy">({{user.points}} points)</span>&nbsp;&nbsp;&nbsp;<span class="clickable bad" v-on:click="deleteUser(user)">DELETE</span></p>
+                <p><b>{{user.username}} #{{user._id || user.id}}</b> <span class="shy">({{user.points}} points)</span>&nbsp;&nbsp;&nbsp;<span class="clickable bad" v-on:click="deleteUser(user)">DELETE</span></p>
               </li>
             </ul>
           </template>

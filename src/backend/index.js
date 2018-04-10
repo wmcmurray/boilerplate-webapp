@@ -6,31 +6,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var DB = require('databases/mongo.js');
 
 var app = express();
 var port = normalizePort(process.env.PORT || '3000');
 
 app.set('port', port);
 
-/**
-*  Sessions related
-*/
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-app.use(session({
-  saveUninitialized: false,
-  resave: false,
-  secret: config.session.secret,
-  cookie: {
-    httpOnly: true
-  },
-  store: new MongoStore({
-    url: DB.getURL(),
-    touchAfter: 24 * 3600 // time period in seconds
-  })
-}));
-
+// sessions
+if(config.sessions_enabled){
+  app.use(require('sessions.js'));
+}
 
 // view engine setup
 app.set('views', path.join(process.cwd(), 'src/backend/views'));
@@ -44,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
+// routes
 app.use('/api', require('routes/api'));
 app.use('/', require('routes/website'));
 
@@ -63,41 +49,39 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// Connect to database then initialize the server
-DB.connect(function(){
-  var server = http.createServer(app);
-  server.listen(port);
+// initialize the server
+var server = http.createServer(app);
+server.listen(port);
 
-  server.on('error', function(error) {
-    if (error.syscall !== 'listen') {
+server.on('error', function(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
       throw error;
-    }
+  }
+});
 
-    var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+server.on('listening', function() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
 
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-      case 'EACCES':
-        console.error(bind + ' requires elevated privileges');
-        process.exit(1);
-        break;
-      case 'EADDRINUSE':
-        console.error(bind + ' is already in use');
-        process.exit(1);
-        break;
-      default:
-        throw error;
-    }
-  });
-
-  server.on('listening', function() {
-    var addr = server.address();
-    var bind = typeof addr === 'string'
-      ? 'pipe ' + addr
-      : 'port ' + addr.port;
-
-    console.log('Running on ' + bind);
-  });
+  console.log('Running on ' + bind);
 });
 
 

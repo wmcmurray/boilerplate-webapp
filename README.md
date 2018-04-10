@@ -2,7 +2,7 @@
 
 ## Built with
 
-**Backend :** [NodeJS](https://nodejs.org), [Mongoose](https://github.com/Automattic/mongoose), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug)
+**Backend :** [NodeJS](https://nodejs.org), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug), [Sequelize](https://github.com/sequelize/sequelize) or [Mongoose](https://github.com/Automattic/mongoose)
 
 **Frontend :** [Webpack 2](https://github.com/webpack/webpack), [VueJS 2](https://github.com/vuejs/vue), [VueX](https://github.com/vuejs/vuex), [SCSS](https://github.com/sass/sass), [gridlex](https://github.com/devlint/gridlex)
 
@@ -12,8 +12,8 @@
 
 ## Install
 
-1. Run `npm install`
-2. Make sure you have [MongoDB](https://www.mongodb.com) installed
+1. Make sure you have [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [SQLite](https://www.sqlite.org/index.html) or [MongoDB](https://www.mongodb.com) installed (depending on what you want to use)
+2. Run `npm install`
 3. Copy `/config/default-sample.js` to `/config/default.js` and check settings
 4. Run `npm run build` to compile assets for the first time
 
