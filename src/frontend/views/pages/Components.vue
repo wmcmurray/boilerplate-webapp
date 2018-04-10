@@ -22,6 +22,17 @@
     </section>
 
     <section class="limit-width padded text-center">
+      <button type="button" name="button" class="button" @click="$modal.show('demodal')">Show modal</button>
+    </section>
+
+    <abstract-modal name="demodal">
+      <div class="text-center" style="padding: 60px 30px;">
+        <h2>Hello world</h2>
+        <p>This is a modal !</p>
+      </div>
+    </abstract-modal>
+
+    <section class="limit-width padded text-center">
       <tabs>
         <tab title="Bear landscape">
           <div style="max-width:800px;margin-left:auto;margin-right:auto;">

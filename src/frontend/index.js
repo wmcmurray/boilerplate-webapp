@@ -1,10 +1,12 @@
 import Vue from 'vue';
+import VModal from 'vue-js-modal'
 import App from 'ROOT/views/App.vue';
 import Router from 'ROOT/router.js';
 import Store from 'ROOT/store.js';
 
 // vendors
 Vue.use(require('vue-smoothscroll'));
+Vue.use(VModal);
 
 // components
 Vue.component('icon', require('ROOT/views/components/Icon.vue'));
@@ -16,6 +18,7 @@ Vue.component('three-dots', require('ROOT/views/components/ThreeDots.vue'));
 Vue.component('lazyimg', require('ROOT/views/components/Image.vue'));
 Vue.component('tabs', require('ROOT/views/components/Tabs.vue'));
 Vue.component('tab', require('ROOT/views/components/Tab.vue'));
+Vue.component('abstract-modal', require('ROOT/views/modals/AbstractModal.vue'));
 
 var app = new Vue({
   el: '#app',
