@@ -2,7 +2,9 @@
 
 ## Built with
 
-**Backend :** [NodeJS](https://nodejs.org), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug), [Sequelize](https://github.com/sequelize/sequelize) or [Mongoose](https://github.com/Automattic/mongoose)
+**Database :** [Sequelize](https://github.com/sequelize/sequelize) + [Umzug](https://github.com/sequelize/umzug) (or [Mongoose](https://github.com/Automattic/mongoose))
+
+**Backend :** [NodeJS](https://nodejs.org), [ExpressJS](https://github.com/expressjs/express), [Pug](https://github.com/pugjs/pug)
 
 **Frontend :** [Webpack 2](https://github.com/webpack/webpack), [VueJS 2](https://github.com/vuejs/vue), [VueX](https://github.com/vuejs/vuex), [SCSS](https://github.com/sass/sass), [gridlex](https://github.com/devlint/gridlex)
 
@@ -25,3 +27,9 @@
 
 - `npm run dev` will compile frontend assets in realtime
 - `npm run build` will compile frontend assets for production
+
+## Database migrations
+
+- `npm run migrate:up` apply all pending migrations
+- `npm run migrate:down` undo last migrations batch applied
+- `npm run migrate:new sample` creating a new migration named "sample"
