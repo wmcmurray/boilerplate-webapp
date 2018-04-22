@@ -85,13 +85,13 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
 
 @import "~ROOT/styles/config";
+@import "~ROOT/styles/easings";
 @import "~ROOT/styles/utils";
 @import "~ROOT/styles/base";
 @import "~ROOT/styles/grid";
 @import "~ROOT/styles/classes";
 @import "~ROOT/styles/animate";
 @import "~ROOT/styles/transitions";
-@import "~ROOT/styles/easings";
 
 /**
  *  App style
