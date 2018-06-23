@@ -1,6 +1,8 @@
+var path = require('path');
 var express = require('express');
 var config = require('config');
 var router = express.Router();
+var packageJson = require(path.join(process.cwd(), '/package.json'));
 
 /* GET not found static files */
 router.get(/.*\.(map|css)$/, function(req, res, next) {
@@ -15,6 +17,7 @@ router.use(function(req, res, next) {
   var JS_VARS = {
     // session     : req.session ? true : false,
     about       : config.about,
+    app_version : packageJson.version || null,
     ga_account  : config.google_analytics.account,
   };
 

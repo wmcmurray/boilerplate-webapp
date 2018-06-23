@@ -3,7 +3,7 @@
     <svgdefs></svgdefs>
     <template v-if="ready">
       <header id="header">
-        <router-link :to="{name:'home'}" tag="span" class="logo" exact>{{ about.website.name }}</router-link>
+        <router-link :to="{name:'home'}" tag="span" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
       </header>
 
       <nav id="mainmenu">
@@ -51,6 +51,7 @@ export default {
     return {
       ready: false,
       about: store.state.jsVars.about,
+      appVersion: store.state.jsVars.app_version,
     }
   },
   computed: {
@@ -59,7 +60,7 @@ export default {
       var launched = this.about.website.launched;
       var author = this.about.author.name;
       if(this.about.author.website){
-        author = '<a href="'+this.about.author.website+'">'+author+'</a>';
+        author = '<a href="'+this.about.author.website+'" target="_blank">'+author+'</a>';
       }
       return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
     }
@@ -113,12 +114,22 @@ export default {
       white-space: nowrap;
       font-family: 'Play', sans-serif;
       font-size: 60px;
-      line-height: 1.5em;
+      line-height: $globalLineHeight;
       font-weight: bold;
       text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
       color: $color;
       transition: all $mouseEffectsDuration ease-out;
       @include clickable;
+
+      sub {
+        display: inline-block;
+        width: 0px;
+        font-weight: normal;
+        font-size: 10px;
+        opacity: 0.5;
+        color: $colorText;
+        text-shadow: none;
+      }
 
       &:hover {
         $color: lighten($color, $mouseEffectsLightnessIncrease);

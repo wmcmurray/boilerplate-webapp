@@ -15,9 +15,8 @@
 ## Install
 
 1. Make sure you have [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [SQLite](https://www.sqlite.org/index.html) or [MongoDB](https://www.mongodb.com) installed (depending on what you want to use)
-2. Run `npm install`
+2. Run `npm install && npm run build`
 3. Copy `/config/default-sample.js` to `/config/default.js` and check settings
-4. Run `npm run build` to compile assets for the first time
 
 ## Run
 

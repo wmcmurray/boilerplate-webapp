@@ -5,6 +5,8 @@ $maxWidth: 1150px;
 $globalPadding: 20px;
 $globalSpacing: 50px;
 $globalRoundness: 4px;
+$globalLineHeight: 1.5em;
+$globalPerspective: 900px;
 
 /**
 *  Responsive sizes
@@ -20,6 +22,7 @@ $lg: 1280px;
 $colorBackground: #ddd;
 $colorText: #333;
 $colorHighlight: darken(#7daa64, 10%);
+$colorSelection: lighten($colorHighlight, 40%);
 $colorDisabled: #bbb;
 
 $colorOk: #50af54;
