@@ -22,7 +22,8 @@
     </section>
 
     <section class="limit-width padded text-center">
-      <button type="button" name="button" class="button" @click="$modal.show('demodal')">Show modal</button>
+      <button type="button" class="button" @click="$modal.show('demodal')">Show modal</button>
+      <button type="button" class="button" v-tippy title="Hello world">Tooltip</button>
     </section>
 
     <abstract-modal name="demodal">
