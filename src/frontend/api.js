@@ -2,7 +2,7 @@ import axios from 'axios';
 
 var API_BASE_URL = window.location.protocol + '//' + window.location.host + '/api';
 
-var api = function(method, endpoint, data){
+export default function(method, endpoint, data){
   data = data || {};
 
   return axios({
@@ -17,5 +17,3 @@ var api = function(method, endpoint, data){
     return null;
   });
 }
-
-export default api;

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import API from 'ROOT/controllers/api.js'
+import API from 'ROOT/api.js'
 
 export default {
   name: 'api-page',
