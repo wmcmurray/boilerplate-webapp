@@ -3,7 +3,7 @@
     <svgdefs></svgdefs>
     <template v-if="ready">
       <header id="header">
-        <router-link :to="{name:'home'}" tag="span" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
+        <router-link :to="{name:'home'}" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
       </header>
 
       <nav id="mainmenu">
