@@ -1,58 +1,44 @@
-var config = require('config');
 var express = require('express');
 var router = express.Router();
+// const Joi = require('joi');
+const { initialize } = require('hapi.js');
 
-const Hapi = require('hapi');
-const Boom = require('boom');
-const Joi = require('joi');
+// const serverController = require('controllers/api/ServerController.js');
+const usersController = require('controllers/api/UsersController.js');
 
-const server = new Hapi.Server();
-server.connection();
+initialize(router, [
 
-// all required routes
-var routes = [].concat(
-  // require('routes/api/server'),
-  require('routes/api/users'),
-);
+  // SERVER
+  // ------------------------------
+  // {
+  //   method  : 'GET',
+  //   path    : '/server',
+  //   handler : serverController.getServerInfos,
+  // },
 
-// add route listing all routes
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: function (request, reply) {
-    reply({
-      about: 'This is the API of '+config.about.website.name+'.',
-      available_routes: routes.map(function(route){
-        return [route.method, route.path].join(' ');
-      })
-    });
-  }
-});
+  // USERS
+  // ------------------------------
+  {
+    method  : 'GET',
+    path    : '/users',
+    handler : usersController.listAll,
+  },
+  {
+    method  : 'GET',
+    path    : '/users/{username}',
+    handler : usersController.getOneFromUsername,
+  },
+  {
+    method  : 'POST',
+    path    : '/users/{username}',
+    handler : usersController.createOneFromUsername,
+  },
+  {
+    method  : 'DELETE',
+    path    : '/users/{username}',
+    handler : usersController.deleteOneFromUsername,
+  },
 
-// bind all required routes
-server.route(routes);
-
-// fallback
-server.route({
-  method: 'GET',
-  path: '/{path*}',
-  handler: function (request, reply) {
-    reply(Boom.notImplemented());
-  }
-});
-
-// pass request to Hapi server
-router.all('*', function(req, res, next) {
-  server.inject({
-    method  : req.method,
-    url     : req.url,
-    headers : req.headers,
-    payload : req.body,
-  }).then(function(response){
-    res.status(response.statusCode).json(response.result);
-  }).catch(function(err){
-    next(err);
-  });
-});
+]);
 
 module.exports = router;
