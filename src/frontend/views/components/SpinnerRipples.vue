@@ -1,12 +1,13 @@
 <template>
   <div class="spinner spinner-ripples">
-    <div v-for="ripple in ripples" v-if="typeof ripple != 'undefined'" :key="ripple.id" class="ripple" :style="'animation-duration:'+ripple.lifetime+'s; width:'+ripple.size+'px; height:'+ripple.size+'px; margin-left:-'+(ripple.size * 0.5)+'px; margin-top:-'+(ripple.size * 0.5)+'px;'"></div>
+    <div v-for="i in count" class="ripple" :style="'animation-duration:'+animationDuration+'s; animation-delay:'+(animationDelay * (i - 1))+'s;'" />
   </div>
 </template>
 
 <script>
 import _random from 'lodash/random'
 import _reject from 'lodash/reject'
+import _round from 'lodash/round'
 
 /**
  * Displays the new spinner featuring moving water ripples effect
@@ -14,56 +15,32 @@ import _reject from 'lodash/reject'
 export default {
   name: 'spinner-ripples',
   props: {
+    /**
+     * The number of ripples displayed
+     */
+    count: {
+      type: Number,
+      default: 3,
+    },
+    /**
+     * The speed at which each ripples moves (in milliseconds)
+     */
     speed: {
       type: Number,
-      default: 800,
+      default: 1350,
     },
   },
   data: function(){
     return {
-      counter: 0,
-      ripples: [],
     }
   },
-  created: function(){
-    this.makeRipple();
-    this.interval = setInterval(function(){ this.makeRipple(); }.bind(this), this.speed);
-  },
-  methods: {
-    /**
-     * Create and display a new ripple
-     */
-    makeRipple: function() {
-      var id = ++this.counter;
-      var lifetime = (this.speed / 1000) * 3.5;
-      var size = 10;
-
-      this.ripples.push({
-        id        : id,
-        lifetime  : lifetime,
-        size      : size,
-        timeout   : setTimeout(function(id){
-          this.removeRipple(id);
-        }.bind(this, id), lifetime * 1000),
-      });
+  computed: {
+    animationDuration: function() {
+      return _round(this.speed / 1000, 4);
     },
-
-    /**
-     * Remove an existing ripple from it's id
-     */
-    removeRipple: function(id){
-      this.$set(this, 'ripples', _reject(this.ripples, {id: id}));
+    animationDelay: function() {
+      return _round(this.animationDuration / this.count, 4);
     },
-  },
-  beforeDestroy: function() {
-    if(this.interval){
-      clearInterval(this.interval);
-    }
-    for(var i in this.ripples){
-      if(this.ripples[i].timeout){
-        clearTimeout(this.ripples[i].timeout);
-      }
-    }
   },
 }
 </script>
@@ -73,21 +50,23 @@ export default {
 @import "~ROOT/styles/utils";
 
 .spinner-ripples {
-  $maxScale: 5;
-  // $minSize: 5px;
+  $initialSize: 10px;
+  $finalScale: 5;
 
   position: relative;
 
   .ripple {
     @include center;
     opacity: 0;
-    // width: $minSize;
-    // height: $minSize;
+    width: $initialSize;
+    height: $initialSize;
+    margin-left: $initialSize * -0.5;
+    margin-top: $initialSize * -0.5;
     border-radius: 50%;
     border: 2px solid $colorHighlight;
     animation-timing-function: ease-out;
     animation-name: ripple;
-    animation-iteration-count: 1;
+    animation-iteration-count: infinite;
   }
 
   @keyframes ripple {
@@ -102,7 +81,7 @@ export default {
       opacity: 0;
     }
     100% {
-      transform: scale($maxScale);
+      transform: scale($finalScale);
       opacity: 0;
     }
   }

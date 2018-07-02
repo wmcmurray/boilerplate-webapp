@@ -94,6 +94,7 @@ export default {
     position: relative;
     min-height: 150px;
     overflow: hidden;
+    border-radius: $globalRoundness;
   }
 }
 </style>
