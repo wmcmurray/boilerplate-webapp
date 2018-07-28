@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import _random from 'lodash/random'
-import _reject from 'lodash/reject'
 import _round from 'lodash/round'
 
 /**

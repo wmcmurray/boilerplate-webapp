@@ -33,6 +33,8 @@
       </div>
     </abstract-modal>
 
+    <hr>
+
     <section class="limit-width padded text-center">
       <tabs>
         <tab title="Bear landscape">

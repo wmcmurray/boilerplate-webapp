@@ -136,6 +136,18 @@ export default {
         color: $color;
         text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
       }
+
+      @media (max-width: $md){
+        font-size: 50px;
+      }
+      @media (max-width: $sm){
+        font-size: 40px;
+      }
+      @media (max-width: $xs){
+        font-size: 30px;
+        white-space: normal;
+        text-shadow: none;
+      }
     }
   }
   #mainmenu {

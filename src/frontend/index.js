@@ -1,9 +1,11 @@
-import Vue from 'vue';
+import 'babel-polyfill'
+
+import Vue from 'vue'
 import VModal from 'vue-js-modal'
 import VueTippy from 'vue-tippy'
-import App from 'ROOT/views/App.vue';
-import Router from 'ROOT/router.js';
-import Store from 'ROOT/store.js';
+import App from 'ROOT/views/App.vue'
+import Router from 'ROOT/router.js'
+import Store from 'ROOT/store.js'
 
 // vendors
 Vue.use(require('vue-smoothscroll'));

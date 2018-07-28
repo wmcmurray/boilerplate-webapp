@@ -1,6 +1,6 @@
 <template>
   <div :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')+(ratio && typeof ratio === 'string'? ' ratio-'+ratio:'')" :style="style">
-    <img ref="img" class="lazyimg-img img-responsive" :src="src" :alt="alt">
+    <img ref="img" class="lazyimg-img" :src="src" :alt="alt">
     <div v-if="rightClickProtected" class="right-click-protected" v-on:contextmenu="onContextMenuHandler"></div>
     <overlay-spinner v-if="!loaded" />
   </div>

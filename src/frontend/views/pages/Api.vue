@@ -10,7 +10,7 @@
 
     <section class="limit-width padded">
       <div class="grid-12">
-        <div class="col-8">
+        <div class="col-7_sm-6_xs-12">
           <h2>Users list</h2>
           <template v-if="users && users.length">
             <ul>
@@ -23,10 +23,12 @@
             <p>No users found.</p>
           </template>
         </div>
-        <div class="col-4">
+        <div class="col-5_sm-6_xs-12">
           <h2>Create user</h2>
-          <input type="text" name="newuser" v-model="newusername" placeholder="Username">
-          <button class="button" name="newuserbtn" v-on:click="createUser" :disabled="newusername == ''">Create</button>
+          <div class="form-row">
+            <input type="text" name="newuser" v-model="newusername" placeholder="Username">
+            <button class="button" name="newuserbtn" v-on:click="createUser" :disabled="newusername == ''">Create</button>
+          </div>
           <p>{{feedback}}&nbsp;</p>
         </div>
       </div>
@@ -103,6 +105,14 @@ export default {
   > section {
     padding-top: $globalSpacing;
     padding-bottom: $globalSpacing;
+  }
+  .form-row {
+    display: flex;
+    input {
+      flex-grow: 1;
+      min-width: 0px;
+      margin-right: $globalPadding * 0.5;
+    }
   }
 }
 </style>
