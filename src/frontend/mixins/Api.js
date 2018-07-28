@@ -1,5 +1,5 @@
 import axios from 'axios'
-import IsLoadingMixin from 'ROOT/views/mixins/IsLoading.js'
+import IsLoadingMixin from 'ROOT/mixins/IsLoading.js'
 
 var API_BASE_URL = window.location.protocol + '//' + window.location.host + '/api';
 

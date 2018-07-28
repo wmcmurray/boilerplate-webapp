@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import ApiMixin from 'ROOT/views/mixins/Api.js'
+import ApiMixin from 'ROOT/mixins/Api.js'
 
 export default {
   name: 'api-page',
