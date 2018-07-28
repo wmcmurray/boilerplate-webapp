@@ -18,13 +18,16 @@ export default {
     }
   },
   methods: {
-    startLoading: function(key = 'main') {
+    startLoading: function(key) {
+      if(typeof key === 'undefined'){key = 'main';}
       this.$set(this.loadingStates, key, true);
     },
-    stopLoading: function(key = 'main') {
+    stopLoading: function(key) {
+      if(typeof key === 'undefined'){key = 'main';}
       this.$set(this.loadingStates, key, false);
     },
-    isLoading: function(key = 'main') {
+    isLoading: function(key) {
+      if(typeof key === 'undefined'){key = 'main';}
       return typeof this.loadingStates[key] !== 'undefined' && this.loadingStates[key] ? true : false;
     },
   },

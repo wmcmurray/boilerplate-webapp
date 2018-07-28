@@ -34,14 +34,20 @@
       </div>
     </section>
 
+    <overlay-spinner v-if="loading" />
+
   </div>
 </template>
 
 <script>
 import API from 'ROOT/api.js'
+import IsLoading from 'ROOT/views/mixins/IsLoading.js'
 
 export default {
   name: 'api-page',
+  mixins: [
+    IsLoading,
+  ],
   data: function(){
     return {
       newusername: '',
@@ -53,8 +59,10 @@ export default {
   methods: {
     // get all users from API and update view
     getUsers: function(){
+      this.startLoading('get-users');
       return API('get', '/users').then(function(res){
         this.users = res;
+        this.stopLoading('get-users');
       }.bind(this));
     },
 
@@ -62,11 +70,14 @@ export default {
     createUser: function(){
       this.feedback = '';
       if(this.newusername != ''){
+        this.startLoading('create-users');
         API('post', '/users/'+this.newusername).then(function(res){
           this.feedback = 'Success !';
           this.getUsers();
+          this.stopLoading('create-users');
         }.bind(this)).catch(function(err){
           this.feedback = err;
+          this.stopLoading('create-users');
         }.bind(this));
       } else {
         this.feedback = 'Write down a username please.';
@@ -77,11 +88,14 @@ export default {
     deleteUser: function(user){
       this.feedback = '';
       if(user.username){
+        this.startLoading('delete-users');
         API('delete', '/users/'+user.username).then(function(res){
           this.feedback = 'Success !';
           this.getUsers();
+          this.stopLoading('delete-users');
         }.bind(this)).catch(function(err){
           this.feedback = err;
+          this.stopLoading('delete-users');
         }.bind(this));
       }
     },
