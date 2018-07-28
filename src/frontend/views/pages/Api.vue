@@ -39,13 +39,12 @@
 </template>
 
 <script>
-import API from 'ROOT/api.js'
-import IsLoading from 'ROOT/views/mixins/IsLoading.js'
+import ApiMixin from 'ROOT/views/mixins/Api.js'
 
 export default {
   name: 'api-page',
   mixins: [
-    IsLoading,
+    ApiMixin,
   ],
   data: function(){
     return {
@@ -57,23 +56,17 @@ export default {
   methods: {
     // get all users from API and update view
     getUsers: function(){
-      this.startLoading('get-users');
-      return API('get', '/users').then(function(res){
+      return this.api('get', '/users').then(function(res){
         this.users = res;
-        this.stopLoading('get-users');
       }.bind(this));
     },
 
     // create a user into database
     createUser: function(){
       if(this.newusername != ''){
-        this.startLoading('create-users');
-        API('post', '/users/'+this.newusername).then(function(res){
+        this.api('post', '/users/'+this.newusername).then(function(res){
           this.$snotify.success('User created !');
           this.getUsers();
-          this.stopLoading('create-users');
-        }.bind(this)).catch(function(err){
-          this.stopLoading('create-users');
         }.bind(this));
       } else {
         this.$snotify.error('Write down a username please.');
@@ -83,13 +76,9 @@ export default {
     // delete user from database
     deleteUser: function(user){
       if(user.username){
-        this.startLoading('delete-users');
-        API('delete', '/users/'+user.username).then(function(res){
+        this.api('delete', '/users/'+user.username).then(function(res){
           this.$snotify.success('User deleted !');
           this.getUsers();
-          this.stopLoading('delete-users');
-        }.bind(this)).catch(function(err){
-          this.stopLoading('delete-users');
         }.bind(this));
       }
     },
@@ -99,7 +88,7 @@ export default {
     this.getUsers();
 
     // get infos about api
-    API('get', '/').then(function(res){
+    this.api('get', '/').then(function(res){
       this.about = res;
     }.bind(this));
   },
