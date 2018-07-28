@@ -8,32 +8,33 @@
       </div>
     </section>
 
-    <section class="limit-width padded">
-      <div class="grid-12">
-        <div class="col-7_sm-6_xs-12">
-          <h2>Users list</h2>
-          <template v-if="users && users.length">
-            <ul>
-              <li v-for="user in users">
-                <p><b>{{user.username}} #{{user._id || user.id}}</b> <span class="shy">({{user.points}} points)</span>&nbsp;&nbsp;&nbsp;<span class="clickable bad" v-on:click="deleteUser(user)">DELETE</span></p>
-              </li>
-            </ul>
-          </template>
-          <template v-else>
-            <p>No users found.</p>
-          </template>
-        </div>
-        <div class="col-5_sm-6_xs-12">
-          <h2>Create user</h2>
-          <div class="form-row">
-            <input type="text" name="newuser" v-model="newusername" placeholder="Username">
-            <button class="button" name="newuserbtn" v-on:click="createUser" :disabled="newusername == ''">Create</button>
+    <section class="spinner-container">
+      <div class="limit-width padded">
+        <div class="grid-12">
+          <div class="col-7_sm-6_xs-12">
+            <h2>Users list</h2>
+            <template v-if="users && users.length">
+              <ul>
+                <li v-for="user in users">
+                  <p><b>{{user.username}} #{{user._id || user.id}}</b> <span class="shy">({{user.points}} points)</span>&nbsp;&nbsp;&nbsp;<span class="clickable bad" v-on:click="deleteUser(user)">DELETE</span></p>
+                </li>
+              </ul>
+            </template>
+            <template v-else>
+              <p>No users found.</p>
+            </template>
+          </div>
+          <div class="col-5_sm-6_xs-12">
+            <h2>Create user</h2>
+            <div class="form-row">
+              <input type="text" name="newuser" v-model="newusername" placeholder="Username">
+              <button class="button" name="newuserbtn" v-on:click="createUser" :disabled="newusername == '' || loading">Create</button>
+            </div>
           </div>
         </div>
       </div>
+      <overlay-spinner v-if="loading" />
     </section>
-
-    <overlay-spinner v-if="loading" />
 
   </div>
 </template>

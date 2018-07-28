@@ -56,3 +56,11 @@ export default {
   }
 }
 </style>
+
+<style lang="scss">;
+.spinner-container {
+  position: relative;
+  min-height: 150px;
+  overflow: hidden;
+}
+</style>

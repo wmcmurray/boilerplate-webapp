@@ -4,7 +4,7 @@
     <section class="limit-width padded text-center">
       <div class="grid-4-middle-noBottom">
         <div class="col">
-          <div id="spinner-container">
+          <div id="spinner-container" class="spinner-container">
             <overlay-spinner />
           </div>
         </div>
@@ -93,9 +93,6 @@ export default {
   }
 
   #spinner-container {
-    position: relative;
-    min-height: 150px;
-    overflow: hidden;
     border-radius: $globalRoundness;
   }
 }
