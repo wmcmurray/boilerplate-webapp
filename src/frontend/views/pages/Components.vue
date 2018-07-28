@@ -23,7 +23,10 @@
 
     <section class="limit-width padded text-center">
       <button type="button" class="button" @click="$modal.show('demodal')">Show modal</button>
-      <button type="button" class="button" v-tippy title="Hello world">Tooltip</button>
+      <button type="button" class="button" v-tippy="{trigger:'click'}" title="Hello world">Tooltip</button>
+      <button type="button" class="button" @click="$snotify.success('Success notif')">Show success notif</button>
+      <button type="button" class="button" @click="$snotify.error('Error notif')">Show error notif</button>
+      <button type="button" class="button" @click="$snotify.info('Info notif')">Show info notif</button>
     </section>
 
     <abstract-modal name="demodal">
