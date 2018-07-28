@@ -29,7 +29,6 @@
             <input type="text" name="newuser" v-model="newusername" placeholder="Username">
             <button class="button" name="newuserbtn" v-on:click="createUser" :disabled="newusername == ''">Create</button>
           </div>
-          <p>{{feedback}}&nbsp;</p>
         </div>
       </div>
     </section>
@@ -51,7 +50,6 @@ export default {
   data: function(){
     return {
       newusername: '',
-      feedback: '',
       users: [],
       about: {},
     }
@@ -68,33 +66,29 @@ export default {
 
     // create a user into database
     createUser: function(){
-      this.feedback = '';
       if(this.newusername != ''){
         this.startLoading('create-users');
         API('post', '/users/'+this.newusername).then(function(res){
-          this.feedback = 'Success !';
+          this.$snotify.success('User created !');
           this.getUsers();
           this.stopLoading('create-users');
         }.bind(this)).catch(function(err){
-          this.feedback = err;
           this.stopLoading('create-users');
         }.bind(this));
       } else {
-        this.feedback = 'Write down a username please.';
+        this.$snotify.error('Write down a username please.');
       }
     },
 
     // delete user from database
     deleteUser: function(user){
-      this.feedback = '';
       if(user.username){
         this.startLoading('delete-users');
         API('delete', '/users/'+user.username).then(function(res){
-          this.feedback = 'Success !';
+          this.$snotify.success('User deleted !');
           this.getUsers();
           this.stopLoading('delete-users');
         }.bind(this)).catch(function(err){
-          this.feedback = err;
           this.stopLoading('delete-users');
         }.bind(this));
       }

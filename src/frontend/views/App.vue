@@ -27,6 +27,7 @@
       </footer>
 
       <scroll-to-top-btn />
+      <vue-snotify />
     </template>
     <template v-else>
       <overlay-spinner :quickExit="true"/>
@@ -84,6 +85,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
+@import "~vue-snotify/styles/material";
 
 @import "~ROOT/styles/config";
 @import "~ROOT/styles/easings";
