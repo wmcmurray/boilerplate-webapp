@@ -3,7 +3,7 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import VModal from 'vue-js-modal'
 import VueTippy from 'vue-tippy'
-import Snotify, { SnotifyPosition } from 'vue-snotify'
+import Snotify from 'vue-snotify/vue-snotify.min.js' // because there is ES6 syntax inside commonjs module
 import App from 'ROOT/views/App.vue'
 import Router from 'ROOT/router.js'
 import Store from 'ROOT/store.js'
@@ -13,7 +13,7 @@ import Store from 'ROOT/store.js'
 Vue.use(require('vue-smoothscroll'));
 Vue.use(VModal);
 Vue.use(VueTippy, {arrow: true, touchHold: true});
-Vue.use(Snotify, {toast: {showProgressBar: false, icon: false, position: SnotifyPosition.rightTop}});
+Vue.use(Snotify, {toast: {showProgressBar: false, icon: false, position: 'rightTop'}});
 
 // components
 Vue.component('icon', require('ROOT/views/components/Icon.vue'));
