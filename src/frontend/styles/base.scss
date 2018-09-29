@@ -18,11 +18,11 @@ body, input, textarea, button, select {
   font-family: 'Oxygen', sans-serif;
   font-weight: 300;
   font-size: 15px;
+  line-height: $globalLineHeight;
   color: $colorText;
 }
 
 input, button, select {
-  line-height: $globalLineHeight;
   &:disabled {
     background-color: $colorDisabled!important;
     color: $colorText!important;
@@ -103,6 +103,15 @@ ul {
       display: inline-block;
     }
   }
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 5em;
+  min-height: 5em;
+  max-height: 15em;
 }
 
 select {
