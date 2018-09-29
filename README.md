@@ -32,3 +32,12 @@
 - `npm run migrate:up` apply all pending migrations
 - `npm run migrate:down` undo last migrations batch applied
 - `npm run migrate:new sample` creating a new migration named "sample"
+
+-----
+
+## Examples
+
+Some projects using this boilerplate in production environment :
+
+- [www.indiegamesquest.com](http://indiegamesquest.com/)
+- [www.katerinephotoartiste.com](https://katerinephotoartiste.com/)
