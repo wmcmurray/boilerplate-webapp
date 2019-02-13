@@ -61,7 +61,7 @@ export default {
       var launched = this.about.website.launched;
       var author = this.about.author.name;
       if(this.about.author.website){
-        author = '<a href="'+this.about.author.website+'" target="_blank">'+author+'</a>';
+        author = '<a href="'+this.about.author.website+'" target="_blank" rel="noopener">'+author+'</a>';
       }
       return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
     }
@@ -169,8 +169,8 @@ export default {
   #footer {
     padding: $globalPadding;
     text-align: center;
-    font-size: 12px;
-    color: rgba($colorText, 0.5);
+    font-size: 13px;
+    color: rgba($colorText, 0.75);
 
     > p {
       margin: 0.5em;

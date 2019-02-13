@@ -2,7 +2,7 @@
   <div class="home-page">
 
     <section class="limit-width padded text-center">
-      <p>This <a href="https://github.com/wmcmurray/boilerplate-webapp" target="_blank">boilerplate</a> was made with care by <a href="http://wimantis.ninja" target="_blank">wimantis</a>.</p>
+      <p>This <a href="https://github.com/wmcmurray/boilerplate-webapp" target="_blank" rel="noopener">boilerplate</a> was made with care by <a href="http://wimantis.ninja" target="_blank" rel="noopener">wimantis</a>.</p>
     </section>
 
   </div>

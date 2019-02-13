@@ -96,7 +96,8 @@ ul {
   list-style: none;
 
   &.styled {
-    list-style: disc inside;
+    list-style: disc outside;
+    padding-left: 18px;
   }
   &.inline {
     li {

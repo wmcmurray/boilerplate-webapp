@@ -1,6 +1,6 @@
 <template>
-  <div :class="'tab-content'+(loaded?(currentActiveTab?'':' hidden'):'')">
-    <slot v-if="currentActiveTab || loaded"></slot>
+  <div v-if="currentActiveTab || loaded" :class="'tab-content'+(loaded?(currentActiveTab?'':' hidden'):'')">
+    <slot></slot>
   </div>
 </template>
 
