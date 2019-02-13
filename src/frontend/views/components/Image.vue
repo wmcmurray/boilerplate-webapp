@@ -1,12 +1,14 @@
 <template>
-  <div :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')+(ratio && typeof ratio === 'string'? ' ratio-'+ratio:'')" :style="style">
-    <img ref="img" class="lazyimg-img" :src="src" :alt="alt">
+  <div ref="component" :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')+(ratio && typeof ratio === 'string'? ' ratio-'+ratio:'')" :style="style">
+    <img v-if="enteredViewport" ref="img" class="lazyimg-img" :src="src" :alt="alt">
     <div v-if="rightClickProtected" class="right-click-protected" v-on:contextmenu="onContextMenuHandler"></div>
     <overlay-spinner v-if="!loaded" />
   </div>
 </template>
 
 <script>
+import IntersectionObserver from 'ROOT/utils/IntersectionObserver.js'
+
 /**
  * Wrapper around an image to show a spinner before it's loaded
  *
@@ -43,6 +45,7 @@ export default {
   data: function(){
     return {
       loaded: false,
+      enteredViewport: false,
     }
   },
   computed: {
@@ -55,15 +58,22 @@ export default {
   },
   mounted: function(){
     // setTimeout(function(){
-    if(typeof this.$refs.img != 'undefined'){
-      if(this.$refs.img.complete){
-        this.loaded = true;
-      } else {
-        this.$refs.img.onload = function(){
-          this.loaded = true;
-        }.bind(this);
-      }
-    }
+
+    IntersectionObserver.observe(this.$refs.component, function(){
+      this.enteredViewport = true;
+      this.$nextTick(function(){
+        if(typeof this.$refs.img != 'undefined'){
+          if(this.$refs.img.complete){
+            this.loaded = true;
+          } else {
+            this.$refs.img.onload = function(){
+              this.loaded = true;
+            }.bind(this);
+          }
+        }
+      }.bind(this));
+    }.bind(this));
+
     // }.bind(this), (Math.random() * 2000 + 1500));
   },
   methods: {
