@@ -24,7 +24,8 @@ export default {
     },
     // the image's alt
     alt: {
-      type: String
+      type: String,
+      default: '',
     },
     // the name of the intro animation (fade | blur)
     anim: {
