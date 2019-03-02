@@ -16,6 +16,8 @@ if(SUPPORTED){
         }
       }
     }
+  }, {
+    rootMargin: '50%',
   });
 }
 
