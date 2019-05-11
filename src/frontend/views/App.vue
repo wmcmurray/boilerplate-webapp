@@ -11,8 +11,10 @@
           <li><router-link :to="{name:'home'}" exact>Home</router-link></li>
           <li class="sep">·</li>
           <li><router-link :to="{name:'components'}" exact>Components</router-link></li>
-          <li class="sep">·</li>
-          <li><router-link :to="{name:'api'}" exact>API</router-link></li>
+          <template v-if="apiPage">
+            <li class="sep">·</li>
+            <li><router-link :to="{name:'api'}" exact>API</router-link></li>
+          </template>
         </ul>
       </nav>
 
@@ -53,6 +55,7 @@ export default {
       ready: false,
       about: store.state.jsVars.about,
       appVersion: store.state.jsVars.app_version,
+      apiPage: store.state.jsVars.db_object_modeling ? true : false,
     }
   },
   computed: {

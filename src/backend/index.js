@@ -30,7 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // routes
-app.use('/api', require('routes/api'));
+if(config.database_object_modeling){
+  app.use('/api', require('routes/api'));
+}
 app.use('/', require('routes/website'));
 
 // catch 404 and forward to error handler

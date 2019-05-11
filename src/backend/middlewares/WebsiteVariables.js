@@ -11,6 +11,7 @@ module.exports = function(req, res, next) {
     about       : config.about,
     app_version : packageJson.version || null,
     ga_account  : config.google_analytics.account,
+    db_object_modeling : config.database_object_modeling,
   };
 
   // set data in res.locals

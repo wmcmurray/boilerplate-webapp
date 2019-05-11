@@ -2,7 +2,7 @@
  * Config shared across all environments
  */
 module.exports = {
-  database_object_modeling: 'sequelize', // (mongoose | sequelize | null)
+  database_object_modeling: null, // (mongoose | sequelize | null)
   sessions_enabled: false,
   about: {
     website: {

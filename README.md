@@ -12,11 +12,26 @@
 
 -----
 
-## Install
+## Installation
 
-1. Make sure you have [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [SQLite](https://www.sqlite.org/index.html) or [MongoDB](https://www.mongodb.com) installed (depending on what you want to use)
-2. Run `npm install && npm run build`
-3. Copy `/config/default-sample.js` to `/config/default.js` and check settings
+### Basic (required)
+
+1. Run `npm install && npm run build`
+2. Copy `/config/default-sample.js` to `/config/default.js` and check settings
+
+### Setup Sequelize database (optional)
+
+1. Make sure you have [Postgres](https://www.postgresql.org/), [MySQL](https://www.mysql.com/) or [SQLite](https://www.sqlite.org/index.html) installed
+2. Run `npm run init-sequelize`
+3. Open `/config/base.js` and set `database_object_modeling: 'sequelize'`
+
+### Setup Mongoose database (optional)
+
+1. Make sure you have [MongoDB](https://www.mongodb.com) installed
+2. Run `npm run init-mongoose`
+3. Open `/config/base.js` and set `database_object_modeling: 'mongoose'`
+
+-----
 
 ## Run
 
