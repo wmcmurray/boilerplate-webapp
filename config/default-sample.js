@@ -16,7 +16,6 @@ module.exports = _merge({}, base, {
     options: {
       host: 'localhost',
       dialect: 'postgres', // (mysql | sqlite | postgres | mssql)
-      operatorsAliases: false,
       logging: false,
     }
   },
