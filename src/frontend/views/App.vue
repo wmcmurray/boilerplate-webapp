@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <svgdefs></svgdefs>
     <template v-if="ready">
       <header id="header">
         <router-link :to="{name:'home'}" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
@@ -41,13 +40,11 @@
 import moment from 'moment'
 import store from 'ROOT/store.js'
 import Mediator from 'ROOT/mediator.js'
-import SvgDefsComponent from 'ROOT/views/SvgDefs.vue'
 import ScrollToTopBtn from 'ROOT/views/components/ScrollToTopBtn.vue'
 
 export default {
   name: 'app',
   components: {
-    svgdefs: SvgDefsComponent,
     scrollToTopBtn: ScrollToTopBtn,
   },
   data: function(){

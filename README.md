@@ -31,7 +31,6 @@
 2. Run `npm run init-mongoose`
 3. Open `/config/base.js` and set `database_object_modeling: 'mongoose'`
 
------
 
 ## Run
 
