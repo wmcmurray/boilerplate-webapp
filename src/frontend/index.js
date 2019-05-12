@@ -23,6 +23,7 @@ import OverlaySpinnerComponent from 'ROOT/views/components/OverlaySpinner.vue'
 import ProgressBarComponent from 'ROOT/views/components/ProgressBar.vue'
 import ThreeDotsComponent from 'ROOT/views/components/ThreeDots.vue'
 import ImageComponent from 'ROOT/views/components/Image.vue'
+import RightClickProtectionComponent from 'ROOT/views/components/RightClickProtection.vue'
 import TabsComponent from 'ROOT/views/components/Tabs.vue'
 import TabComponent from 'ROOT/views/components/Tab.vue'
 import AbstractModalComponent from 'ROOT/views/modals/AbstractModal.vue'
@@ -34,6 +35,7 @@ Vue.component('overlay-spinner', OverlaySpinnerComponent);
 Vue.component('progress-bar', ProgressBarComponent);
 Vue.component('three-dots', ThreeDotsComponent);
 Vue.component('lazyimg', ImageComponent);
+Vue.component('right-click-protection', RightClickProtectionComponent);
 Vue.component('tabs', TabsComponent);
 Vue.component('tab', TabComponent);
 Vue.component('abstract-modal', AbstractModalComponent);

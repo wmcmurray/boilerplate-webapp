@@ -32,6 +32,22 @@
   }
 }
 
+.text-content {
+  p {
+    &:first-child {
+      margin-top: 0px;
+    }
+  }
+
+  a {
+    border-bottom: 1px dashed rgba($colorText, 0.2);
+    &:hover, &.router-link-active {
+      border-bottom-color: rgba($colorHighlight, 0.5);
+      border-bottom-style: solid;
+    }
+  }
+}
+
 .text-right {
   text-align: right !important;
 }
@@ -42,6 +58,10 @@
 
 .text-center {
   text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
 }
 
 .clickable {

@@ -1,8 +1,9 @@
 <template>
-  <div ref="component" :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')+(ratio && typeof ratio === 'string'? ' ratio-'+ratio:'')" :style="style">
-    <img v-if="enteredViewport" ref="img" class="lazyimg-img" :src="src" :alt="alt">
-    <div v-if="rightClickProtected" class="right-click-protected" v-on:contextmenu="onContextMenuHandler"></div>
+  <div ref="component" :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')" :style="style">
+    <img v-if="enteredViewport && !errored" ref="img" class="lazyimg-img" :src="src" :alt="alt">
+    <img v-if="errored && placeholderUrl" class="lazyimg-img" :src="placeholderUrl">
     <overlay-spinner v-if="!loaded" />
+    <right-click-protection v-if="rightClickProtected" />
   </div>
 </template>
 
@@ -46,15 +47,24 @@ export default {
   data: function(){
     return {
       loaded: false,
+      errored: false,
+      placeholderUrl: null,
       enteredViewport: false,
     }
   },
   computed: {
-    style: function() {
-      if(!this.loaded && typeof this.ratio === 'number'){
-        return 'padding-top: '+(Math.round((this.ratio * 100) * 100) / 100)+'%';
+    ratioAsNumber: function() {
+      if(this.ratio === 'number'){
+        return this.ratio;
       }
-      return '';
+      switch(this.ratio){
+        case 'landscape'  : return 9 / 16; break;
+        case 'portrait'   : return 16 / 9; break;
+      }
+      return 1
+    },
+    style: function() {
+      return !this.loaded || (this.errored && !this.placeholderUrl) ? 'padding-top: '+(Math.round((this.ratioAsNumber * 100) * 100) / 100)+'%' : '';
     },
   },
   mounted: function(){
@@ -65,11 +75,10 @@ export default {
       this.$nextTick(function(){
         if(typeof this.$refs.img != 'undefined'){
           if(this.$refs.img.complete){
-            this.loaded = true;
+            this.onImageLoadedHandler();
           } else {
-            this.$refs.img.onload = function(){
-              this.loaded = true;
-            }.bind(this);
+            this.$refs.img.onload = this.onImageLoadedHandler.bind(this);
+            this.$refs.img.onerror = this.onImageErrorHandler.bind(this);
           }
         }
       }.bind(this));
@@ -78,9 +87,41 @@ export default {
     // }.bind(this), (Math.random() * 2000 + 1500));
   },
   methods: {
-    onContextMenuHandler: function(evt) {
-      evt.preventDefault();
-    }
+    onImageLoadedHandler: function(){
+      this.loaded = true;
+    },
+    onImageErrorHandler: function(err){
+      if(!this.errored){
+        this.errored = true;
+
+        // attempt to draw a placeholder image
+        try {
+          var bb = this.$refs.img.getBoundingClientRect();
+          var w = Math.round(bb.width || 512);
+          var h = Math.round(w * this.ratioAsNumber);
+          var fontSize = Math.max(Math.round(h * 0.085), 13);
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          canvas.width = w;
+          canvas.height = h;
+
+          // background
+          ctx.fillStyle = 'rgba(0,0,0,0.5)';
+          ctx.fillRect(0, 0, w, h);
+
+          // text
+          ctx.textAlign = 'center';
+          ctx.font = fontSize + 'px \'Oxygen\', sans-serif';
+          ctx.fillStyle = '#eeeeee';
+          ctx.fillText('Image not found', w * 0.5, (h * 0.5) + (fontSize * 0.4));
+
+          this.placeholderUrl = canvas.toDataURL();
+          this.loaded = true;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    },
   },
 }
 </script>
@@ -88,24 +129,7 @@ export default {
 <style lang="scss">
 .lazyimg {
   position: relative;
-  .right-click-protected {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-  }
   &.not-loaded {
-    &.ratio-landscape {
-      padding-top: (9 / 16) * 100%;
-    }
-    &.ratio-portrait {
-      padding-top: (16 / 9) * 100%;
-    }
-    &.ratio-square {
-      padding-top: 100%;
-    }
     .lazyimg-img {
       position: absolute;
       top: 0px;
