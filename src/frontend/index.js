@@ -16,22 +16,33 @@ Vue.use(VueTippy, {arrow: true, touchHold: true});
 Vue.use(Snotify, {toast: {showProgressBar: false, icon: false, position: 'rightTop'}});
 
 // components
-Vue.component('icon', require('ROOT/views/components/Icon.vue'));
-Vue.component('check', require('ROOT/views/components/Check.vue'));
-Vue.component('spinner', require('ROOT/views/components/SpinnerRipples.vue')); // or SpinnerClassic
-Vue.component('overlay-spinner', require('ROOT/views/components/OverlaySpinner.vue'));
-Vue.component('progress-bar', require('ROOT/views/components/ProgressBar.vue'));
-Vue.component('three-dots', require('ROOT/views/components/ThreeDots.vue'));
-Vue.component('lazyimg', require('ROOT/views/components/Image.vue'));
-Vue.component('tabs', require('ROOT/views/components/Tabs.vue'));
-Vue.component('tab', require('ROOT/views/components/Tab.vue'));
-Vue.component('abstract-modal', require('ROOT/views/modals/AbstractModal.vue'));
+import IconComponent from 'ROOT/views/components/Icon.vue'
+import CheckComponent from 'ROOT/views/components/Check.vue'
+import SpinnerRipplesComponent from 'ROOT/views/components/SpinnerRipples.vue' // or SpinnerClassic
+import OverlaySpinnerComponent from 'ROOT/views/components/OverlaySpinner.vue'
+import ProgressBarComponent from 'ROOT/views/components/ProgressBar.vue'
+import ThreeDotsComponent from 'ROOT/views/components/ThreeDots.vue'
+import ImageComponent from 'ROOT/views/components/Image.vue'
+import TabsComponent from 'ROOT/views/components/Tabs.vue'
+import TabComponent from 'ROOT/views/components/Tab.vue'
+import AbstractModalComponent from 'ROOT/views/modals/AbstractModal.vue'
+
+Vue.component('icon', IconComponent);
+Vue.component('check', CheckComponent);
+Vue.component('spinner', SpinnerRipplesComponent);
+Vue.component('overlay-spinner', OverlaySpinnerComponent);
+Vue.component('progress-bar', ProgressBarComponent);
+Vue.component('three-dots', ThreeDotsComponent);
+Vue.component('lazyimg', ImageComponent);
+Vue.component('tabs', TabsComponent);
+Vue.component('tab', TabComponent);
+Vue.component('abstract-modal', AbstractModalComponent);
 
 var app = new Vue({
-  el: '#app',
-  router: Router,
-  store: Store,
-  render: function render(h) {
+  el      : '#app',
+  router  : Router,
+  store   : Store,
+  render  : function render(h) {
     return h(App);
   }
 });

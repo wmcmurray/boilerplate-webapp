@@ -1,4 +1,5 @@
 var path = require('path');
+var VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   resolve: {
@@ -8,7 +9,8 @@ module.exports = {
   },
   entry: path.resolve(__dirname, 'src/frontend/index.js'),
   output: {
-    filename: 'public/javascripts/all.js'
+    path: path.resolve(__dirname, 'public/'),
+    filename: 'all.js',
   },
   module: {
     rules: [
@@ -27,6 +29,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
   node: {
     fs: 'empty'
   }

@@ -59,4 +59,4 @@ typings/
 # project specific
 package-lock.json
 config/default.js
-public/javascripts/all.js
+public/all.js
