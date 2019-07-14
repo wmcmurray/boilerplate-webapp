@@ -48,8 +48,10 @@ export default {
 @import "~ROOT/styles/utils";
 
 .spinner-ripples {
-  $initialSize: 10px;
-  $finalScale: 5;
+  $thickness: 10px;
+  $initialSize: 50px;
+  $initialScale: 0.2;
+  $finalScale: 1;
 
   position: relative;
 
@@ -58,10 +60,10 @@ export default {
     opacity: 0;
     width: $initialSize;
     height: $initialSize;
-    margin-left: $initialSize * -0.5;
-    margin-top: $initialSize * -0.5;
+    margin-left: ($initialSize + $thickness + $thickness) * -0.5;
+    margin-top: ($initialSize + $thickness + $thickness) * -0.5;
     border-radius: 50%;
-    border: 2px solid $colorHighlight;
+    border: $thickness solid $colorHighlight;
     animation-timing-function: ease-out;
     animation-name: ripple;
     animation-iteration-count: infinite;
@@ -69,7 +71,7 @@ export default {
 
   @keyframes ripple {
     0% {
-      transform: scale(1);
+      transform: scale($initialScale);
       opacity: 0;
     }
     10% {
