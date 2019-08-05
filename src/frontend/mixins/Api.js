@@ -34,8 +34,11 @@ export default {
         this.stopLoading(loadingKey);
         return res.data;
       }.bind(this)).catch(function(err) {
-        this.$snotify.error(err.message || err);
-        // console.error(err);
+        if(err.response.data.message){
+          this.$snotify.error(err.response.data.message);
+        } else {
+          console.error(err);
+        }
         this.stopLoading(loadingKey);
         // return null;
         throw err;
