@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     ratioAsNumber: function() {
-      if(this.ratio === 'number'){
+      if(typeof this.ratio === 'number'){
         return this.ratio;
       }
       switch(this.ratio){
