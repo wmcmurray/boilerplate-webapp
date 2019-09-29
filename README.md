@@ -1,5 +1,7 @@
 ![boilerplate-webapp](https://raw.githubusercontent.com/wmcmurray/boilerplate-webapp/master/logo.jpg)
 
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/wmcmurray/boilerplate-webapp.svg?logo=lgtm&logoWidth=18&label=JS%20code%20quality)](https://lgtm.com/projects/g/wmcmurray/boilerplate-webapp/context:javascript)
+
 ## Built with
 
 **Database :** [Sequelize](https://github.com/sequelize/sequelize) + [Umzug](https://github.com/sequelize/umzug) (or [Mongoose](https://github.com/Automattic/mongoose))
