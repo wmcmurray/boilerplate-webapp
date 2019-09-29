@@ -79,9 +79,7 @@ server.on('error', function(error) {
 
 server.on('listening', function() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
 
   console.log('Running on ' + bind);
 });
