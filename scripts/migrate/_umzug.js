@@ -8,4 +8,4 @@ var umzug = new Umzug({
   }
 });
 
-module.exports = umzug
+module.exports = umzug;

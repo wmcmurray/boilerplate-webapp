@@ -50,4 +50,4 @@ module.exports.initialize = function(router, routes) {
     });
   });
 
-}
+};

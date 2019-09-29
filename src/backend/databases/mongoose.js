@@ -32,4 +32,4 @@ module.exports = {
   getConnection: function(){
     return DB;
   }
-}
+};

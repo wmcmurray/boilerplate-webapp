@@ -15,7 +15,7 @@ switch (config.database_object_modeling) {
     var SequelizeDatabase = require('databases/sequelize.js');
 
     // load models before sync
-    var User = require('models/sequelize/User.js');
+    require('models/sequelize/User.js');
 
     SequelizeDatabase.sync().then(function(){
       console.log('SEQUELIZE : database "'+config.sequelize.database+'" is now synched ');
@@ -28,4 +28,4 @@ switch (config.database_object_modeling) {
   break;
 }
 
-module.exports = app
+module.exports = app;

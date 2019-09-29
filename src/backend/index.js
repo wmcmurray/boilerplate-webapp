@@ -2,7 +2,7 @@ var config = require('config');
 var express = require('express');
 var path = require('path');
 var http = require('http');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -22,7 +22,7 @@ app.set('views', path.join(process.cwd(), 'src/backend/views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-// app.use(favicon(path.join(process.cwd(), 'public/images', 'favicon.ico')));
+// app.use( favicon(path.join(process.cwd(), 'public/images', 'favicon.ico')) );
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -23,4 +23,4 @@ theModel.findByUsername = function(username) {
   return this.findOne({ where: {username: username} });
 };
 
-module.exports = theModel
+module.exports = theModel;

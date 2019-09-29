@@ -32,4 +32,4 @@ const sessionMiddleware = session({
   store: sessionStore
 });
 
-module.exports = sessionMiddleware
+module.exports = sessionMiddleware;
