@@ -60,8 +60,8 @@ export default {
 
 .v--modal {
   @media (max-width: $sm){
-    width: 100% !important;
-    left: 0px !important;
+    width: 96% !important;
+    left: 2% !important;
   }
 }
 </style>
