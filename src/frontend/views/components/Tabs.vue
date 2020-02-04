@@ -31,8 +31,8 @@ export default {
       type: Boolean,
       default: false,
     },
-    // the tab index that should be active initially
-    active: {
+    // the tab index that should be active initially ( 0 - infinity)
+    initialTabIndex: {
       type: Number,
       default: 0,
     },
@@ -46,6 +46,16 @@ export default {
     }
   },
 
+  mounted() {
+    if(this.currentActiveTab === null && this.tabs.length){
+      if(this.initialTabIndex && typeof this.tabs[this.initialTabIndex] !== 'undefined') {
+        this.currentActiveTab = this.tabs[this.initialTabIndex].ident;
+      } else {
+        this.currentActiveTab = this.tabs[0].ident;
+      }
+    }
+  },
+
   methods: {
     addTab: function(tabIdent, title, component){
       this.tabs.push({
@@ -53,12 +63,6 @@ export default {
         title: title,
         component: component,
       });
-
-      if(!this.currentActiveTab && this.tabs.length){
-        if(!this.active || (this.active && this.active == tabIdent)){
-          this.currentActiveTab = tabIdent;
-        }
-      }
 
       if(this.preload){
         this.loadedTabsList.push(tabIdent);
