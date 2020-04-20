@@ -7,10 +7,11 @@ module.exports = {
       ROOT: path.resolve(__dirname, 'src/frontend/')
     }
   },
-  entry: path.resolve(__dirname, 'src/frontend/index.js'),
+  entry: {
+    all: path.resolve(__dirname, 'src/frontend/index.js'),
+  },
   output: {
-    path: path.resolve(__dirname, 'public/'),
-    filename: 'all.js',
+    path: path.resolve(__dirname, 'public/js/'),
   },
   module: {
     rules: [
