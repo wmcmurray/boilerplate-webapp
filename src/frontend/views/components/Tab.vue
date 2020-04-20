@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import _indexOf from 'lodash/indexOf';
+import _indexOf from 'lodash/indexOf.js';
 
 var counter = 0;
 

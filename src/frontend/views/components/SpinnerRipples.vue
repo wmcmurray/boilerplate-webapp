@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import _round from 'lodash/round'
+import _round from 'lodash/round.js'
 
 /**
  * Displays the new spinner featuring moving water ripples effect

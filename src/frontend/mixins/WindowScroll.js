@@ -1,4 +1,4 @@
-import _debounce from 'lodash/debounce'
+import _debounce from 'lodash/debounce.js'
 
 /**
 * Implements listeners for window scroll

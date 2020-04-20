@@ -1,4 +1,4 @@
-const _merge = require('lodash/merge');
+const _merge = require('lodash/merge.js');
 const base = require('./base.js');
 
 module.exports = _merge({}, base, {

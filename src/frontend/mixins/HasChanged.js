@@ -1,5 +1,5 @@
-import _cloneDeep from 'lodash/cloneDeep'
-import _isEqual from 'lodash/isEqual'
+import _cloneDeep from 'lodash/cloneDeep.js'
+import _isEqual from 'lodash/isEqual.js'
 import { getDifferencesBetweenTwoObjects } from 'ROOT/helpers.js'
 
 /**

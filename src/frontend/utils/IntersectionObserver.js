@@ -1,4 +1,4 @@
-import _findIndex from 'lodash/findIndex'
+import _findIndex from 'lodash/findIndex.js'
 
 var SUPPORTED = typeof window.IntersectionObserver !== 'undefined' ? true : false;
 if(SUPPORTED){

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import _indexOf from 'lodash/indexOf';
+import _indexOf from 'lodash/indexOf.js';
 
 var TABS_INSTANCES_COUNTER = 0;
 

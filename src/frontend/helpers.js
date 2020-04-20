@@ -1,6 +1,6 @@
-import _isEqual from 'lodash/isEqual'
-import _transform from 'lodash/transform'
-import _isObject from 'lodash/isObject'
+import _isEqual from 'lodash/isEqual.js'
+import _transform from 'lodash/transform.js'
+import _isObject from 'lodash/isObject.js'
 
 /**
 * Deep diff between two objects
