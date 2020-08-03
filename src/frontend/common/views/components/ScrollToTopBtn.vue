@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import WindowScrollMixin from 'ROOT/mixins/WindowScroll.js';
-import WindowResizeMixin from 'ROOT/mixins/WindowResize.js';
+import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js';
+import WindowResizeMixin from 'COMMON/mixins/WindowResize.js';
 
 /**
  * Displays a button (in bottom right corner) that enables the user to scroll back to top quickly
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .scroll-to-top-btn {
   $hiddenOf: 10px;

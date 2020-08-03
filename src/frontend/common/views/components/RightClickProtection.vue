@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .right-click-protection {
   position: absolute;

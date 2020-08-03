@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import ApiMixin from 'ROOT/mixins/Api.js'
+import ApiMixin from 'COMMON/mixins/Api.js'
 
 export default {
   name: 'api-page',
@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .api-page {
   > section {

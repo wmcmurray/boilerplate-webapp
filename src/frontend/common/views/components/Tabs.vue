@@ -101,8 +101,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
-@import "~ROOT/styles/utils";
+@import "~COMMON/styles/config";
+@import "~COMMON/styles/utils";
 
 .tabs {
   $colorTabActive: lighten($colorBackground, 7.5%);

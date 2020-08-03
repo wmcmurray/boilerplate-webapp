@@ -16,17 +16,17 @@ Vue.use(VueTippy, {arrow: true, touchHold: true});
 Vue.use(Snotify, {toast: {showProgressBar: false, icon: false, position: 'rightTop'}});
 
 // components
-import IconComponent from 'ROOT/views/components/Icon.vue'
-import CheckComponent from 'ROOT/views/components/Check.vue'
-import SpinnerRipplesComponent from 'ROOT/views/components/SpinnerRipples.vue' // or SpinnerClassic
-import OverlaySpinnerComponent from 'ROOT/views/components/OverlaySpinner.vue'
-import ProgressBarComponent from 'ROOT/views/components/ProgressBar.vue'
-import ThreeDotsComponent from 'ROOT/views/components/ThreeDots.vue'
-import ImageComponent from 'ROOT/views/components/Image.vue'
-import RightClickProtectionComponent from 'ROOT/views/components/RightClickProtection.vue'
-import TabsComponent from 'ROOT/views/components/Tabs.vue'
-import TabComponent from 'ROOT/views/components/Tab.vue'
-import AbstractModalComponent from 'ROOT/views/modals/AbstractModal.vue'
+import IconComponent from 'COMMON/views/components/Icon.vue'
+import CheckComponent from 'COMMON/views/components/Check.vue'
+import SpinnerRipplesComponent from 'COMMON/views/components/SpinnerRipples.vue' // or SpinnerClassic
+import OverlaySpinnerComponent from 'COMMON/views/components/OverlaySpinner.vue'
+import ProgressBarComponent from 'COMMON/views/components/ProgressBar.vue'
+import ThreeDotsComponent from 'COMMON/views/components/ThreeDots.vue'
+import ImageComponent from 'COMMON/views/components/Image.vue'
+import RightClickProtectionComponent from 'COMMON/views/components/RightClickProtection.vue'
+import TabsComponent from 'COMMON/views/components/Tabs.vue'
+import TabComponent from 'COMMON/views/components/Tab.vue'
+import AbstractModalComponent from 'COMMON/views/modals/AbstractModal.vue'
 
 Vue.component('icon', IconComponent);
 Vue.component('check', CheckComponent);

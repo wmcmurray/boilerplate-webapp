@@ -4,7 +4,8 @@ var VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
   resolve: {
     alias: {
-      ROOT: path.resolve(__dirname, 'src/frontend/')
+      ROOT: path.resolve(__dirname, 'src/frontend/'),
+      COMMON: path.resolve(__dirname, 'src/frontend/common/')
     }
   },
   entry: {

@@ -37,8 +37,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
-@import "~ROOT/styles/utils";
+@import "~COMMON/styles/config";
+@import "~COMMON/styles/utils";
 
 .overlay-spinner {
   position: absolute;

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .notfound-page {
   overflow: hidden;

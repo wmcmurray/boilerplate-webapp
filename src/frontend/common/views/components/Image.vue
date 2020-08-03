@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import IntersectionObserver from 'ROOT/utils/IntersectionObserver.js'
+import IntersectionObserver from 'COMMON/utils/IntersectionObserver.js'
 
 /**
  * Wrapper around an image to show a spinner before it's loaded

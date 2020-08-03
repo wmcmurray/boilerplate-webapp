@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .components-page {
   > section {

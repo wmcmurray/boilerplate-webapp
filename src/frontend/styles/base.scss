@@ -131,3 +131,25 @@ input[type="text"], input[type="password"] {
     color: $colorText;
   }
 }
+
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0px;
+  border: none;
+  box-shadow: rgba(white, 0.05) 1px 1px 0px inset, rgba(white, 0.05) -1px -1px 0px inset;
+  background-color: $colorText;
+  color: $colorBackground;
+  border-radius: $globalRoundness;
+  @include clickable;
+
+  .icon {
+    vertical-align: middle;
+    font-size: 1.3em;
+  }
+
+  &:hover {
+    background-color: $colorHighlight;
+    color: #fff;
+  }
+}

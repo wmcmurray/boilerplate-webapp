@@ -40,7 +40,7 @@
 import moment from 'moment'
 import store from 'ROOT/store.js'
 import Mediator from 'ROOT/mediator.js'
-import ScrollToTopBtn from 'ROOT/views/components/ScrollToTopBtn.vue'
+import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
 
 export default {
   name: 'app',
@@ -87,14 +87,14 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
 @import "~vue-snotify/styles/material";
 
-@import "~ROOT/styles/config";
-@import "~ROOT/styles/easings";
-@import "~ROOT/styles/utils";
+@import "~COMMON/styles/config";
+@import "~COMMON/styles/utils";
+@import "~COMMON/styles/animate";
+@import "~COMMON/styles/easings";
+@import "~COMMON/styles/grid";
+@import "~COMMON/styles/transitions";
+@import "~COMMON/styles/classes";
 @import "~ROOT/styles/base";
-@import "~ROOT/styles/grid";
-@import "~ROOT/styles/classes";
-@import "~ROOT/styles/animate";
-@import "~ROOT/styles/transitions";
 
 /**
  *  App style

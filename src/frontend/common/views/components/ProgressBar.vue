@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .progress-bar {
   $color: lighten($colorHighlight, 10%);

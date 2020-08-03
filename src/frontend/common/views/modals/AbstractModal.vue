@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~ROOT/styles/config";
+@import "~COMMON/styles/config";
 
 .v--modal-overlay {
   z-index: 999999;
