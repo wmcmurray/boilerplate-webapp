@@ -50,9 +50,9 @@ export default {
   data: function(){
     return {
       ready: false,
-      about: store.state.jsVars.about,
-      appVersion: store.state.jsVars.app_version,
-      apiPage: store.state.jsVars.db_object_modeling ? true : false,
+      about: JS_VARS.about,
+      appVersion: JS_VARS.app_version,
+      apiPage: JS_VARS.db_object_modeling ? true : false,
     }
   },
   computed: {

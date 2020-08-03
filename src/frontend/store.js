@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // load modules
-import jsVars from 'ROOT/store/jsVars'
+// import _sample from 'ROOT/store/_sample'
 
 // create the Vuex instance with initial state and modules
 export default new Vuex.Store({
@@ -13,6 +13,6 @@ export default new Vuex.Store({
   // mutations   : {},
   // actions     : {},
   modules: {
-    jsVars: jsVars,
+    // _sample: _sample,
   },
 })
