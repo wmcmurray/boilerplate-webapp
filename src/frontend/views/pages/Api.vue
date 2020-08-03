@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import ApiMixin from 'COMMON/mixins/Api.js'
+import HasApiMixin from 'COMMON/mixins/HasApi.js'
 
 export default {
   name: 'api-page',
   mixins: [
-    ApiMixin,
+    HasApiMixin,
   ],
   data: function(){
     return {
