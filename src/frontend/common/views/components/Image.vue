@@ -99,7 +99,7 @@ export default {
           var bb = this.$refs.img.getBoundingClientRect();
           var w = Math.round(bb.width || 512);
           var h = Math.round(w * this.ratioAsNumber);
-          var fontSize = Math.max(Math.round(h * 0.085), 13);
+          var fontSize = Math.max(Math.round(Math.min(w, h) * 0.085), 13);
           var canvas = document.createElement('canvas');
           var ctx = canvas.getContext('2d');
           canvas.width = w;
