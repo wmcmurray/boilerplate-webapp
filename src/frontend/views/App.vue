@@ -7,12 +7,12 @@
 
       <nav id="mainmenu">
         <ul class="inline text-center">
-          <li><router-link :to="{name:'home'}" exact>Home</router-link></li>
-          <li class="sep">·</li>
-          <li><router-link :to="{name:'components'}" exact>Components</router-link></li>
-          <template v-if="apiPage">
-            <li class="sep">·</li>
-            <li><router-link :to="{name:'api'}" exact>API</router-link></li>
+          <template v-for="link, i in mainMenuLinks">
+            <li v-if="i !== 0" class="sep">·</li>
+            <li>
+              <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
+              <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
+            </li>
           </template>
         </ul>
       </nav>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import _filter from 'lodash/filter.js'
 import moment from 'moment'
 import store from 'ROOT/store.js'
 import Mediator from 'ROOT/mediator.js'
@@ -45,17 +46,39 @@ import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
 export default {
   name: 'app',
   components: {
-    scrollToTopBtn: ScrollToTopBtn,
+    ScrollToTopBtn,
   },
   data(){
     return {
       ready: false,
       about: JS_VARS.about,
       appVersion: JS_VARS.app_version,
-      apiPage: JS_VARS.db_object_modeling ? true : false,
     };
   },
   computed: {
+    mainMenuLinks() {
+      const links = [
+        {
+          route: {name:'home'},
+          html: 'Home',
+        },
+        {
+          route: {name:'components'},
+          html: 'Components',
+        },
+        {
+          route: {name:'api'},
+          html: 'API',
+          visible: JS_VARS.db_object_modeling ? true : false,
+        },
+        {
+          href: 'https://github.com/wmcmurray/boilerplate-webapp',
+          html: 'Github',
+        },
+      ];
+
+      return this.sanitizeLinks(links);
+    },
     copyrightNotice(){
       const currentYear = (new Date()).getFullYear();
       const launched = this.about.website.launched;
@@ -64,7 +87,20 @@ export default {
         author = '<a href="'+this.about.author.website+'" target="_blank" rel="noopener">'+author+'</a>';
       }
       return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
-    }
+    },
+  },
+  methods: {
+    sanitizeLinks(links) {
+      for(let i in links){
+        if(typeof links[i].visible === 'undefined') {
+          links[i].visible = true;
+        }
+        if(typeof links[i].exact === 'undefined') {
+          links[i].exact = true;
+        }
+      }
+      return _filter(links, {visible: true});
+    },
   },
   created(){
     // define default locale
