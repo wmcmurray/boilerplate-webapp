@@ -11,8 +11,8 @@
         <div class="col">
           loading<three-dots :fillVoid="true" />
         </div>
-        <div class="col">
-          <progress-bar />
+        <div class="col clickable" @click="currProgress = (Math.random() * 100)">
+          <progress-bar :current="currProgress" />
         </div>
         <div class="col">
           <check :ok="false" />
@@ -87,7 +87,9 @@
 export default {
   name: 'components-page',
   data: function(){
-    return {}
+    return {
+      currProgress: 25,
+    }
   },
 }
 </script>

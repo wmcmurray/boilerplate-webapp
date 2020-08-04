@@ -50,7 +50,13 @@ export default {
       return (this.current * 100) / (this.to - this.from);
     },
     displayedInfos: function(){
-      return this.infos || (Math.round(this.current) + ' / ' + Math.round(this.to))
+      if(typeof this.infos === 'string') {
+        return this.infos;
+      }
+      if(this.from === 0 && this.to === 100) {
+        return Math.round(this.current) + '%';
+      }
+      return Math.round(this.current) + ' / ' + Math.round(this.to);
     },
   },
 }
@@ -60,18 +66,15 @@ export default {
 @import "~COMMON/styles/config";
 
 .progress-bar {
-  $color: lighten($colorHighlight, 10%);
-  $bg: darken(mix(rgba($colorBackground, 0.5), $color), 10%);
-  $height: 25px;
+  $color: saturate($colorHighlight, 15%);
+  $height: $globalFontSize + ($globalPadding * 0.5);
   $heightSmall: 6px;
-  $roundness: $globalRoundness;
 
   position: relative;
   height: $height;
-  border-radius: $roundness;
+  background-color: rgba(black, 0.1);
+  border-radius: $globalRoundness;
   overflow: hidden;
-  background: $bg;
-  box-shadow: 0px 4px 0px rgba(black, 0.25) inset;
 
   .infos {
     position: absolute;
@@ -90,7 +93,7 @@ export default {
 
     position: relative;
     height: inherit;
-    border-radius: $roundness 0px 0px $roundness;
+    border-radius: $globalRoundness 0px 0px $globalRoundness;
     background-color: $currentBarColor;
     border-top: 1px solid lighten($currentBarColor, 10%);
     border-bottom: 1px solid darken($currentBarColor, 10%);
