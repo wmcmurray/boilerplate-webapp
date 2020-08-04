@@ -60,3 +60,4 @@ typings/
 package-lock.json
 config/default.js
 public/js/all.js
+public/js/vendors.js

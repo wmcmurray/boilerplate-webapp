@@ -34,6 +34,19 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
   ],
+  optimization: {
+    splitChunks: {
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          filename: 'vendors.js',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   node: {
     fs: 'empty'
   }
