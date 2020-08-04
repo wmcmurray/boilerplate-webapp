@@ -85,17 +85,17 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
-@import "~vue-snotify/styles/material";
+@import "~vue-snotify/styles/material.css";
 
-@import "~COMMON/styles/config";
-@import "~COMMON/styles/utils";
-@import "~COMMON/styles/animate";
-@import "~COMMON/styles/easings";
-@import "~COMMON/styles/grid";
-@import "~COMMON/styles/transitions";
-@import "~COMMON/styles/classes";
-@import "~ROOT/styles/base";
-@import "~ROOT/styles/forms";
+@import "~COMMON/styles/config.scss";
+@import "~COMMON/styles/utils.scss";
+@import "~COMMON/styles/animate.scss";
+@import "~COMMON/styles/easings.scss";
+@import "~COMMON/styles/grid.scss";
+@import "~COMMON/styles/transitions.scss";
+@import "~COMMON/styles/classes.scss";
+@import "~ROOT/styles/base.scss";
+@import "~ROOT/styles/forms.scss";
 
 /**
  *  App style

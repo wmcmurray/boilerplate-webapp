@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~COMMON/styles/config";
+@import "~COMMON/styles/config.scss";
 
 .spinner-classic {
   $size: 32px;

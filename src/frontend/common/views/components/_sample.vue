@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~COMMON/styles/config";
+@import "~COMMON/styles/config.scss";
 
 .sample {
 }

@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~COMMON/styles/config";
+@import "~COMMON/styles/config.scss";
 
 .scroll-to-top-btn {
   $hiddenOf: 10px;
