@@ -1,11 +1,11 @@
 <template>
-  <transition name="fade">
+  <!-- <transition name="fade"> -->
     <div v-if="shown && targetElem" class="scroll-to-top-btn" @click="action">
       <div class="inside">
         <icon :name="iconName" />
       </div>
     </div>
-  </transition>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -73,10 +73,12 @@ export default {
 
 <style lang="scss">
 @import "~COMMON/styles/config.scss";
+@import "~COMMON/styles/utils.scss";
 
 .scroll-to-top-btn {
   $hiddenOf: 10px;
   $padding: $globalPadding * 0.5;
+  $bgColor: darken($colorHighlight, 10%);
 
   position: fixed;
   right: $globalPadding * 1.5;
@@ -87,17 +89,18 @@ export default {
     position: relative;
     bottom: -$hiddenOf;
     padding: $padding $padding ($padding + $hiddenOf) $padding;
-    background: darken($colorHighlight, 10%);
+    background-color: rgba($bgColor, 0.5);
     color: #fff;
     font-size: 30px;
     line-height: 1em;
-    opacity: 0.5;
-    transition: opacity $mouseEffectsDuration ease-out, bottom $mouseEffectsDuration ease-out;
+    transition: background-color $mouseEffectsDuration ease-out, bottom $mouseEffectsDuration ease-out;
     border-radius: $globalRoundness $globalRoundness 0px 0px;
-    cursor: pointer;
+    backdrop-filter: blur(5px);
+    @include clickable;
+
     &:hover {
-      opacity: 1;
       bottom: 0px;
+      background-color: rgba($bgColor, 0.9);
     }
   }
 }
