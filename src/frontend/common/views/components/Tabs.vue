@@ -127,9 +127,9 @@ export default {
       // border-right: 1px solid $colorTabBorder;
       margin-bottom: -1px;
       text-transform: uppercase;
-      cursor: pointer;
-      transition: background-color $mouseEffectsDuration ease-out, border-color $mouseEffectsDuration ease-out;
       color: rgba($colorText, 0.5);
+      transition: background-color $mouseEffectsDuration ease-out, border-color $mouseEffectsDuration ease-out;
+      @include clickable;
 
       @media (max-width: $sm){
         // border-top: 1px solid rgba(black, 0.1);
@@ -144,7 +144,7 @@ export default {
 
       &:hover {
         background-color: rgba(white,0.35);
-        cursor: pointer;
+        @include clickable;
       }
 
       &.active {

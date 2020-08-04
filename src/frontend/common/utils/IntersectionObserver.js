@@ -1,9 +1,11 @@
 import _findIndex from 'lodash/findIndex.js'
 
 const SUPPORTED = typeof window.IntersectionObserver !== 'undefined' ? true : false;
+let OBSERVED, OBSERVER;
+
 if(SUPPORTED){
-  const OBSERVED = [];
-  const OBSERVER = new IntersectionObserver((changes) => {
+  OBSERVED = [];
+  OBSERVER = new IntersectionObserver((changes) => {
     let change, index;
     for(const i in changes){
       change = changes[i];

@@ -1,5 +1,5 @@
 <template>
-  <transition name="reveal">
+  <transition name="fade">
     <div v-if="shown && targetElem" class="scroll-to-top-btn" @click="action">
       <div class="inside">
         <icon :name="iconName" />
