@@ -41,75 +41,8 @@
     <hr>
 
     <section class="limit-width padded">
-      <form class="grid-1" autocomplete="off">
-        <div class="col">
-          <input type="text" placeholder="Input text">
-        </div>
-        <div class="col">
-          <input type="color" placeholder="Input color">
-        </div>
-        <div class="col">
-          <input type="date" placeholder="Input date">
-        </div>
-        <div class="col">
-          <input type="time" placeholder="Input time">
-        </div>
-        <div class="col">
-          <input type="file" placeholder="Input file">
-        </div>
-        <!-- <div class="col">
-          <input type="tel" placeholder="Input tel">
-        </div>
-        <div class="col">
-          <input type="url" placeholder="Input url">
-        </div> -->
-        <!-- <div class="col">
-          <input type="password" placeholder="Input password">
-        </div> -->
-        <div class="col">
-          <input type="number" min="0" max="99" placeholder="Input number">
-        </div>
-        <div class="col">
-          <select placeholder="Select">
-            <option value="1">option 1</option>
-            <option value="2">option 2</option>
-            <option value="3">option 3</option>
-          </select>
-        </div>
-        <div class="col">
-          <textarea placeholder="Textarea"></textarea>
-        </div>
-        <div class="col">
-          <label>
-            <input type="checkbox" placeholder="Input checkbox" checked>
-            Input checkbox
-          </label>
-        </div>
-        <div class="col">
-          <label>
-            <input type="radio" name="radio1" value="1" placeholder="Input radio" checked>
-            Input radio 1
-          </label>
-        </div>
-        <div class="col">
-          <label>
-            <input type="radio" name="radio1" value="2" placeholder="Input radio">
-            Input radio 2
-          </label>
-        </div>
-        <div class="col">
-          <label>
-            <input type="radio" name="radio1" value="3" placeholder="Input radio">
-            Input radio 3
-          </label>
-        </div>
-      </form>
-    </section>
-
-    <hr>
-
-    <section class="limit-width padded">
       <tabs>
+
         <tab title="Text content">
           <div class="grid">
             <div v-for="i in [1,2]" class="col-6_sm-12 text-content text-justify">
@@ -120,6 +53,7 @@
             </div>
           </div>
         </tab>
+
         <tab title="Bear pictures">
           <div class="grid-4">
             <div class="col">
@@ -147,6 +81,73 @@
             </div>
           </div>
         </tab>
+
+        <tab title="Forms">
+          <form class="grid-1" autocomplete="off">
+            <div class="col">
+              <input type="text" placeholder="Input text">
+            </div>
+            <div class="col">
+              <input type="date" placeholder="Input date">
+            </div>
+            <div class="col">
+              <input type="time" placeholder="Input time">
+            </div>
+            <div class="col">
+              <input type="file" placeholder="Input file">
+            </div>
+            <div class="col">
+              <input type="color" placeholder="Input color">
+            </div>
+            <!-- <div class="col">
+              <input type="tel" placeholder="Input tel">
+            </div>
+            <div class="col">
+              <input type="url" placeholder="Input url">
+            </div> -->
+            <!-- <div class="col">
+              <input type="password" placeholder="Input password">
+            </div> -->
+            <div class="col">
+              <input type="number" min="0" max="99" placeholder="Input number">
+            </div>
+            <div class="col">
+              <select placeholder="Select">
+                <option value="1">option 1</option>
+                <option value="2">option 2</option>
+                <option value="3">option 3</option>
+              </select>
+            </div>
+            <div class="col">
+              <textarea placeholder="Textarea"></textarea>
+            </div>
+            <div class="col">
+              <label>
+                <input type="checkbox" placeholder="Input checkbox" checked>
+                Input checkbox
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input type="radio" name="radio1" value="1" placeholder="Input radio" checked>
+                Input radio 1
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input type="radio" name="radio1" value="2" placeholder="Input radio">
+                Input radio 2
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input type="radio" name="radio1" value="3" placeholder="Input radio">
+                Input radio 3
+              </label>
+            </div>
+          </form>
+        </tab>
+
       </tabs>
     </section>
 
