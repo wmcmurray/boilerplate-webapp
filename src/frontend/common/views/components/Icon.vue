@@ -20,8 +20,8 @@ export default {
       default: 'default',
     },
   },
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
 }
 </script>

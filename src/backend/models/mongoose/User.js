@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 /**
  * Represents a user
  */
-var theSchema = mongoose.Schema({
+const theSchema = mongoose.Schema({
   username: {
     type: String,
     required: true
@@ -21,6 +21,6 @@ theSchema.statics.findByUsername = function(username, cb) {
   return this.findOne({ username: username }, cb);
 };
 
-var theModel = mongoose.model('Viewer', theSchema);
+const theModel = mongoose.model('Viewer', theSchema);
 
 module.exports = theModel;

@@ -11,8 +11,8 @@
 <script>
 export default {
   name: 'sample-page',
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
 }
 </script>

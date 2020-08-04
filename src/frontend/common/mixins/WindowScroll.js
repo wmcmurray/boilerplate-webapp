@@ -7,25 +7,25 @@ import _debounce from 'lodash/debounce.js'
 * - window-scroll : when the user scrolled in the window
 */
 export default {
-  data: function() {
+  data() {
     return {
       scrollTop: this.getScrollTop(),
     };
   },
   methods: {
-    getScrollTop: function() {
+    getScrollTop() {
       return window.document.body.scrollTop || window.document.documentElement.scrollTop;
     }
   },
-  mounted: function() {
-    this._windowScrollDebounced = _debounce(function(){
+  mounted() {
+    this._windowScrollDebounced = _debounce(() => {
       this.$set(this, 'scrollTop', this.getScrollTop());
       this.$emit('window-scroll');
-    }.bind(this), 10);
+    }, 10);
 
     window.addEventListener('scroll', this._windowScrollDebounced);
   },
-  beforeDestroy: function() {
+  beforeDestroy() {
     window.removeEventListener('scroll', this._windowScrollDebounced);
   },
 }

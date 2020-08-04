@@ -2,14 +2,14 @@
 * Implements methods to track multiple stuff loading at the same time
 */
 export default {
-  data: function() {
+  data() {
     return {
       loadingStates: {},
     };
   },
   computed: {
-    loading: function() {
-      for(var i in this.loadingStates){
+    loading() {
+      for(const i in this.loadingStates){
         if(this.loadingStates[i] === true){
           return true;
         }
@@ -18,11 +18,11 @@ export default {
     }
   },
   methods: {
-    startLoading: function(key) {
+    startLoading(key) {
       if(typeof key === 'undefined'){key = 'main';}
       this.$set(this.loadingStates, key, true);
     },
-    stopLoading: function(key) {
+    stopLoading(key) {
       if(typeof key === 'undefined'){key = 'main';}
       this.$set(this.loadingStates, key, false);
     },
@@ -40,10 +40,10 @@ export default {
       }
 
       // attempt to match wilcard (if at least 1 wildcard found)
-      var keySplited = key.split('*');
+      const keySplited = key.split('*');
       if(keySplited.length > 1){
-        var reg = new RegExp('^' + keySplited.join('.*') + '$');
-        for(var kii in this.loadingStates){
+        const reg = new RegExp('^' + keySplited.join('.*') + '$');
+        for(const kii in this.loadingStates){
           if(reg.test(kii) && this.loadingStates[kii]){
             return true;
           }
@@ -56,8 +56,8 @@ export default {
     /**
      * Check if at least one item is loading
      */
-    isLoadingAny: function(keys) {
-      for(var i in keys){
+    isLoadingAny(keys) {
+      for(const i in keys){
         if(this.isLoading(keys[i])){
           return true;
         }

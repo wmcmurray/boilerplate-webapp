@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-var MEDIATOR_VUE = new Vue();
+const MEDIATOR_VUE = new Vue();
 
 /**
  * This file acts as an "Events bus", it's used to centralize the pub/sub of global events across
@@ -9,7 +9,7 @@ var MEDIATOR_VUE = new Vue();
  * List of implemented events :
  * - APP_READY    = When the application is ready
  */
-var MEDIATOR = {
+const MEDIATOR = {
   emit  : MEDIATOR_VUE.$emit.bind(MEDIATOR_VUE),
   on    : MEDIATOR_VUE.$on.bind(MEDIATOR_VUE),
   off   : MEDIATOR_VUE.$off.bind(MEDIATOR_VUE),

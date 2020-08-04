@@ -8,7 +8,7 @@ import NotFound from 'ROOT/views/pages/404.vue'
 
 Vue.use(VueRouter);
 
-var routes = [
+const routes = [
   {
     path: '/',
     name: 'home',
@@ -30,13 +30,13 @@ var routes = [
   },
 ];
 
-var router = new VueRouter({
+const router = new VueRouter({
   routes: routes,
   mode: 'history',
-  scrollBehavior: function(to, from, savedPosition){
+  scrollBehavior(to, from, savedPosition){
     // smooth scroll back to top
     if(from.name != to.name){
-      var app = router.app.$children[0];
+      const app = router.app.$children[0];
       app.$SmoothScroll(app.$el);
     }
 

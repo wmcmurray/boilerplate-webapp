@@ -16,7 +16,7 @@
 <script>
 import _indexOf from 'lodash/indexOf.js';
 
-var TABS_INSTANCES_COUNTER = 0;
+let TABS_INSTANCES_COUNTER = 0;
 
 /**
  * Displays a bloc with tabs to toogle content
@@ -37,7 +37,7 @@ export default {
       default: 0,
     },
   },
-  data: function () {
+  data () {
     return {
       id: 'tabs-'+ ++TABS_INSTANCES_COUNTER,
       currentActiveTab: null,
@@ -57,7 +57,7 @@ export default {
   },
 
   methods: {
-    addTab: function(tabIdent, title, component){
+    addTab(tabIdent, title, component){
       this.tabs.push({
         ident: tabIdent,
         title: title,
@@ -69,13 +69,13 @@ export default {
       }
     },
 
-    deleteTab: function(tabIdent){
-      this.tabs = this.tabs.filter(function(tab){
+    deleteTab(tabIdent){
+      this.tabs = this.tabs.filter((tab) => {
         return tab.ident !== tabIdent;
-      })
+      });
     },
 
-    selectTab: function(tab, updateRoute){
+    selectTab(tab, updateRoute){
       this.currentActiveTab = tab.ident;
       if(typeof updateRoute != 'undefined' && updateRoute && tab.component.route){
         this.$router.push(tab.component.route);
@@ -83,7 +83,7 @@ export default {
       }
     },
 
-    selectTabByIndex: function(index){
+    selectTabByIndex(index){
       if(typeof this.tabs[index] != 'undefined' && this.activeTab != this.tabs[index].ident){
         this.selectTab(this.tabs[index]);
       }
@@ -91,7 +91,7 @@ export default {
   },
 
   watch: {
-    currentActiveTab: function(val){
+    currentActiveTab(val){
       if(val && _indexOf(this.loadedTabsList, val) == -1){
         this.loadedTabsList.push(val);
       }

@@ -1,7 +1,7 @@
-var config = require('config');
+const config = require('config');
 const session = require('express-session');
 
-var sessionStore;
+let sessionStore;
 
 switch(config.database_object_modeling){
   case 'mongoose' :

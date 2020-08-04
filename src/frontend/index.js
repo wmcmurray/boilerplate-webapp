@@ -40,17 +40,17 @@ Vue.component('tabs', TabsComponent);
 Vue.component('tab', TabComponent);
 Vue.component('abstract-modal', AbstractModalComponent);
 
-var app = new Vue({
+const app = new Vue({
   el      : '#app',
   router  : Router,
   store   : Store,
-  render  : function render(h) {
+  render(h) {
     return h(App);
-  }
+  },
 });
 
 // register google analytics page views (if GA is loaded somewhere)
-Router.afterEach(function(to, from){
+Router.afterEach((to, from) => {
   if(typeof ga !== 'undefined'){
     ga('set', 'page', to.path);
     ga('send', 'pageview');

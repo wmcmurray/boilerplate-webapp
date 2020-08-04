@@ -12,11 +12,11 @@
 */
 export default {
   name: 'right-click-protection',
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
   methods: {
-    onContextMenuHandler: function(evt) {
+    onContextMenuHandler(evt) {
       evt.preventDefault();
     },
   }

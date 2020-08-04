@@ -9,10 +9,10 @@
 <script>
 export default {
   name: 'sample-modal',
-  data: function() {
+  data() {
     return {
       name: 'sample-modal',
-    }
+    };
   },
 }
 </script>

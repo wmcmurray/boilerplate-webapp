@@ -11,8 +11,8 @@
 <script>
 export default {
   name: 'home-page',
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
 }
 </script>

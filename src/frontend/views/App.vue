@@ -47,26 +47,26 @@ export default {
   components: {
     scrollToTopBtn: ScrollToTopBtn,
   },
-  data: function(){
+  data(){
     return {
       ready: false,
       about: JS_VARS.about,
       appVersion: JS_VARS.app_version,
       apiPage: JS_VARS.db_object_modeling ? true : false,
-    }
+    };
   },
   computed: {
-    copyrightNotice: function(){
-      var currentYear = (new Date()).getFullYear();
-      var launched = this.about.website.launched;
-      var author = this.about.author.name;
+    copyrightNotice(){
+      const currentYear = (new Date()).getFullYear();
+      const launched = this.about.website.launched;
+      let author = this.about.author.name;
       if(this.about.author.website){
         author = '<a href="'+this.about.author.website+'" target="_blank" rel="noopener">'+author+'</a>';
       }
       return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
     }
   },
-  created: function(){
+  created(){
     // define default locale
     moment.locale('en-gb');
 
@@ -74,7 +74,7 @@ export default {
     this.ready = true;
   },
   watch: {
-    ready: function(nv, ov){
+    ready(nv, ov){
       if(!ov && nv){
         Mediator.emit('APP_READY');
       }

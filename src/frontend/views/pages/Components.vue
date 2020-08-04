@@ -156,10 +156,10 @@
 <script>
 export default {
   name: 'components-page',
-  data: function(){
+  data(){
     return {
       currProgress: 25,
-    }
+    };
   },
 }
 </script>

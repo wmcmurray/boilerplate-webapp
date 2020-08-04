@@ -41,15 +41,15 @@ export default {
       default: false,
     },
   },
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
   computed: {
-    perct: function(){
+    perct(){
       if(this.current == 0) return 0;
       return (this.current * 100) / (this.to - this.from);
     },
-    displayedInfos: function(){
+    displayedInfos(){
       if(typeof this.infos === 'string') {
         return this.infos;
       }

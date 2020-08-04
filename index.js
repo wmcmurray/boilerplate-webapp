@@ -1,10 +1,10 @@
-var config = require('config');
+const config = require('config');
 
-var app;
+let app;
 
 switch (config.database_object_modeling) {
   case 'mongoose':
-    var MongooseDatabase = require('databases/mongoose.js');
+    const MongooseDatabase = require('databases/mongoose.js');
     MongooseDatabase.connect(function(){
       console.log('MONGOOSE : connected to "'+config.mongoose.name+'" database ');
       app = require('index.js');
@@ -12,7 +12,7 @@ switch (config.database_object_modeling) {
   break;
 
   case 'sequelize':
-    var SequelizeDatabase = require('databases/sequelize.js');
+    const SequelizeDatabase = require('databases/sequelize.js');
 
     // load models before sync
     require('models/sequelize/User.js');

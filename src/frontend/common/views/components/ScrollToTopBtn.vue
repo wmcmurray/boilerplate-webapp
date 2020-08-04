@@ -27,41 +27,41 @@ export default {
       default: 'body',
     },
   },
-  data: function(){
+  data(){
     return {
       targetElem: null,
       rawDistance: null,
-    }
+    };
   },
   computed: {
-    shown: function(){
+    shown(){
       if(this.distance > this.windowHeight){
         return true;
       }
       return false;
     },
-    distance: function(){
+    distance(){
       return this.rawDistance < 0 ? -this.rawDistance : this.rawDistance;
     },
-    direction: function(){
+    direction(){
       return this.rawDistance < 0 ? 1 : -1;
     },
-    iconName: function(){
+    iconName(){
       return this.direction > 0 ? 'chevron-up' : (this.direction < 0 ? 'chevron-down' : '');
     },
   },
-  mounted: function(){
+  mounted(){
     if(typeof this.target === 'string'){
       this.targetElem = document.querySelector(this.target);
     }
   },
   methods: {
-    action: function(){
+    action(){
       this.$SmoothScroll(this.targetElem);
     },
   },
   watch: {
-    scrollTop: function(nv){
+    scrollTop(nv){
       if(!this.targetElem || typeof this.targetElem.getBoundingClientRect === 'undefined'){
         return;
       }

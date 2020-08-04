@@ -1,13 +1,13 @@
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-var migrationName = process.argv[2];
-var fileName = (migrationName ? migrationName : 'unnamed') + '.js';
-var filePath = path.resolve(process.cwd(), 'migrations', getCurrentYYYYMMDDHHmms() + '-'+fileName);
+const migrationName = process.argv[2];
+const fileName = (migrationName ? migrationName : 'unnamed') + '.js';
+const filePath = path.resolve(process.cwd(), 'migrations', getCurrentYYYYMMDDHHmms() + '-'+fileName);
 
-fs.writeFileSync(filePath, `var Sequelize = require('sequelize');
-var sequelize = require('databases/sequelize.js');
-var queryInterface = sequelize.getQueryInterface();
+fs.writeFileSync(filePath, `const Sequelize = require('sequelize');
+const sequelize = require('databases/sequelize.js');
+const queryInterface = sequelize.getQueryInterface();
 
 module.exports = {
   up: () => {

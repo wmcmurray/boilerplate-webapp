@@ -30,9 +30,9 @@ export default {
       default: '',
     },
   },
-  data: function(){
-    return {}
-  }
+  data(){
+    return {};
+  },
 }
 </script>
 

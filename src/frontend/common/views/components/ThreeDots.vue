@@ -36,15 +36,15 @@ export default {
         default: false,
     },
   },
-  data: function(){
+  data(){
     return {
-      dots: []
-    }
+      dots: [],
+    };
   },
   computed: {
-    dotsSanitized: function () {
+    dotsSanitized() {
       if(this.fillVoid){
-        var dots = [].concat(this.dots);
+        const dots = [].concat(this.dots);
 
         while (dots.length < this.dotsMax) {
           dots.push('<span class="filled-void">'+this.dot+'</span>');
@@ -55,16 +55,16 @@ export default {
       return this.dots;
     },
   },
-  created: function () {
-    this.interval = setInterval(function () {
+  created() {
+    this.interval = setInterval(() => {
       if(this.dots.length >= this.dotsMax){
         this.dots = [];
       } else {
         this.dots.push(this.dot);
       }
-    }.bind(this), this.dotsInterval)
+    }, this.dotsInterval)
   },
-  destroyed: function(){
+  destroyed(){
     if(this.interval){
       clearInterval(this.interval);
     }

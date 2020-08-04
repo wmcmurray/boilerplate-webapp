@@ -6,23 +6,23 @@ export default {
   },
 
   getters : {
-    // sample: function(state){
+    // sample(state){
     //   return state.sample;
     // },
   },
 
   mutations : {
-    // SET_SAMPLE: function(state, value) {
+    // SET_SAMPLE(state, value) {
     //   state.sample = value;
     // },
   },
 
   actions : {
-    // sampleAction: function(store){
-    //   return axios.get(`/api/sample`).then(function(response){
+    // sampleAction(store){
+    //   return axios.get(`/api/sample`).then((response) => {
     //     store.commit('SET_SAMPLE', response.data);
     //     return response.data;
-    //   }).catch(function(error){
+    //   }).catch((error) => {
     //     throw error;
     //   });
     // }

@@ -7,7 +7,7 @@ import _debounce from 'lodash/debounce.js'
 * - window-resize : when the window gets resized
 */
 export default {
-  data: function() {
+  data() {
     return {
       _windowResizeDisabled: false,
       windowWidth: window.innerWidth,
@@ -15,7 +15,7 @@ export default {
     };
   },
   methods: {
-    _onWindowResizeHandler: function() {
+    _onWindowResizeHandler() {
       if(!this._windowResizeDisabled){
         this.$set(this, 'windowWidth', window.innerWidth);
         this.$set(this, 'windowHeight', window.innerHeight);
@@ -23,18 +23,18 @@ export default {
       }
     },
   },
-  mounted: function() {
+  mounted() {
     this._windowResizeDebounced = _debounce(this._onWindowResizeHandler.bind(this), 50);
     window.addEventListener('resize', this._windowResizeDebounced);
   },
-  activated: function() {
+  activated() {
     this._windowResizeDisabled = false;
     this._onWindowResizeHandler();
   },
-  deactivated: function() {
+  deactivated() {
     this._windowResizeDisabled = true;
   },
-  beforeDestroy: function() {
+  beforeDestroy() {
     window.removeEventListener('resize', this._windowResizeDebounced);
   },
 }

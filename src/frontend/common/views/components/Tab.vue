@@ -7,7 +7,7 @@
 <script>
 import _indexOf from 'lodash/indexOf.js';
 
-var counter = 0;
+let COUNTER = 0;
 
 /**
  * Displays a tab inside a tabs component
@@ -30,23 +30,23 @@ export default{
       default: null,
     },
   },
-  data: function(){
+  data(){
     return {
-      ident: ++counter
+      ident: ++COUNTER
     };
   },
   computed: {
-    currentActiveTab: function(){
+    currentActiveTab(){
       return this.$parent.currentActiveTab == this.ident;
     },
-    loaded: function(){
+    loaded(){
       return _indexOf(this.$parent.loadedTabsList, this.ident) !== -1;
     }
   },
-  beforeDestroy: function(){
+  beforeDestroy(){
     this.$parent.deleteTab(this.ident);
   },
-  created: function(){
+  created(){
     this.$parent.addTab(this.ident, this.title, this);
   }
 }

@@ -22,8 +22,8 @@ export default {
       default: true,
     },
   },
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
 }
 </script>

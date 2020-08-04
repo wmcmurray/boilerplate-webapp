@@ -3,10 +3,10 @@ const config = require('config');
 
 switch (config.database_object_modeling) {
   case 'mongoose':
-    var User = require('models/mongoose/User');
+    const User = require('models/mongoose/User');
   break;
   case 'sequelize':
-    var User = require('models/sequelize/User');
+    const User = require('models/sequelize/User');
   break;
 }
 
@@ -80,7 +80,7 @@ module.exports = class UsersController {
    * Create a user from username and return it
    */
   static createOneFromUsername(request, reply) {
-    var data = {
+    const data = {
       username: request.params.username,
     };
     switch (config.database_object_modeling) {
@@ -92,7 +92,7 @@ module.exports = class UsersController {
           } else if(doc){
             reply(Boom.forbidden('This username already exists.'));
           } else {
-            var user = new User(data);
+            const user = new User(data);
 
             user.save(function(err){
               if(err){

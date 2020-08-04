@@ -47,51 +47,51 @@ export default {
   mixins: [
     HasApiMixin,
   ],
-  data: function(){
+  data(){
     return {
       newusername: '',
       users: [],
       about: {},
-    }
+    };
   },
   methods: {
     // get all users from API and update view
-    getUsers: function(){
-      return this.api('get', '/users').then(function(res){
+    getUsers(){
+      return this.api('get', '/users').then((res) => {
         this.users = res;
-      }.bind(this));
+      });
     },
 
     // create a user into database
-    createUser: function(){
+    createUser(){
       if(this.newusername != ''){
-        this.api('post', '/users/'+this.newusername).then(function(res){
+        this.api('post', '/users/'+this.newusername).then((res) => {
           this.$snotify.success('User created !');
           this.getUsers();
-        }.bind(this));
+        });
       } else {
         this.$snotify.error('Write down a username please.');
       }
     },
 
     // delete user from database
-    deleteUser: function(user){
+    deleteUser(user){
       if(user.username){
-        this.api('delete', '/users/'+user.username).then(function(res){
+        this.api('delete', '/users/'+user.username).then((res) => {
           this.$snotify.success('User deleted !');
           this.getUsers();
-        }.bind(this));
+        });
       }
     },
   },
-  created: function(){
+  created(){
     // get initial users list
     this.getUsers();
 
     // get infos about api
-    this.api('get', '/').then(function(res){
+    this.api('get', '/').then((res) => {
       this.about = res;
-    }.bind(this));
+    });
   },
 }
 </script>

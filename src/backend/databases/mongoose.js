@@ -1,6 +1,6 @@
-var config = require('config');
-var mongoose = require('mongoose');
-var DB = null;
+const config = require('config');
+const mongoose = require('mongoose');
+let DB = null;
 
 mongoose.Promise = global.Promise; // this fixes an undefined Promise error somewere...
 

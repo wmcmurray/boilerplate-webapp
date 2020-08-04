@@ -6,26 +6,26 @@
 * - window-blur   : when the window loose focus
 */
 export default {
-  data: function() {
+  data() {
     return {
       windowHasFocus: window.document.hasFocus() || true,
     };
   },
   methods: {
-    _onWindowFocusHandler: function() {
+    _onWindowFocusHandler() {
       this.windowHasFocus = true;
       this.$emit('window-focus');
     },
-    _onWindowBlurHandler: function() {
+    _onWindowBlurHandler() {
       this.windowHasFocus = false;
       this.$emit('window-blur');
     },
   },
-  mounted: function() {
+  mounted() {
     window.addEventListener('focus', this._onWindowFocusHandler);
     window.addEventListener('blur', this._onWindowBlurHandler);
   },
-  beforeDestroy: function() {
+  beforeDestroy() {
     window.removeEventListener('focus', this._onWindowFocusHandler);
     window.removeEventListener('blur', this._onWindowBlurHandler);
   },

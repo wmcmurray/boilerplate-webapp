@@ -1,5 +1,5 @@
-var path = require('path');
-var VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   resolve: {

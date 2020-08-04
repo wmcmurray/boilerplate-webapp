@@ -1,11 +1,11 @@
 import _findIndex from 'lodash/findIndex.js'
 
-var SUPPORTED = typeof window.IntersectionObserver !== 'undefined' ? true : false;
+const SUPPORTED = typeof window.IntersectionObserver !== 'undefined' ? true : false;
 if(SUPPORTED){
-  var OBSERVED = [];
-  var OBSERVER = new IntersectionObserver(function(changes) {
-    var change, index;
-    for(var i in changes){
+  const OBSERVED = [];
+  const OBSERVER = new IntersectionObserver((changes) => {
+    let change, index;
+    for(const i in changes){
       change = changes[i];
       if(change.isIntersecting){
         OBSERVER.unobserve(change.target);
@@ -30,7 +30,7 @@ export default {
    * Check when the element enters viewport then trigger the callback when it happens
    * NOTE : will trigger the callback imediately if this browser feature is not supported
    */
-  observe: function(elem, cb) {
+  observe(elem, cb) {
     if(SUPPORTED){
       OBSERVER.observe(elem);
       OBSERVED.push({ elem: elem, cb: cb });

@@ -1,8 +1,8 @@
-var umzug = require('./_umzug.js');
+const umzug = require('./_umzug.js');
 
 umzug.down().then(function (migrations) {
   if(migrations.length){
-    for(var m of migrations){
+    for(const m of migrations){
       console.log('undone : ' + m.file);
     }
   } else {

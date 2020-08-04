@@ -44,16 +44,16 @@ export default {
       default: false,
     },
   },
-  data: function(){
+  data(){
     return {
       loaded: false,
       errored: false,
       placeholderUrl: null,
       enteredViewport: false,
-    }
+    };
   },
   computed: {
-    ratioAsNumber: function() {
+    ratioAsNumber() {
       if(typeof this.ratio === 'number'){
         return this.ratio;
       }
@@ -63,16 +63,16 @@ export default {
       }
       return 1
     },
-    style: function() {
+    style() {
       return !this.loaded || (this.errored && !this.placeholderUrl) ? 'padding-top: '+(Math.round((this.ratioAsNumber * 100) * 100) / 100)+'%' : '';
     },
   },
-  mounted: function(){
-    // setTimeout(function(){
+  mounted(){
+    // setTimeout(() => {
 
-    IntersectionObserver.observe(this.$refs.component, function(){
+    IntersectionObserver.observe(this.$refs.component, () => {
       this.enteredViewport = true;
-      this.$nextTick(function(){
+      this.$nextTick(() => {
         if(typeof this.$refs.img != 'undefined'){
           if(this.$refs.img.complete){
             this.onImageLoadedHandler();
@@ -81,27 +81,27 @@ export default {
             this.$refs.img.onerror = this.onImageErrorHandler.bind(this);
           }
         }
-      }.bind(this));
-    }.bind(this));
+      });
+    });
 
-    // }.bind(this), (Math.random() * 2000 + 1500));
+    // }, (Math.random() * 2000 + 1500));
   },
   methods: {
-    onImageLoadedHandler: function(){
+    onImageLoadedHandler(){
       this.loaded = true;
     },
-    onImageErrorHandler: function(err){
+    onImageErrorHandler(err){
       if(!this.errored){
         this.errored = true;
 
         // attempt to draw a placeholder image
         try {
-          var bb = this.$refs.img.getBoundingClientRect();
-          var w = Math.round(bb.width || 512);
-          var h = Math.round(w * this.ratioAsNumber);
-          var fontSize = Math.max(Math.round(Math.min(w, h) * 0.085), 13);
-          var canvas = document.createElement('canvas');
-          var ctx = canvas.getContext('2d');
+          const bb = this.$refs.img.getBoundingClientRect();
+          const w = Math.round(bb.width || 512);
+          const h = Math.round(w * this.ratioAsNumber);
+          const fontSize = Math.max(Math.round(Math.min(w, h) * 0.085), 13);
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
           canvas.width = w;
           canvas.height = h;
 

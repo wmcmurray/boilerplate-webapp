@@ -28,15 +28,14 @@ export default {
       default: 1350,
     },
   },
-  data: function(){
-    return {
-    }
+  data(){
+    return {};
   },
   computed: {
-    animationDuration: function() {
+    animationDuration() {
       return _round(this.speed / 1000, 4);
     },
-    animationDelay: function() {
+    animationDelay() {
       return _round(this.animationDuration / this.count, 4);
     },
   },

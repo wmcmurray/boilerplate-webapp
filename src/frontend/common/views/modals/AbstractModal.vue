@@ -24,20 +24,19 @@ export default {
       default: 'auto',
     },
   },
-  data: function() {
-    return {
-    }
+  data() {
+    return {};
   },
   methods: {
-    show: function() {
+    show() {
       this.$modal.show(this.name);
     },
-    hide: function() {
+    hide() {
       this.$modal.hide(this.name);
     },
-    beforeOpen: function(evt) {
+    beforeOpen(evt) {
     },
-    beforeClose: function(evt) {
+    beforeClose(evt) {
     },
   }
 }

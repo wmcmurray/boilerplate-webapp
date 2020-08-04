@@ -1,7 +1,7 @@
-var Database = require('databases/sequelize.js');
-var Umzug = require('umzug');
+const Database = require('databases/sequelize.js');
+const Umzug = require('umzug');
 
-var umzug = new Umzug({
+const umzug = new Umzug({
   storage: 'sequelize',
   storageOptions: {
     sequelize: Database,

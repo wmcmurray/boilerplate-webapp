@@ -10,8 +10,8 @@
 */
 export default {
   name: 'spinner-classic',
-  data: function(){
-    return {}
+  data(){
+    return {};
   },
 }
 </script>

@@ -1,12 +1,12 @@
-var path = require('path');
-var config = require('config');
-var packageJson = require(path.join(process.cwd(), '/package.json'));
+const path = require('path');
+const config = require('config');
+const packageJson = require(path.join(process.cwd(), '/package.json'));
 
 /**
  * Set variables into the views of whe main entry point of the SPA
  */
 module.exports = function(req, res, next) {
-  var JS_VARS = {
+  const JS_VARS = {
     // session     : req.session ? true : false,
     about       : config.about,
     app_version : packageJson.version || null,

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('databases/sequelize.js');
 
-var theModel = sequelize.define('user', {
+const theModel = sequelize.define('user', {
   username  : Sequelize.STRING,
   points    : {
     type: Sequelize.INTEGER,

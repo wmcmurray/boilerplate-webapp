@@ -1,14 +1,14 @@
-var config = require('config');
-var express = require('express');
-var path = require('path');
-var http = require('http');
-// var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const config = require('config');
+const express = require('express');
+const path = require('path');
+const http = require('http');
+// const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var app = express();
-var port = normalizePort(process.env.PORT || config.port);
+const app = express();
+const port = normalizePort(process.env.PORT || config.port);
 
 app.set('port', port);
 
@@ -37,7 +37,7 @@ app.use('/', require('routes/website'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
@@ -52,7 +52,7 @@ app.use(function(err, req, res, next) {
 });
 
 // initialize the server
-var server = http.createServer(app);
+const server = http.createServer(app);
 server.listen(port);
 
 server.on('error', function(error) {
@@ -60,7 +60,7 @@ server.on('error', function(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -78,8 +78,8 @@ server.on('error', function(error) {
 });
 
 server.on('listening', function() {
-  var addr = server.address();
-  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
 
   console.log('Running on ' + bind);
 });
@@ -89,7 +89,7 @@ server.on('listening', function() {
  * Normalize a port into a number, string, or false.
  */
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe

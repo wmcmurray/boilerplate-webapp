@@ -13,9 +13,9 @@
 */
 export default {
   name: 'sample',
-  data: function(){
-    return {}
-  }
+  data(){
+    return {};
+  },
 }
 </script>
 
