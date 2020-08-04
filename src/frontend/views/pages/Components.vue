@@ -2,7 +2,7 @@
   <div class="components-page">
 
     <section class="limit-width padded text-center">
-      <div class="grid-4-middle-noBottom">
+      <div class="grid-4_sm-2-middle-noBottom">
         <div class="col">
           <div id="spinner-container" class="spinner-container">
             <overlay-spinner />
@@ -22,11 +22,13 @@
     </section>
 
     <section class="limit-width padded text-center">
-      <button type="button" class="button" @click="$modal.show('demodal')">Show modal</button>
-      <button type="button" class="button" v-tippy="{trigger:'click'}" title="Hello world">Tooltip</button>
-      <button type="button" class="button" @click="$snotify.success('Success notif')">Show success notif</button>
-      <button type="button" class="button" @click="$snotify.error('Error notif')">Show error notif</button>
-      <button type="button" class="button" @click="$snotify.info('Info notif')">Show info notif</button>
+      <div class="buttons-container">
+        <button type="button" @click="$modal.show('demodal')">Show modal</button>
+        <button type="button" @click="$snotify.success('Success notif')">Show success notif</button>
+        <button type="button" @click="$snotify.error('Error notif')">Show error notif</button>
+        <button type="button" @click="$snotify.info('Info notif')">Show info notif</button>
+        <button type="button" class="wireframe" v-tippy title="Hello world">Tooltip</button>
+      </div>
     </section>
 
     <abstract-modal name="demodal">
@@ -39,10 +41,78 @@
     <hr>
 
     <section class="limit-width padded">
+      <form class="grid-1" autocomplete="off">
+        <div class="col">
+          <input type="text" placeholder="Input text">
+        </div>
+        <div class="col">
+          <input type="color" placeholder="Input color">
+        </div>
+        <div class="col">
+          <input type="date" placeholder="Input date">
+        </div>
+        <div class="col">
+          <input type="time" placeholder="Input time">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Input file">
+        </div>
+        <!-- <div class="col">
+          <input type="tel" placeholder="Input tel">
+        </div>
+        <div class="col">
+          <input type="url" placeholder="Input url">
+        </div> -->
+        <!-- <div class="col">
+          <input type="password" placeholder="Input password">
+        </div> -->
+        <div class="col">
+          <input type="number" min="0" max="99" placeholder="Input number">
+        </div>
+        <div class="col">
+          <select placeholder="Select">
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+          </select>
+        </div>
+        <div class="col">
+          <textarea placeholder="Textarea"></textarea>
+        </div>
+        <div class="col">
+          <label>
+            <input type="checkbox" placeholder="Input checkbox" checked>
+            Input checkbox
+          </label>
+        </div>
+        <div class="col">
+          <label>
+            <input type="radio" name="radio1" value="1" placeholder="Input radio" checked>
+            Input radio 1
+          </label>
+        </div>
+        <div class="col">
+          <label>
+            <input type="radio" name="radio1" value="2" placeholder="Input radio">
+            Input radio 2
+          </label>
+        </div>
+        <div class="col">
+          <label>
+            <input type="radio" name="radio1" value="3" placeholder="Input radio">
+            Input radio 3
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <hr>
+
+    <section class="limit-width padded">
       <tabs>
         <tab title="Text content">
           <div class="grid">
-            <div v-for="i in [1,2,3]" class="col-4_sm-12 text-content text-justify">
+            <div v-for="i in [1,2]" class="col-6_sm-12 text-content text-justify">
               <p v-if="i == 1">Lorem ipsum dolor sit amet, <i>consectetur adipisicing elit</i>, sed do eiusmod <a href="#">tempor incididunt</a> ut labore et <b>dolore</b> magna aliqua.</p>
               <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <p v-if="i !== 2">Consectidunt ut labore et dolore magna aliqua. Ut enim ad minetur adipisicing elit, sed do eiusmod tempor incidim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

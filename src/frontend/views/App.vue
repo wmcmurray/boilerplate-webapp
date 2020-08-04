@@ -95,6 +95,7 @@ export default {
 @import "~COMMON/styles/transitions";
 @import "~COMMON/styles/classes";
 @import "~ROOT/styles/base";
+@import "~ROOT/styles/forms";
 
 /**
  *  App style

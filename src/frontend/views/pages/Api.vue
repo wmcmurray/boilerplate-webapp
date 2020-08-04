@@ -28,7 +28,7 @@
             <h2>Create user</h2>
             <div class="form-row">
               <input type="text" name="newuser" v-model="newusername" placeholder="Username">
-              <button class="button" name="newuserbtn" v-on:click="createUser" :disabled="newusername == '' || loading">Create</button>
+              <button name="newuserbtn" v-on:click="createUser" :disabled="newusername == '' || loading">Create</button>
             </div>
           </div>
         </div>

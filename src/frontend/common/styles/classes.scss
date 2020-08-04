@@ -66,6 +66,17 @@
   background-color: #fff;
 }
 
+.buttons-container {
+  $spacing: $globalPadding * 0.5;
+
+  margin: $spacing * -0.5;
+  font-size: 0px;
+
+  > button {
+    margin: $spacing * 0.5;
+  }
+}
+
 .hidden-xs {
   @media (max-width: $xs){
     display: none;

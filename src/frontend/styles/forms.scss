@@ -1,0 +1,158 @@
+$inputPaddingVertical: $globalPadding * 0.5;
+$inputPaddingHorizontal: $globalPadding * 0.75;
+
+form {
+  input, textarea, select, button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  label {
+    font-weight: bold;
+
+    input {
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+
+input, textarea, select, button {
+  margin: 0px;
+  padding: $inputPaddingVertical $inputPaddingHorizontal;
+  border: 1px solid transparent;
+  background-color: #fff;
+  color: $colorText;
+  outline: none;
+  border-radius: $globalRoundness;
+
+  @include placeholder {
+    color: rgba($colorText, 0.5);
+    font-style: italic;
+    @include disable-select;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(saturate($colorHighlight, 25%), 0.75);
+  }
+}
+
+select, button {
+  @include clickable;
+}
+
+select {
+  appearance: none;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 5em;
+  min-height: 5em;
+  max-height: 15em;
+}
+
+input[type="color"] {
+  min-height: ($globalFontSize * 1.5) + ($inputPaddingVertical * 2);
+}
+
+input[type="checkbox"], input[type="radio"] {
+  position: relative;
+  appearance: none;
+  width: $globalFontSize;
+  height: $globalFontSize;
+  padding: $globalPadding * 0.6;
+  @include clickable;
+
+  &:after {
+    content: ' ';
+    @include full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: mix($colorText, $colorHighlight, 90%);
+    font-size: $globalFontSize;
+    font-weight: bold;
+    color: $colorText;
+    border-radius: 2px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s $easeInOutBack;
+    box-shadow: 0px 0px 2px 1px rgba(white, 0.2) inset, 0px 0px 3px rgba(black, 0.25);
+  }
+
+  &:checked {
+    &:after {
+      opacity: 1;
+      transform: scale(0.75);
+    }
+  }
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+
+  &:after {
+    border-radius: 50%;
+  }
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  padding-left: $globalPadding;
+  padding-right: $globalPadding;
+  border-color: $colorText;
+  background-color: $colorText;
+  color: invert($colorText);
+
+  .icon {
+    vertical-align: middle;
+    font-size: 1.3em;
+  }
+
+  &:after {
+    content: ' ';
+    @include full;
+    transition: box-shadow 0.2s ease-out;
+    box-shadow: 0px 2px 5px rgba(black, 0.25), 0px 2px 5px rgba(black, 0) inset;
+  }
+
+  &:active {
+    &:after {
+      box-shadow: 0px 2px 5px rgba(black, 0), 0px 2px 5px rgba(black, 0.25) inset !important;
+    }
+  }
+
+  &:hover, &:active {
+    border-color: $colorHighlight;
+    background-color: $colorHighlight;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  &.wireframe {
+    background-color: transparent;
+    color: $colorText;
+
+    &:after {
+      box-shadow: none;
+    }
+
+    &:hover, &:active {
+      background-color: transparent;
+      color: $colorHighlight;
+    }
+  }
+}
+
+input, select, button {
+  &:disabled {
+    background-color: $colorDisabled!important;
+    color: $colorText!important;
+    cursor: not-allowed;
+  }
+}
