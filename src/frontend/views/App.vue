@@ -1,34 +1,52 @@
 <template>
-  <div id="app">
+  <div id="app" :class="'mainmenu-mobile-'+(mainMenuMobileOpened?'opened':'closed')">
     <template v-if="ready">
-      <header id="header">
-        <router-link :to="{name:'home'}" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
-      </header>
+      <div id="app-content">
+        <header id="header">
+          <router-link :to="{name:'home'}" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
+        </header>
 
-      <nav id="mainmenu">
-        <ul class="inline text-center">
-          <template v-for="link, i in mainMenuLinks">
-            <li v-if="i !== 0" class="sep">·</li>
-            <li>
-              <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
-              <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
-            </li>
-          </template>
+        <nav id="mainmenu-desktop">
+          <ul class="inline text-center">
+            <template v-for="link, i in mainMenuLinks">
+              <li v-if="i !== 0" class="sep">·</li>
+              <li>
+                <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
+                <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
+              </li>
+            </template>
+          </ul>
+        </nav>
+
+        <main id="main">
+          <transition name="fadein" mode="out-in">
+            <router-view/>
+          </transition>
+        </main>
+
+        <footer id="footer">
+          <p v-html="copyrightNotice"></p>
+        </footer>
+      </div>
+
+      <transition name="fade">
+        <div v-if="mainMenuMobileOpened" id="mainmenu-mobile-overlay" @click="toogleMainMenu(false)"></div>
+      </transition>
+      <nav id="mainmenu-mobile">
+        <ul>
+          <li v-for="link, i in mainMenuLinks" @click="toogleMainMenu(false)">
+            <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
+            <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
+          </li>
         </ul>
       </nav>
+      <div id="mainmenu-mobile-btn" @click="toogleMainMenu(!mainMenuMobileOpened)">
+        <icon v-if="!mainMenuMobileOpened" name="menu" />
+        <icon v-if="mainMenuMobileOpened" name="close" />
+      </div>
 
-      <main id="main">
-        <transition name="fadein" mode="out-in">
-          <router-view/>
-        </transition>
-      </main>
-
-      <footer id="footer">
-        <p v-html="copyrightNotice"></p>
-      </footer>
-
-      <scroll-to-top-btn />
-      <vue-snotify />
+      <scroll-to-top-btn v-if="!mainMenuMobileOpened" />
+      <vue-snotify class="snotify-container" />
     </template>
     <template v-else>
       <overlay-spinner :quickExit="true"/>
@@ -51,6 +69,7 @@ export default {
   data(){
     return {
       ready: false,
+      mainMenuMobileOpened: false,
       about: JS_VARS.about,
       appVersion: JS_VARS.app_version,
     };
@@ -101,6 +120,9 @@ export default {
       }
       return _filter(links, {visible: true});
     },
+    toogleMainMenu(value){
+      this.mainMenuMobileOpened = value;
+    },
   },
   created(){
     // define default locale
@@ -137,8 +159,38 @@ export default {
  *  App style
  */
 #app {
+  $mainMenuMobileTransition: 0.35s $easeOutQuint;
+  $mainMenuMobileTransitionPerspective: 0.2;
+  $mainMenuMobileSide: right; // left | right
+  $mainMenuMobileMaxWidth: 400px;
+  $mainMenuMobileZIndex: 99999;
+  $mainMenuMobileStartAt: $sm;
+  $mainMenuMobileIconSize: 40px;
+
+  overflow: hidden;
+  padding-top: 0px;
+
+  @media (max-width: $mainMenuMobileStartAt){
+    $mainMenuMobileHeight: 72px;
+
+    padding-top: $mainMenuMobileHeight;
+
+    .snotify-container .snotify {
+      transform: translateY($mainMenuMobileHeight);
+    }
+  }
+
+  #app-content, #header {
+    transition: $mainMenuMobileSide $mainMenuMobileTransition;
+  }
+
+  #app-content {
+    position: relative;
+  }
+
   #header {
     padding: $globalPadding;
+    box-sizing: border-box;
     text-align: center;
 
     > .logo {
@@ -163,6 +215,7 @@ export default {
       sub {
         display: inline-block;
         width: 0px;
+        height: 0px;
         font-weight: normal;
         font-size: 10px;
         opacity: 0.5;
@@ -179,17 +232,35 @@ export default {
       @media (max-width: $md){
         font-size: 50px;
       }
-      @media (max-width: $sm){
-        font-size: 40px;
-      }
-      @media (max-width: $xs){
+
+      @media (max-width: $mainMenuMobileStartAt){
         font-size: 30px;
+        line-height: 1em;
         white-space: normal;
-        text-shadow: none;
+        color: #fff;
+        text-shadow: 0px 1px 0px darken($color, 25%);
+        transition: none;
+
+        sub {
+          display: none;
+        }
       }
     }
+
+    @media (max-width: $mainMenuMobileStartAt){
+      position: fixed;
+      z-index: $mainMenuMobileZIndex - 2;
+      top: 0px;
+      width: 100%;
+      padding-right: $mainMenuMobileIconSize + ($globalPadding * 2);
+      background-color: rgba($colorText, 0.9);
+      text-align: left;
+      box-shadow: 0px 1px 2px rgba(black, 0.1);
+      backdrop-filter: blur(10px);
+    }
   }
-  #mainmenu {
+
+  #mainmenu-desktop {
     margin-bottom: $globalSpacing;
     .sep {
       padding: 0px 3px;
@@ -197,12 +268,17 @@ export default {
       font-size: 2em;
       color: $colorHighlight;
     }
+    @media (max-width: $mainMenuMobileStartAt){
+      display: none;
+    }
   }
+
   #main {
     position: relative;
     min-height: 50vh;
     padding: $globalPadding 0px;
   }
+
   #footer {
     padding: $globalPadding;
     text-align: center;
@@ -211,6 +287,117 @@ export default {
 
     > p {
       margin: 0.5em;
+    }
+  }
+
+  #mainmenu-mobile-overlay {
+    position: fixed;
+    z-index: $mainMenuMobileZIndex - 1;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.35);
+
+    &.fade-leave-active {
+      pointer-events: none;
+    }
+  }
+
+  #mainmenu-mobile-btn {
+    @include disable-select;
+    @include clickable;
+    display: none;
+    position: fixed;
+    z-index: $mainMenuMobileZIndex + 1;
+    top: $globalPadding - 3px;
+    right: $globalPadding;
+    font-size: 0px;
+    line-height: 0px;
+
+    svg {
+      height: $mainMenuMobileIconSize;
+      width: $mainMenuMobileIconSize;
+      color: #fff;
+    }
+
+    @media (max-width: $mainMenuMobileStartAt){
+      display: block;
+    }
+  }
+
+  #mainmenu-mobile {
+    @if $mainMenuMobileSide == 'right' {
+      right: 0%;
+    } @else {
+      left: 0%;
+    }
+
+    @include disable-select;
+    position: fixed;
+    z-index: $mainMenuMobileZIndex;
+    top: 0px;
+    width: 100% - (100% * $mainMenuMobileTransitionPerspective);
+    max-width: $mainMenuMobileMaxWidth;
+    height: 100%;
+    padding: $globalPadding;
+    box-sizing: border-box;
+    background-color: lighten($colorBackground, 10%);
+    overflow-y: auto;
+    transition: $mainMenuMobileSide $mainMenuMobileTransition;
+    box-shadow: -5px 0px 25px rgba(black, 0.1);
+
+    > ul {
+      > li {
+        a {
+          display: block;
+          padding: $globalPadding * 0.5 0px;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  &.mainmenu-mobile-opened {
+    #app-content, #header {
+      $mediaQueryValue: $mainMenuMobileMaxWidth * (1 + $mainMenuMobileTransitionPerspective); // its about right
+      $decal: 100% * $mainMenuMobileTransitionPerspective;
+
+      pointer-events: none;
+
+      @if $mainMenuMobileSide == 'right' {
+        right: $decal;
+      } @else {
+        left: $decal;
+      }
+      @media (min-width: $mediaQueryValue) {
+        right: $mainMenuMobileMaxWidth * $mainMenuMobileTransitionPerspective !important;
+      }
+    }
+
+    @if $mainMenuMobileSide == 'right' {
+      #mainmenu-mobile-btn {
+        svg {
+          color: $colorText;
+        }
+      }
+    }
+  }
+
+  &.mainmenu-mobile-closed {
+    #app-content, #header {
+      @if $mainMenuMobileSide == 'right' {
+        right: 0%;
+      } @else {
+        left: 0%;
+      }
+    }
+    #mainmenu-mobile {
+      @if $mainMenuMobileSide == 'right' {
+        right: -100%;
+      } @else {
+        left: -100%;
+      }
     }
   }
 }

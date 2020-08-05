@@ -95,7 +95,7 @@ export default {
     line-height: 1em;
     transition: background-color $mouseEffectsDuration ease-out, bottom $mouseEffectsDuration ease-out;
     border-radius: $globalRoundness $globalRoundness 0px 0px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     @include clickable;
 
     &:hover {

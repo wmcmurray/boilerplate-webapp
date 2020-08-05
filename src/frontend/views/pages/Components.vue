@@ -172,6 +172,13 @@ export default {
   > section {
     padding-top: $globalSpacing;
     padding-bottom: $globalSpacing;
+
+    &:first-child {
+      padding-top: 0px;
+    }
+    &:last-child {
+      padding-bottom: 0px;
+    }
   }
 
   #spinner-container {
