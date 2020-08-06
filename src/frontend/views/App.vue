@@ -10,10 +10,7 @@
           <ul class="inline text-center">
             <template v-for="link, i in mainMenuLinks">
               <li v-if="i !== 0" class="sep">·</li>
-              <li>
-                <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
-                <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
-              </li>
+              <menu-item :link="link" />
             </template>
           </ul>
         </nav>
@@ -33,11 +30,12 @@
         <div v-if="mainMenuMobileOpened" id="mainmenu-mobile-overlay" @click="toogleMainMenu(false)"></div>
       </transition>
       <nav id="mainmenu-mobile">
-        <ul>
-          <li v-for="link, i in mainMenuLinks" @click="toogleMainMenu(false)">
-            <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
-            <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
-          </li>
+        <ul @click="toogleMainMenu(false)">
+          <menu-item
+            v-for="link, i in mainMenuLinks"
+            :key="link.href || link.route.name"
+            :link="link"
+          />
         </ul>
       </nav>
       <div id="mainmenu-mobile-btn" @click="toogleMainMenu(!mainMenuMobileOpened)">
@@ -60,11 +58,13 @@ import moment from 'moment'
 import store from 'ROOT/store.js'
 import Mediator from 'ROOT/mediator.js'
 import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
+import MenuItem from 'COMMON/views/components/MenuItem.vue'
 
 export default {
   name: 'app',
   components: {
     ScrollToTopBtn,
+    MenuItem,
   },
   data(){
     return {
