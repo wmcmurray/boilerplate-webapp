@@ -142,7 +142,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Play');
 @import "~vue-snotify/styles/material.css";
 
 @import "~COMMON/styles/config.scss";
@@ -194,7 +193,7 @@ export default {
     text-align: center;
 
     > .logo {
-      $color: lighten($colorHighlight, 10%);
+      $color: lighten($colorHighlight, 5%);
       $gradientStart: 15%;
       $gradientSpeed: 5%;
 
@@ -203,7 +202,6 @@ export default {
       $gradient3: ($gradientStart + ($gradientSpeed * 2));
 
       white-space: nowrap;
-      font-family: 'Play', sans-serif;
       font-size: 60px;
       line-height: $globalLineHeight;
       font-weight: bold;

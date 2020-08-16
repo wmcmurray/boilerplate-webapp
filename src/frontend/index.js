@@ -3,7 +3,7 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import VModal from 'vue-js-modal'
 import VueTippy from 'vue-tippy'
-import Snotify from 'vue-snotify/vue-snotify.min.js' // because there is ES6 syntax inside commonjs module
+import Snotify from 'vue-snotify'
 import App from 'ROOT/views/App.vue'
 import Router from 'ROOT/router.js'
 import Store from 'ROOT/store.js'

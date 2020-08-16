@@ -1,7 +1,7 @@
 <template>
   <li class="menu-item">
     <router-link v-if="link.route" :to="link.route" :exact="link.exact">{{ link.html }}</router-link>
-    <a v-else :href="link.href" target="_blank">{{ link.html }}</a>
+    <a v-else :href="link.href" target="_blank" rel="noopener">{{ link.html }}</a>
   </li>
 </template>
 

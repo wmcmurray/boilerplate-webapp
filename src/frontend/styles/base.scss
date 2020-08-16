@@ -65,7 +65,7 @@ a {
   color: inherit;
 
   &:hover, &.router-link-active {
-    color: $colorHighlight;
+    color: darken($colorHighlight, 15%);
   }
 }
 

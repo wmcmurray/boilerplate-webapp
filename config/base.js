@@ -16,7 +16,7 @@ module.exports = {
   },
   seo: {
     title         : 'Webapp Boilerplate',
-    description   : '',
+    description   : 'A foundation to build web apps upon.',
     keywords      : '',
     og_type       : 'website',
     og_locale     : 'en_CA',
