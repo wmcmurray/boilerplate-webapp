@@ -18,7 +18,7 @@
 
 ### Basic (required)
 
-1. Run `npm install && npm run build`
+1. Run `npm install && npm run prod`
 2. Copy `/config/default-sample.js` to `/config/default.js` and check settings
 
 ### Setup Sequelize database (optional)
@@ -41,7 +41,7 @@
 ## Develop
 
 - `npm run dev` will compile frontend assets in realtime
-- `npm run build` will compile frontend assets for production
+- `npm run prod` will compile frontend assets for production
 
 ## Database migrations
 

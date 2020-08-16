@@ -59,5 +59,7 @@ typings/
 # project specific
 package-lock.json
 config/default.js
-public/js/all.js
-public/js/vendors.js
+public/dist/main.js
+public/dist/main.css
+public/dist/vendors.js
+public/dist/vendors.css

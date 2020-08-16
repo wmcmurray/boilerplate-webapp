@@ -1,5 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   resolve: {
@@ -9,10 +10,10 @@ module.exports = {
     }
   },
   entry: {
-    all: path.resolve(__dirname, 'src/frontend/index.js'),
+    main: path.resolve(__dirname, 'src/frontend/index.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'public/js/'),
+    path: path.resolve(__dirname, 'public/dist/'),
   },
   module: {
     rules: [
@@ -26,26 +27,48 @@ module.exports = {
         }
       },
       {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   },
   plugins: [
     new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      ignoreOrder: true,
+    }),
   ],
   optimization: {
     splitChunks: {
       automaticNameDelimiter: '-',
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          filename: 'vendors.js',
+          test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
         },
       },
     },
+  },
+  stats: {
+    children: false,
+    warnings: false,
+    version: true,
+    usedExports: false,
+    timings: true,
+    modules: false,
+    hash: false,
+    builtAt: false,
   },
   node: {
     fs: 'empty'

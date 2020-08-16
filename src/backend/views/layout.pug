@@ -13,6 +13,9 @@ html(lang='en-CA', style='background-color:#ddd')
     meta(property='og:site_name', content=seo.og_site_name)
     meta(property='og:url', content=canonical_url)
 
+    link(rel='stylesheet', href='/dist/vendors.css')
+    link(rel='stylesheet', href='/dist/main.css')
+
     if seo.og_image
       meta(property='og:image', content=base_url+seo.og_image)
 
@@ -31,5 +34,5 @@ html(lang='en-CA', style='background-color:#ddd')
   body
     div#app
       block content
-    script(src='/js/vendors.js')
-    script(src='/js/all.js')
+    script(src='/dist/vendors.js')
+    script(src='/dist/main.js')
