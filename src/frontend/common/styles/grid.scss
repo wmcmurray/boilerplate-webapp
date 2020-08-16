@@ -1,5 +1,11 @@
 @import "~COMMON/styles/config.scss";
 
 $gl-gutter: $globalPadding;
+$gl-mq-list: (
+  lg: $lg - 1px,
+  md: $md - 1px,
+  sm: $sm - 1px,
+  xs: $xs - 1px,
+);
 
 @import "./../../../node_modules/gridlex/src/gridlex.scss";

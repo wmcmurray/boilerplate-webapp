@@ -47,18 +47,18 @@ export default {
 
 .v--modal-overlay {
   z-index: 999999;
-  @media (max-width: $sm){
+  @media (max-width: $sm - 1px){
     padding-left: $globalPadding;
     padding-right: $globalPadding;
   }
-  @media (max-width: $xs){
+  @media (max-width: $xs - 1px){
     padding-left: 0px;
     padding-right: 0px;
   }
 }
 
 .v--modal {
-  @media (max-width: $sm){
+  @media (max-width: $sm - 1px){
     width: 96% !important;
     left: 2% !important;
   }

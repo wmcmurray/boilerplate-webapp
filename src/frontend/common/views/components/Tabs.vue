@@ -131,7 +131,7 @@ export default {
       transition: background-color $mouseEffectsDuration ease-out, border-color $mouseEffectsDuration ease-out;
       @include clickable;
 
-      @media (max-width: $sm){
+      @media (max-width: $sm - 1px){
         // border-top: 1px solid rgba(black, 0.1);
         font-size: 13px;
         line-height: 1em;

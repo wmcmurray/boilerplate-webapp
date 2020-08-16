@@ -151,6 +151,39 @@
       </tabs>
     </section>
 
+    <section class="test-responsive">
+      <pre><b>.hidden-xs</b> <span class="hidden-xs">VISIBLE</span></pre>
+      <pre><b>.hidden-sm</b> <span class="hidden-sm">VISIBLE</span></pre>
+      <pre><b>.hidden-md</b> <span class="hidden-md">VISIBLE</span></pre>
+      <pre><b>.hidden-lg</b> <span class="hidden-lg">VISIBLE</span></pre>
+      <pre><b>.hidden-xl</b> <span class="hidden-xl">VISIBLE</span></pre>
+
+      <br>
+
+      <pre><b>.hidden-xs-up</b> <span class="hidden-xs-up">VISIBLE</span></pre>
+      <pre><b>.hidden-sm-up</b> <span class="hidden-sm-up">VISIBLE</span></pre>
+      <pre><b>.hidden-md-up</b> <span class="hidden-md-up">VISIBLE</span></pre>
+      <pre><b>.hidden-lg-up</b> <span class="hidden-lg-up">VISIBLE</span></pre>
+      <pre><b>.hidden-xl-up</b> <span class="hidden-xl-up">VISIBLE</span></pre>
+
+      <br>
+
+      <pre><b>.hidden-xs-down</b> <span class="hidden-xs-down">VISIBLE</span></pre>
+      <pre><b>.hidden-sm-down</b> <span class="hidden-sm-down">VISIBLE</span></pre>
+      <pre><b>.hidden-md-down</b> <span class="hidden-md-down">VISIBLE</span></pre>
+      <pre><b>.hidden-lg-down</b> <span class="hidden-lg-down">VISIBLE</span></pre>
+      <pre><b>.hidden-xl-down</b> <span class="hidden-xl-down">VISIBLE</span></pre>
+
+      <br>
+
+      <div class="grid text-center">
+        <div class="col xs-hidden"><pre><b>xs</b> COL</pre></div>
+        <div class="col sm-hidden"><pre><b>sm</b> COL</pre></div>
+        <div class="col md-hidden"><pre><b>md</b> COL</pre></div>
+        <div class="col lg-hidden"><pre><b>lg</b> COL</pre></div>
+      </div>
+    </section>
+
   </div>
 </template>
 
@@ -183,6 +216,15 @@ export default {
 
   #spinner-container {
     border-radius: $globalRoundness;
+  }
+
+  .test-responsive {
+    padding-top: $globalSpacing;
+    padding-bottom: $globalSpacing;
+
+    pre {
+      margin: 5px 0px;
+    }
   }
 }
 </style>

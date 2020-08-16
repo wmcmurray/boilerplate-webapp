@@ -77,26 +77,100 @@
   }
 }
 
+// hidden "layer only"
+// -----------------------------------------
 .hidden-xs {
-  @media (max-width: $xs){
+  @media (max-width: $xs - 1px) {
     display: none;
   }
 }
 
 .hidden-sm {
-  @media (max-width: $sm){
+  @media (min-width: $xs) and (max-width: $sm - 1px) {
     display: none;
   }
 }
 
 .hidden-md {
-  @media (max-width: $md){
+  @media (min-width: $sm) and (max-width: $md - 1px) {
     display: none;
   }
 }
 
 .hidden-lg {
-  @media (max-width: $lg){
+  @media (min-width: $md) and (max-width: $lg - 1px) {
+    display: none;
+  }
+}
+
+.hidden-xl {
+  @media (min-width: $lg) {
+    display: none;
+  }
+}
+
+
+// hidden "layer and above"
+// -----------------------------------------
+.hidden-xs-up {
+  @media (min-width: 0px) {
+    display: none;
+  }
+}
+
+.hidden-sm-up {
+  @media (min-width: $xs) {
+    display: none;
+  }
+}
+
+.hidden-md-up {
+  @media (min-width: $sm) {
+    display: none;
+  }
+}
+
+.hidden-lg-up {
+  @media (min-width: $md) {
+    display: none;
+  }
+}
+
+.hidden-xl-up {
+  @media (min-width: $lg) {
+    display: none;
+  }
+}
+
+
+// hidden "layer and below"
+// -----------------------------------------
+.hidden-xs-down {
+  @media (max-width: $xs - 1px) {
+    display: none;
+  }
+}
+
+.hidden-sm-down {
+  @media (max-width: $sm - 1px) {
+    display: none;
+  }
+}
+
+.hidden-md-down {
+  @media (max-width: $md - 1px) {
+    display: none;
+  }
+}
+
+.hidden-lg-down {
+  @media (max-width: $lg - 1px) {
+    display: none;
+  }
+}
+
+.hidden-xl-down {
+  @media (min-width: 0px) {
     display: none;
   }
 }

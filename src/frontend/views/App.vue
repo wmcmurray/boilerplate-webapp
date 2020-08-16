@@ -169,7 +169,7 @@ export default {
   overflow: hidden;
   padding-top: 0px;
 
-  @media (max-width: $mainMenuMobileStartAt){
+  @media (max-width: $mainMenuMobileStartAt - 1px){
     $mainMenuMobileHeight: 72px;
 
     padding-top: $mainMenuMobileHeight;
@@ -221,11 +221,11 @@ export default {
         text-shadow: none;
       }
 
-      @media (max-width: $md){
+      @media (max-width: $md - 1px){
         font-size: 50px;
       }
 
-      @media (max-width: $mainMenuMobileStartAt){
+      @media (max-width: $mainMenuMobileStartAt - 1px){
         font-size: 30px;
         line-height: 1em;
         white-space: normal;
@@ -238,7 +238,7 @@ export default {
         }
       }
 
-      @media (min-width: $mainMenuMobileStartAt + 1px){
+      @media (min-width: $mainMenuMobileStartAt){
         &:hover {
           $color: lighten($color, $mouseEffectsLightnessIncrease);
           color: $color;
@@ -247,7 +247,7 @@ export default {
       }
     }
 
-    @media (max-width: $mainMenuMobileStartAt){
+    @media (max-width: $mainMenuMobileStartAt - 1px){
       position: fixed;
       z-index: $mainMenuMobileZIndex - 2;
       top: 0px;
@@ -268,7 +268,7 @@ export default {
       font-size: 2em;
       color: $colorHighlight;
     }
-    @media (max-width: $mainMenuMobileStartAt){
+    @media (max-width: $mainMenuMobileStartAt - 1px){
       display: none;
     }
   }
@@ -321,7 +321,7 @@ export default {
       color: #fff;
     }
 
-    @media (max-width: $mainMenuMobileStartAt){
+    @media (max-width: $mainMenuMobileStartAt - 1px){
       display: block;
     }
   }
