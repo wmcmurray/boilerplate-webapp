@@ -21,6 +21,7 @@
   "author": "William McMurray",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^4.1.0",
     "axios": "^0.18.1",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",

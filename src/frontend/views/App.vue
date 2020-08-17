@@ -143,10 +143,10 @@ export default {
 
 <style lang="scss">
 @import "~vue-snotify/styles/material.css";
+@import "~animate.css/animate.compat.css";
 
 @import "~COMMON/styles/config.scss";
 @import "~COMMON/styles/utils.scss";
-@import "~COMMON/styles/animate.scss";
 @import "~COMMON/styles/easings.scss";
 @import "~COMMON/styles/grid.scss";
 @import "~COMMON/styles/transitions.scss";
