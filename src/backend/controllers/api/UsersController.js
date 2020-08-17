@@ -1,12 +1,13 @@
 const Boom = require('boom');
 const config = require('config');
 
+let User;
 switch (config.database_object_modeling) {
   case 'mongoose':
-    const User = require('models/mongoose/User');
+    User = require('models/mongoose/User');
   break;
   case 'sequelize':
-    const User = require('models/sequelize/User');
+    User = require('models/sequelize/User');
   break;
 }
 
