@@ -55,7 +55,6 @@
 <script>
 import _filter from 'lodash/filter.js'
 import moment from 'moment'
-import store from 'ROOT/store.js'
 import Mediator from 'ROOT/mediator.js'
 import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
 import MenuItem from 'COMMON/views/components/MenuItem.vue'
