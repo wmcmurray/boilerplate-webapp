@@ -151,6 +151,9 @@
       </tabs>
     </section>
 
+    <div class="limit-width padded">
+      <h2>Responsive classes test :</h2>
+    </div>
     <section class="test-responsive">
       <pre><b>.hidden-xs</b> <span class="hidden-xs">VISIBLE</span></pre>
       <pre><b>.hidden-sm</b> <span class="hidden-sm">VISIBLE</span></pre>
@@ -176,7 +179,7 @@
 
       <br>
 
-      <div class="grid text-center">
+      <div class="grid-noBottom text-center">
         <div class="col xs-hidden"><pre><b>xs</b> COL</pre></div>
         <div class="col sm-hidden"><pre><b>sm</b> COL</pre></div>
         <div class="col md-hidden"><pre><b>md</b> COL</pre></div>
@@ -219,8 +222,9 @@ export default {
   }
 
   .test-responsive {
-    padding-top: $globalSpacing;
-    padding-bottom: $globalSpacing;
+    padding-top: $globalSpacing !important;
+    padding-bottom: $globalSpacing !important;
+    background-color: rgba(white, 0.5);
 
     pre {
       margin: 5px 0px;
