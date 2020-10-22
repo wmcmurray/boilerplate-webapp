@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js';
-import WindowResizeMixin from 'COMMON/mixins/WindowResize.js';
+import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js'
+import WindowResizeMixin from 'COMMON/mixins/WindowResize.js'
 
 /**
  * Displays a button (in bottom right corner) that enables the user to scroll back to top quickly

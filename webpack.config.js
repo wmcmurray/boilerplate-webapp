@@ -6,8 +6,8 @@ module.exports = {
   resolve: {
     alias: {
       ROOT: path.resolve(__dirname, 'src/frontend/'),
-      COMMON: path.resolve(__dirname, 'src/frontend/common/')
-    }
+      COMMON: path.resolve(__dirname, 'src/frontend/common/'),
+    },
   },
   entry: {
     main: path.resolve(__dirname, 'src/frontend/index.js'),
@@ -27,15 +27,19 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.s?css$/,
-        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
-    ]
+        loaders: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ],
+      },
+    ],
   },
   plugins: [
     new VueLoaderPlugin(),
@@ -67,5 +71,5 @@ module.exports = {
   },
   node: {
     fs: 'empty'
-  }
+  },
 };
