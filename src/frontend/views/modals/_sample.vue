@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~COMMON/styles/config.scss";
+@import "~ROOT/styles/config.scss";
 
 [data-modal="sample-modal"] {
   #sample-modal-content {

@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~COMMON/styles/config.scss";
+@import "~ROOT/styles/config.scss";
 
 .progress-bar {
   $color: saturate($colorHighlight, 15%);
