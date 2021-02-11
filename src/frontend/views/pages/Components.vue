@@ -40,7 +40,7 @@
 
     <hr>
 
-    <section class="limit-width padded">
+    <section id="tabs-section" class="limit-width padded">
       <tabs>
 
         <tab title="Text content">

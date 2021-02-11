@@ -37,7 +37,11 @@ const router = new VueRouter({
     // smooth scroll back to top
     if(from.name != to.name){
       const app = router.app.$children[0];
-      app.$SmoothScroll(app.$el);
+
+      // because I handle the scroll to hash elsewhere (see ScrollToHash mixin)
+      if(!to.hash) {
+        app.$SmoothScroll(app.$el);
+      }
     }
 
     return savedPosition;
