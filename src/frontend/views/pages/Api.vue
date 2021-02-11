@@ -41,9 +41,11 @@
 
 <script>
 import HasApiMixin from 'COMMON/mixins/HasApi.js'
+import AbstractPage from 'COMMON/views/pages/AbstractPage.vue'
 
 export default {
   name: 'api-page',
+  extends: AbstractPage,
   mixins: [
     HasApiMixin,
   ],
@@ -85,6 +87,8 @@ export default {
     },
   },
   created(){
+    this.seoParams.title = 'Api demo';
+
     // get initial users list
     this.getUsers();
 

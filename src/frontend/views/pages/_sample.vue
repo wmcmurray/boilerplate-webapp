@@ -9,8 +9,11 @@
 </template>
 
 <script>
+import AbstractPage from 'COMMON/views/pages/AbstractPage.vue'
+
 export default {
   name: 'sample-page',
+  extends: AbstractPage,
   data(){
     return {};
   },

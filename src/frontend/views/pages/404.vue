@@ -10,8 +10,11 @@
 </template>
 
 <script>
+import AbstractPage from 'COMMON/views/pages/AbstractPage.vue'
+
 export default {
   name: 'notfound-page',
+  extends: AbstractPage,
   data(){
     return {};
   },

@@ -191,12 +191,18 @@
 </template>
 
 <script>
+import AbstractPage from 'COMMON/views/pages/AbstractPage.vue'
+
 export default {
   name: 'components-page',
+  extends: AbstractPage,
   data(){
     return {
       currProgress: 25,
     };
+  },
+  created() {
+    this.seoParams.title = 'Components demo';
   },
 }
 </script>
