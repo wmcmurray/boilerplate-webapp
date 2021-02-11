@@ -23,7 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "animate.css": "^4.1.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "config": "^1.24.0",
