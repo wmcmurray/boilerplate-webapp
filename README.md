@@ -55,5 +55,6 @@
 
 Some projects using this boilerplate in production environment :
 
-- [www.indiegamesquest.com](http://indiegamesquest.com/)
+- [www.woodenraft.games](https://woodenraft.games/)
+- [www.indiegamesquest.com](https://indiegamesquest.com/)
 - [www.katerinephotoartiste.com](https://katerinephotoartiste.com/)
