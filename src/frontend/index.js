@@ -1,7 +1,9 @@
 import 'babel-polyfill'
 
 import Vue from 'vue'
-import VModal from 'vue-js-modal'
+
+import 'vue-js-modal/dist/styles.css'
+import VModal from 'vue-js-modal/dist/index.nocss.js'
 
 import 'tippy.js/index.css'
 import VueTippy from 'vue-tippy/src/index-nostyles.js'
