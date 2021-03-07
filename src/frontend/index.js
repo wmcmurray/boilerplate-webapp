@@ -2,7 +2,10 @@ import 'babel-polyfill'
 
 import Vue from 'vue'
 import VModal from 'vue-js-modal'
-import VueTippy from 'vue-tippy'
+
+import 'tippy.js/index.css'
+import VueTippy from 'vue-tippy/src/index-nostyles.js'
+
 import Snotify from 'vue-snotify'
 import App from 'ROOT/views/App.vue'
 import Router from 'ROOT/router.js'
