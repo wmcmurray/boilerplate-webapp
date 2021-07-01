@@ -1,5 +1,5 @@
 <template>
-  <div :class="'hero-picture bg-inverted content-align-'+alignContent" :style="'background-image: url('+backgroundImage+');'">
+  <div :class="'hero-picture bg-inverted content-align-'+alignContent" :style="backgroundImage ? 'background-image: url('+backgroundImage+');' : ''">
     <div class="shadow-gradient" />
     <div class="inner-limit">
       <div class="inner-content">
@@ -23,7 +23,7 @@ export default {
     // url of the background image
     backgroundImage: {
       type: String,
-      default: 'https://placeimg.com/1000/480/arch',
+      default: '',
     },
 
     // where content is aligned ( left | center | right)

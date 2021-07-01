@@ -26,16 +26,19 @@ let TABS_INSTANCES_COUNTER = 0;
 */
 export default {
   props:{
+
     // If we want all tabs to be preloaded (dom created) even if user never clicked on it
     preload: {
       type: Boolean,
       default: false,
     },
+
     // the tab index that should be active initially ( 0 - infinity)
     initialTabIndex: {
       type: Number,
       default: 0,
     },
+
   },
   data () {
     return {
@@ -113,20 +116,23 @@ export default {
   margin-bottom: $globalPadding;
   border-radius: $globalRoundness;
   overflow: hidden;
+
   .tabs-menu {
     margin-bottom: 1px;
     background-color: $colorTabInactive;
     @include disable-select;
+
     ul {
       white-space: nowrap;
     }
+
     .tabs-menu-item {
       padding: $globalPadding;
       border-bottom: 1px solid $colorTabBorder;
       border-left: 1px solid $colorTabBorder;
       // border-right: 1px solid $colorTabBorder;
       margin-bottom: -1px;
-      text-transform: uppercase;
+      font-size: 1.15em;
       color: rgba($colorText, 0.5);
       transition: background-color $mouseEffectsDuration ease-out, border-color $mouseEffectsDuration ease-out;
       @include clickable;
@@ -159,6 +165,7 @@ export default {
       }
     }
   }
+
   .tabs-content {
     padding: $globalPadding;
     background-color: $colorTabActive;
@@ -169,9 +176,11 @@ export default {
       display: flex;
       justify-content: space-between;
     }
+
     .tabs-menu-item {
       flex-grow: 1;
       text-align: center;
+
       &:last-child {
         border-right: 0px;
       }
@@ -181,10 +190,12 @@ export default {
   &.breath {
     .tabs-menu {
       margin-bottom: $globalPadding;
+
       .tabs-menu-item {
         border-bottom: 1px solid transparent;
       }
     }
+
     .tabs-content {
       background-color: transparent;
     }
