@@ -294,13 +294,9 @@ export default {
   }
 
   #mainmenu-mobile-overlay {
-    position: fixed;
+    @include full-fixed;
     z-index: $mainMenuMobileZIndex - 1;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(black, 0.35);
+    background-color: $colorOverlay;
 
     &.fade-leave-active {
       pointer-events: none;

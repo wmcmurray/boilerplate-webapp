@@ -47,6 +47,7 @@ export default {
 
 <style lang="scss">
 @import "~ROOT/styles/config.scss";
+@import "~COMMON/styles/utils.scss";
 
 .hero-picture {
   $shadowGradientColor: black;
@@ -64,11 +65,7 @@ export default {
   }
 
   > .shadow-gradient {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
+    @include full-absolute;
   }
 
   > .inner-limit {

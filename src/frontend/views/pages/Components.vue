@@ -64,13 +64,13 @@
         <tab title="Bear pictures">
           <div class="grid-4">
             <div class="col">
-              <lazyimg src="https://placebear.com/500/500" ratio="square" />
+              <lazyimg src="https://placebear.com/500/500" ratio="square" :zoomable="true" />
             </div>
             <div class="col">
               <lazyimg src="https://placebear.com/400/400" ratio="square" />
             </div>
             <div class="col">
-              <lazyimg src="https://placebear.com/600/600" ratio="square" />
+              <lazyimg src="https://placebear.com/600/600" ratio="square" :zoomable="true" />
             </div>
             <div class="col">
               <lazyimg src="https://placebear.com/700/700" ratio="square" />
@@ -78,7 +78,7 @@
           </div>
           <div class="grid-2">
             <div class="col-12">
-              <lazyimg src="https://placebear.com/800/450" ratio="landscape" />
+              <lazyimg src="https://placebear.com/800/450" ratio="landscape" :zoomable="true" />
             </div>
             <div class="col">
               <lazyimg src="https://placebear.com/450/800" ratio="portrait" />

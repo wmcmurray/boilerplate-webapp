@@ -1,9 +1,10 @@
 <template>
-  <div ref="component" :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')" :style="style">
+  <div ref="component" :class="'lazyimg'+(anim?' anim-'+anim:'')+(loaded?' loaded':' not-loaded')+(zoomed?' zoomed':' not-zoomed')" :style="style">
     <img v-if="enteredViewport && !errored" ref="img" class="lazyimg-img" :src="src" :alt="alt">
     <img v-if="errored && placeholderUrl" class="lazyimg-img" :src="placeholderUrl">
     <overlay-spinner v-if="!loaded" />
     <right-click-protection v-if="rightClickProtected" />
+    <div :class="'zoom-overlay'+(!zoomed?' hidden-md-down':'')" v-if="zoomable" @click="zoomed = !zoomed" />
   </div>
 </template>
 
@@ -43,11 +44,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    // if the user can click it to zoom it
+    zoomable: {
+      type: Boolean,
+      default: false,
+    },
   },
   data(){
     return {
       loaded: false,
       errored: false,
+      zoomed: false,
       placeholderUrl: null,
       enteredViewport: false,
     };
@@ -127,8 +134,58 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~ROOT/styles/config.scss";
+@import "~COMMON/styles/utils.scss";
+
 .lazyimg {
   position: relative;
+
+  .zoom-overlay {
+    @include full-absolute;
+    z-index: 999;
+    cursor: zoom-in;
+  }
+
+  &.not-zoomed {
+    .zoom-overlay {
+      transition: background-color $mouseEffectsDuration ease-out;
+
+      &:hover {
+        background-color: $colorOverlay;
+      }
+    }
+  }
+
+  &.zoomed {
+    @include full-fixed;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: none !important;
+    float: none !important;
+    margin: 0px !important;
+    padding: $globalPadding !important;
+    border-radius: 0px !important;
+    box-sizing: border-box;
+    background-color: $colorOverlay;
+    backdrop-filter: blur(20px);
+    // transition: background-color 0.2s ease-out;
+
+    > img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      box-shadow: 0px 2px $globalSpacing rgba(black, 0.15), 0px 1px $globalPadding rgba(black, 0.15);
+      border-radius: $globalRoundness;
+    }
+
+    .zoom-overlay {
+      cursor: zoom-out;
+    }
+  }
+
   &.not-loaded {
     .lazyimg-img {
       position: absolute;
@@ -136,6 +193,7 @@ export default {
       left: 0px;
     }
   }
+
   &.anim-fade {
     .lazyimg-img {
       opacity: 0;
@@ -147,6 +205,7 @@ export default {
       }
     }
   }
+
   &.anim-blur {
     .lazyimg-img {
       opacity: 0;

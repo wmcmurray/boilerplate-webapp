@@ -21,7 +21,7 @@
   cursor: wait;
 }
 
-@mixin full {
+@mixin full-absolute {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -29,11 +29,12 @@
   height: 100%;
 }
 
-@mixin linear-gradient($args...) {
-  background-image: -o-linear-gradient($args);
-  background-image: -moz-linear-gradient($args);
-  background-image: -webkit-linear-gradient($args);
-  background-image: linear-gradient($args);
+@mixin full-fixed {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 @mixin placeholder {

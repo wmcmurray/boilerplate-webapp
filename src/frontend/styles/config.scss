@@ -23,6 +23,7 @@ $lg: 1440px;
  *  Colors
  */
 $colorBackground: #ddd;
+$colorOverlay: rgba(black, 0.35);
 $colorText: #222;
 $colorHighlight: darken(#7daa64, 10%);
 $colorSelection: lighten($colorHighlight, 40%);
