@@ -19,7 +19,7 @@ import _indexOf from 'lodash/indexOf.js';
 let TABS_INSTANCES_COUNTER = 0;
 
 /**
- * Displays a bloc with tabs to toogle content
+ * Displays a bloc with tabs to toggle content
  *
  * How to use :
  * <tabs />

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="'mainmenu-mobile-'+(mainMenuMobileOpened?'opened':'closed')">
+  <div id="app" :class="'mainmenu-mobile-'+(mainMenuOpened?'opened':'closed')">
     <template v-if="ready">
       <div id="app-content">
         <header id="header">
@@ -27,10 +27,10 @@
       </div>
 
       <transition name="fade">
-        <div v-if="mainMenuMobileOpened" id="mainmenu-mobile-overlay" @click="toogleMainMenu(false)"></div>
+        <div v-if="mainMenuOpened" id="mainmenu-mobile-overlay" @click="closeMainMenu()"></div>
       </transition>
       <nav id="mainmenu-mobile">
-        <ul @click="toogleMainMenu(false)">
+        <ul @click="closeMainMenu()">
           <menu-item
             v-for="link, i in mainMenuLinks"
             :key="link.href || link.route.name"
@@ -38,12 +38,12 @@
           />
         </ul>
       </nav>
-      <div id="mainmenu-mobile-btn" @click="toogleMainMenu(!mainMenuMobileOpened)">
-        <icon v-if="!mainMenuMobileOpened" name="menu" />
-        <icon v-if="mainMenuMobileOpened" name="close" />
+      <div id="mainmenu-mobile-btn" @click="toggleMainMenu()">
+        <icon v-if="!mainMenuOpened" name="menu" />
+        <icon v-if="mainMenuOpened" name="close" />
       </div>
 
-      <scroll-to-top-btn v-if="!mainMenuMobileOpened" />
+      <scroll-to-top-btn v-if="!mainMenuOpened" />
       <vue-snotify class="snotify-container" />
     </template>
     <template v-else>
@@ -55,6 +55,7 @@
 <script>
 import _filter from 'lodash/filter.js'
 // import dayjs from 'dayjs'
+import { mapGetters, mapActions } from 'vuex'
 import Mediator from 'ROOT/mediator.js'
 import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
 import MenuItem from 'COMMON/views/components/MenuItem.vue'
@@ -68,12 +69,14 @@ export default {
   data(){
     return {
       ready: false,
-      mainMenuMobileOpened: false,
       about: JS_VARS.about,
       appVersion: JS_VARS.app_version,
     };
   },
   computed: {
+    ...mapGetters([
+      'mainMenuOpened',
+    ]),
     mainMenuLinks() {
       const links = [
         {
@@ -108,6 +111,10 @@ export default {
     },
   },
   methods: {
+    ...mapActions([
+      'closeMainMenu',
+      'toggleMainMenu',
+    ]),
     sanitizeLinks(links) {
       for(let i in links){
         if(typeof links[i].visible === 'undefined') {
@@ -118,9 +125,6 @@ export default {
         }
       }
       return _filter(links, {visible: true});
-    },
-    toogleMainMenu(value){
-      this.mainMenuMobileOpened = value;
     },
   },
   created(){
