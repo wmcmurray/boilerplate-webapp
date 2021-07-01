@@ -147,6 +147,18 @@ button {
       color: $colorHighlight;
     }
   }
+
+  &.inverted {
+    border-color: $colorBackground;
+    background-color: $colorBackground;
+    color: $colorText;
+
+    &:hover, &:active {
+      border-color: $colorBackground;
+      background-color: $colorBackground;
+      color: $colorText;
+    }
+  }
 }
 
 input, select, button {
