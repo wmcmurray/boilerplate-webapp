@@ -52,6 +52,7 @@ export default {
 .hero-picture {
   $shadowGradientColor: black;
   $shadowGradientOpacity: 0.6;
+  $smallVersionSize: $sm;
 
   position: relative;
   padding: $globalSpacing;
@@ -60,7 +61,7 @@ export default {
   background-size: cover;
   background-position: center;
 
-  @media (max-width: $xs - 1px){
+  @media (max-width: $smallVersionSize - 1px){
     padding: ($globalPadding * 2) $globalPadding;
   }
 
@@ -77,7 +78,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
 
-    @media (max-width: $xs - 1px){
+    @media (max-width: $smallVersionSize - 1px){
       min-height: initial;
     }
 
