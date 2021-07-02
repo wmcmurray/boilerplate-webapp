@@ -1,25 +1,42 @@
 import _findIndex from 'lodash/findIndex.js'
 
 const SUPPORTED = typeof window.IntersectionObserver !== 'undefined' ? true : false;
-let OBSERVED, OBSERVER;
+let OBSERVER_ENTER_VIEWPORT, OBSERVED_ENTER_VIEWPORT;
+let OBSERVER_STATE_CHANGED, OBSERVED_STATE_CHANGED;
 
 if(SUPPORTED){
-  OBSERVED = [];
-  OBSERVER = new IntersectionObserver((changes) => {
+  // handles when things are about to enters viewport
+  OBSERVED_ENTER_VIEWPORT = [];
+  OBSERVER_ENTER_VIEWPORT = new IntersectionObserver((changes) => {
     let change, index;
-    for(const i in changes){
+    for(let i = 0; i < changes.length; i++){
       change = changes[i];
+
       if(change.isIntersecting){
-        OBSERVER.unobserve(change.target);
-        index = _findIndex(OBSERVED, {elem: change.target});
+        index = _findIndex(OBSERVED_ENTER_VIEWPORT, {elem: change.target});
         if(index !== -1){
-          OBSERVED[index].cb();
-          delete OBSERVED[index];
+          OBSERVER_ENTER_VIEWPORT.unobserve(change.target);
+          OBSERVED_ENTER_VIEWPORT[index].cb();
+          delete OBSERVED_ENTER_VIEWPORT[index];
         }
       }
     }
   }, {
     rootMargin: '50%',
+  });
+
+  // handles precise enter/exit of vieport
+  OBSERVED_STATE_CHANGED = [];
+  OBSERVER_STATE_CHANGED = new IntersectionObserver((changes) => {
+    let change, index;
+    for(let i = 0; i < changes.length; i++){
+      change = changes[i];
+
+      index = _findIndex(OBSERVED_STATE_CHANGED, {elem: change.target});
+      if(index !== -1){
+        OBSERVED_STATE_CHANGED[index].cb(change.isIntersecting);
+      }
+    }
   });
 }
 
@@ -32,12 +49,36 @@ export default {
    * Check when the element enters viewport then trigger the callback when it happens
    * NOTE : will trigger the callback imediately if this browser feature is not supported
    */
-  observe(elem, cb) {
+  onceAboutToEnterViewport(elem, cb) {
     if(SUPPORTED){
-      OBSERVER.observe(elem);
-      OBSERVED.push({ elem: elem, cb: cb });
+      OBSERVER_ENTER_VIEWPORT.observe(elem);
+      OBSERVED_ENTER_VIEWPORT.push({ elem: elem, cb: cb });
     } else {
       cb();
     }
+  },
+
+  /**
+   * Trigger the callback when the element enters or exits viewport
+   * NOTE : will trigger the callback imediately if this browser feature is not supported
+   */
+  watchEnteredOrExitedViewport(elem, cb) {
+    if(SUPPORTED){
+      OBSERVER_STATE_CHANGED.observe(elem);
+      OBSERVED_STATE_CHANGED.push({ elem: elem, cb: cb });
+    } else {
+      cb(true);
+    }
+
+    return {
+      off() {
+        OBSERVER_STATE_CHANGED.unobserve(elem);
+
+        const index = _findIndex(OBSERVED_STATE_CHANGED, {elem: elem});
+        if(index !== -1){
+          delete OBSERVED_STATE_CHANGED[index];
+        }
+      },
+    };
   },
 }

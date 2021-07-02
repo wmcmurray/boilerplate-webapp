@@ -77,7 +77,7 @@ export default {
   mounted(){
     // setTimeout(() => {
 
-    IntersectionObserver.observe(this.$refs.component, () => {
+    IntersectionObserver.onceAboutToEnterViewport(this.$refs.component, () => {
       this.enteredViewport = true;
       this.$nextTick(() => {
         if(typeof this.$refs.img != 'undefined'){
