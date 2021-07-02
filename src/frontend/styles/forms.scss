@@ -117,6 +117,7 @@ button {
   &:after {
     content: ' ';
     @include full-absolute;
+    border-radius: $globalRoundness;
     transition: box-shadow 0.2s ease-out;
     box-shadow: 0px 2px 5px rgba(black, 0.25), 0px 2px 5px rgba(black, 0) inset;
   }

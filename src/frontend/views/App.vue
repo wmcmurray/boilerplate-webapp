@@ -151,11 +151,13 @@ export default {
 @import "~ROOT/styles/config.scss";
 @import "~COMMON/styles/utils.scss";
 @import "~COMMON/styles/easings.scss";
-@import "~COMMON/styles/grid.scss";
 @import "~COMMON/styles/transitions.scss";
 @import "~COMMON/styles/classes.scss";
 @import "~ROOT/styles/base.scss";
 @import "~ROOT/styles/forms.scss";
+
+@import "~COMMON/styles/vendors/grid.scss";
+@import "~COMMON/styles/vendors/vue-js-modal.scss";
 
 /**
  *  App style

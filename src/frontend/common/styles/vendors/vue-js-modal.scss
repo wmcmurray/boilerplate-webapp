@@ -1,0 +1,11 @@
+.vm--overlay {
+  @include clickable;
+  background-color: $colorOverlay;
+  transition: opacity 0.35s $easeOutQuint;
+}
+
+.vm--modal {
+  background-color: $colorBackground;
+  border-radius: $globalRoundness;
+  box-shadow: 0px ($globalPadding * 0.25) $globalPadding rgba(black, 0.15);
+}
