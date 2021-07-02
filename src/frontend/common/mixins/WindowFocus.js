@@ -1,32 +1,41 @@
+let _onFocus = null;
+let _onBlur = null;
+
 /**
 * Implements a check of the window's focused or blured state
+* NOTE: meant to be added on the root app only, like a singleton
 *
 * May emit those events :
 * - window-focus  : when the window receives focus
 * - window-blur   : when the window loose focus
 */
 export default {
-  data() {
-    return {
-      windowHasFocus: window.document.hasFocus() || true,
-    };
-  },
-  methods: {
-    _onWindowFocusHandler() {
-      this.windowHasFocus = true;
-      this.$emit('window-focus');
-    },
-    _onWindowBlurHandler() {
-      this.windowHasFocus = false;
-      this.$emit('window-blur');
-    },
-  },
   mounted() {
-    window.addEventListener('focus', this._onWindowFocusHandler);
-    window.addEventListener('blur', this._onWindowBlurHandler);
+    if(!_onFocus) {
+      _onFocus = () => {
+        this.$store.commit('SET_WINDOW_FOCUS_STATE', true);
+        this.$root.$emit('window-focus');
+      };
+      window.addEventListener('focus', _onFocus);
+    }
+
+    if(!_onBlur) {
+      _onBlur = () => {
+        this.$store.commit('SET_WINDOW_FOCUS_STATE', false);
+        this.$root.$emit('window-blur');
+      };
+      window.addEventListener('blur', _onBlur);
+    }
   },
   beforeDestroy() {
-    window.removeEventListener('focus', this._onWindowFocusHandler);
-    window.removeEventListener('blur', this._onWindowBlurHandler);
+    if(_onFocus) {
+      window.removeEventListener('focus', _onFocus);
+      _onFocus = null;
+    }
+
+    if(_onBlur) {
+      window.removeEventListener('blur', _onBlur);
+      _onBlur = null;
+    }
   },
 }

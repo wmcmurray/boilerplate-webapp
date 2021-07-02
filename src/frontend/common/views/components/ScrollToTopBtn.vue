@@ -9,18 +9,13 @@
 </template>
 
 <script>
-import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js'
-import WindowResizeMixin from 'COMMON/mixins/WindowResize.js'
+import { mapGetters } from 'vuex'
 
 /**
  * Displays a button (in bottom right corner) that enables the user to scroll back to top quickly
 */
 export default {
   name: 'scroll-to-top-btn',
-  mixins: [
-    WindowScrollMixin,
-    WindowResizeMixin,
-  ],
   props: {
     target: {
       type: String,
@@ -34,6 +29,10 @@ export default {
     };
   },
   computed: {
+    ...mapGetters([
+      'windowHeight',
+      'scrollTop',
+    ]),
     shown(){
       if(this.distance > this.windowHeight){
         return true;

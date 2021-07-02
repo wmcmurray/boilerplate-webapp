@@ -57,11 +57,19 @@ import _filter from 'lodash/filter.js'
 // import dayjs from 'dayjs'
 import { mapGetters, mapActions } from 'vuex'
 import Mediator from 'ROOT/mediator.js'
+import WindowFocusMixin from 'COMMON/mixins/WindowFocus.js'
+import WindowResizeMixin from 'COMMON/mixins/WindowResize.js'
+import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js'
 import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
 import MenuItem from 'COMMON/views/components/MenuItem.vue'
 
 export default {
   name: 'app',
+  mixins: [
+    WindowFocusMixin,
+    WindowResizeMixin,
+    WindowScrollMixin,
+  ],
   components: {
     ScrollToTopBtn,
     MenuItem,

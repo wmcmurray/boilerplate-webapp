@@ -1,40 +1,30 @@
 import _debounce from 'lodash/debounce.js'
 
+let _onResizeDebounced = null;
+
 /**
 * Implements a check of window resize event
+* NOTE: meant to be added on the root app only, like a singleton
 *
 * May emit those events :
 * - window-resize : when the window gets resized
 */
 export default {
-  data() {
-    return {
-      _windowResizeDisabled: false,
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-    };
-  },
-  methods: {
-    _onWindowResizeHandler() {
-      if(!this._windowResizeDisabled){
-        this.$set(this, 'windowWidth', window.innerWidth);
-        this.$set(this, 'windowHeight', window.innerHeight);
-        this.$emit('window-resize');
-      }
-    },
-  },
   mounted() {
-    this._windowResizeDebounced = _debounce(this._onWindowResizeHandler.bind(this), 50);
-    window.addEventListener('resize', this._windowResizeDebounced);
-  },
-  activated() {
-    this._windowResizeDisabled = false;
-    this._onWindowResizeHandler();
-  },
-  deactivated() {
-    this._windowResizeDisabled = true;
+    if(!_onResizeDebounced) {
+      const _onResize = () => {
+        this.$store.commit('SET_WINDOW_WIDTH', window.innerWidth);
+        this.$store.commit('SET_WINDOW_HEIGHT', window.innerHeight);
+        this.$root.$emit('window-resize');
+      };
+      _onResizeDebounced = _debounce(_onResize, 50);
+
+      window.addEventListener('resize', _onResizeDebounced);
+      _onResize();
+    }
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this._windowResizeDebounced);
+    window.removeEventListener('resize', _onResizeDebounced);
+    _onResizeDebounced = null;
   },
 }
