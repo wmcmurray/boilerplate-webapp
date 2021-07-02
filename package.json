@@ -36,6 +36,7 @@
     "morgan": "^1.9.1",
     "pug": "^3.0.2",
     "serve-favicon": "^2.5.0",
+    "three": "^0.130.0",
     "vue": "2.6.11",
     "vue-js-modal": "^2.0.0-rc.6",
     "vue-router": "^3.0.6",

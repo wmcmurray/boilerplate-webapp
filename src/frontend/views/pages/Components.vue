@@ -155,7 +155,15 @@
           </form>
         </tab>
 
+        <tab title="ThreeJS">
+          <three-js-demo-scene />
+        </tab>
+
       </tabs>
+    </section>
+
+    <section>
+      <three-js-demo-scene />
     </section>
 
     <div class="limit-width padded">
@@ -200,12 +208,14 @@
 <script>
 import AbstractPage from 'COMMON/views/pages/AbstractPage.vue'
 import HeroPicture from 'COMMON/views/components/HeroPicture.vue'
+import ThreeJsDemoScene from 'ROOT/views/components/ThreeJsDemoScene.vue'
 
 export default {
   name: 'components-page',
   extends: AbstractPage,
   components: {
     HeroPicture,
+    ThreeJsDemoScene,
   },
   data(){
     return {
