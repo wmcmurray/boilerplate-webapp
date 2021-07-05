@@ -5,6 +5,8 @@ html {
 body {
   min-height: 100vh;
   margin: 0px;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
 
   ::selection {
     background: $colorSelection;
@@ -77,7 +79,12 @@ ul {
   &.styled {
     list-style: disc outside;
     padding-left: 18px;
+
+    li {
+      margin-bottom: 0.5em;
+    }
   }
+
   &.inline {
     li {
       display: inline-block;

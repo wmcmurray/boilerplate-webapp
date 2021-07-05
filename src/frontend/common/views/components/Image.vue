@@ -165,7 +165,7 @@ export default {
     max-width: none !important;
     float: none !important;
     margin: 0px !important;
-    padding: $globalPadding !important;
+    padding: $globalSpacing !important;
     border-radius: 0px !important;
     box-sizing: border-box;
     background-color: $colorOverlay;

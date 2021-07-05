@@ -3,7 +3,7 @@
 */
 $maxWidth: 1150px;
 $globalPadding: 20px;
-$globalSpacing: 50px;
+$globalSpacing: 60px;
 $globalRoundness: 4px;
 $globalFontSize: 16px;
 $globalLineHeight: 1.5em;
@@ -26,7 +26,7 @@ $colorBackground: #ddd;
 $colorOverlay: rgba(black, 0.35);
 $colorText: #222;
 $colorHighlight: darken(#7daa64, 10%);
-$colorSelection: lighten($colorHighlight, 40%);
+$colorSelection: rgba($colorHighlight, 0.4);
 $colorDisabled: #bbb;
 
 $colorOk: #50af54;
