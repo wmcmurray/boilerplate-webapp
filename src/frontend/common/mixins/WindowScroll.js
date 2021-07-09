@@ -14,6 +14,7 @@ export default {
     if(!_onScrollDebounced) {
       const _onScroll = () => {
         this.$store.commit('SET_SCROLL_TOP', window.document.body.scrollTop || window.document.documentElement.scrollTop);
+        this.$store.commit('SET_SCROLL_LEFT', window.document.body.scrollLeft || window.document.documentElement.scrollLeft);
         this.$root.$emit('window-scroll');
       };
       _onScrollDebounced = _debounce(_onScroll, 10);

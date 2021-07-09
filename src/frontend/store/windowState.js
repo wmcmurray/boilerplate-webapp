@@ -4,6 +4,7 @@ export default {
     windowWidth: window.innerWidth,
     windowHeight: window.innerHeight,
     scrollTop: 0,
+    scrollLeft: 0,
   },
 
   getters : {
@@ -19,6 +20,9 @@ export default {
     scrollTop(state){
       return state.scrollTop;
     },
+    scrollLeft(state){
+      return state.scrollLeft;
+    },
   },
 
   mutations : {
@@ -33,6 +37,9 @@ export default {
     },
     SET_SCROLL_TOP(state, value) {
       state.scrollTop = value;
+    },
+    SET_SCROLL_LEFT(state, value) {
+      state.scrollLeft = value;
     },
   },
 }
