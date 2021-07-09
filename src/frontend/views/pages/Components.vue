@@ -47,6 +47,10 @@
       <button type="button" class="inverted">click here for reasons</button>
     </hero-picture>
 
+    <section>
+      <auto-slider :items="autoSliderPictures" />
+    </section>
+
     <section id="tabs-section" class="limit-width padded">
       <tabs>
 
@@ -208,6 +212,7 @@
 <script>
 import AbstractPage from 'COMMON/views/pages/AbstractPage.vue'
 import HeroPicture from 'COMMON/views/components/HeroPicture.vue'
+import AutoSlider from 'COMMON/views/components/AutoSlider.vue'
 import ThreeJsDemoScene from 'ROOT/views/components/ThreeJsDemoScene.vue'
 
 export default {
@@ -215,11 +220,19 @@ export default {
   extends: AbstractPage,
   components: {
     HeroPicture,
+    AutoSlider,
     ThreeJsDemoScene,
   },
   data(){
     return {
       currProgress: 25,
+      autoSliderPictures: [
+        'https://placeimg.com/300/150',
+        'https://placeimg.com/300/151',
+        'https://placeimg.com/300/152',
+        'https://placeimg.com/300/153',
+        'https://placeimg.com/300/154'
+      ],
     };
   },
   created() {
