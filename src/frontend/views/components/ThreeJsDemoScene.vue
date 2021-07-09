@@ -32,7 +32,7 @@ export default {
 
     this.$on('update-scene', (deltaTime) => {
       this.model.rotation.x += deltaTime * 0.25;
-      this.model.rotation.x += deltaTime * 0.25;
+      this.model.rotation.y += deltaTime * 0.25;
       this.model.rotation.z += deltaTime * 0.25;
 
       this.camera.position.z = 4 + (Math.cos(this.totalTime) * 0.125);
