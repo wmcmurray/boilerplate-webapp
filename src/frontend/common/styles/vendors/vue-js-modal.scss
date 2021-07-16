@@ -1,3 +1,7 @@
+@import "~ROOT/styles/config.scss";
+@import "~COMMON/styles/utils.scss";
+@import "~COMMON/styles/easings.scss";
+
 .vm--overlay {
   @include clickable;
   background-color: $colorOverlay;

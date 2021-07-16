@@ -153,9 +153,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~vue-snotify/styles/material.css";
-@import "~animate.css/animate.compat.css";
-
 @import "~ROOT/styles/config.scss";
 @import "~COMMON/styles/utils.scss";
 @import "~COMMON/styles/easings.scss";
@@ -163,10 +160,6 @@ export default {
 @import "~COMMON/styles/classes.scss";
 @import "~ROOT/styles/base.scss";
 @import "~ROOT/styles/forms.scss";
-
-@import "~COMMON/styles/vendors/grid.scss";
-@import "~COMMON/styles/vendors/vue-js-modal.scss";
-
 
 #app {
   $mainMenuMobileTransition: 0.35s $easeOutQuint;

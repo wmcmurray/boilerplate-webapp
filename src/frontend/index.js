@@ -1,24 +1,29 @@
 import 'babel-polyfill'
 
-import Vue from 'vue'
-
-import 'vue-js-modal/dist/styles.css'
-import VModal from 'vue-js-modal/dist/index.nocss.js'
-
-import 'tippy.js/index.css'
-import VueTippy from 'vue-tippy/src/index-nostyles.js'
-
-import Snotify from 'vue-snotify'
-import App from 'ROOT/views/App.vue'
-import Router from 'ROOT/router.js'
-import Store from 'ROOT/store.js'
-
-
 // vendors
+import Vue from 'vue'
+import VModal from 'vue-js-modal/dist/index.nocss.js'
+import VueTippy from 'vue-tippy/src/index-nostyles.js'
+import Snotify from 'vue-snotify'
+
+// vendors styles
+import 'animate.css/animate.compat.css'
+import 'vue-js-modal/dist/styles.css'
+import 'tippy.js/index.css'
+import 'vue-snotify/styles/material.css'
+import 'COMMON/styles/vendors/gridlex.scss'
+import 'COMMON/styles/vendors/vue-js-modal.scss'
+
+// register vendors
 Vue.use(require('vue-smoothscroll'));
 Vue.use(VModal);
 Vue.use(VueTippy, {arrow: true, touchHold: true});
 Vue.use(Snotify, {toast: {showProgressBar: false, icon: false, position: 'rightTop'}});
+
+// app
+import App from 'ROOT/views/App.vue'
+import Router from 'ROOT/router.js'
+import Store from 'ROOT/store.js'
 
 // components
 import IconComponent from 'COMMON/views/components/Icon.vue'

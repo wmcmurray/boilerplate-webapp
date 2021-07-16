@@ -53,7 +53,7 @@ module.exports = {
       cacheGroups: {
         vendors: {
           name: 'vendors',
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/]|gridlex/,
           chunks: 'all',
         },
       },

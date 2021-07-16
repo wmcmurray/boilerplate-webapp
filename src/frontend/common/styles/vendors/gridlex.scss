@@ -8,4 +8,4 @@ $gl-mq-list: (
   xs: $xs - 1px,
 );
 
-@import "./../../../node_modules/gridlex/src/gridlex.scss";
+@import "~gridlex/src/gridlex.scss";
