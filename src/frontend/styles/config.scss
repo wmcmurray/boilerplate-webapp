@@ -1,6 +1,5 @@
-/**
-*  Sizes
-*/
+// Sizes
+// -----------------------------------------
 $maxWidth: 1150px;
 $globalPadding: 20px;
 $globalSpacing: 60px;
@@ -9,19 +8,17 @@ $globalFontSize: 16px;
 $globalLineHeight: 1.5em;
 $globalPerspective: 900px;
 
-/**
-*  Responsive sizes
-*  NOTE : the values are where the specified section ends (exclusively)
-*  exemple: XS = from 0 to 479px
-*/
+// Responsive sizes
+// NOTE : the values are where the specified section ends (exclusively)
+// exemple: XS = from 0 to 479px
+// -----------------------------------------
 $xs: 480px;
 $sm: 768px;
 $md: 992px;
 $lg: 1440px;
 
-/**
- *  Colors
- */
+// Colors
+// -----------------------------------------
 $colorBackground: #ddd;
 $colorOverlay: rgba(black, 0.35);
 $colorText: #222;
@@ -32,8 +29,7 @@ $colorDisabled: #bbb;
 $colorOk: #50af54;
 $colorBad: #af5050;
 
-/**
- *  Effects
- */
+// Effects
+// -----------------------------------------
 $mouseEffectsLightnessIncrease: 10%;
 $mouseEffectsDuration: 0.15s;

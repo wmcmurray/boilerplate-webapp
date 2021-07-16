@@ -167,9 +167,7 @@ export default {
 @import "~COMMON/styles/vendors/grid.scss";
 @import "~COMMON/styles/vendors/vue-js-modal.scss";
 
-/**
- *  App style
- */
+
 #app {
   $mainMenuMobileTransition: 0.35s $easeOutQuint;
   $mainMenuMobileTransitionPerspective: 0.2;

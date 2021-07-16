@@ -1,6 +1,5 @@
-/**
- *  FADE : a fade in and out effect
- */
+// FADE : a fade in and out effect
+// -----------------------------------------
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }
@@ -11,9 +10,8 @@
   transition: all 0.5s;
 }
 
-/**
- *  FADEIN : a fade in effect (with no fade out)
- */
+// FADEIN : a fade in effect (with no fade out)
+// -----------------------------------------
 .fadein-enter-active {
   transition: opacity .5s
 }
@@ -21,9 +19,8 @@
   opacity: 0
 }
 
-/**
- *  REVEAL : a slide down/up effect
- */
+// REVEAL : a slide down/up effect
+// -----------------------------------------
 .reveal-enter-active, .reveal-leave-active {
   opacity: 1;
   transition-duration: .3s;
