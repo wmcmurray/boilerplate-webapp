@@ -1,10 +1,10 @@
 // FADE : a fade in and out effect
 // -----------------------------------------
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s $easeOutQuint;
 }
 .fade-enter, .fade-leave-to {
-  opacity: 0
+  opacity: 0;
 }
 .fade-move {
   transition: all 0.5s;
@@ -13,10 +13,10 @@
 // FADEIN : a fade in effect (with no fade out)
 // -----------------------------------------
 .fadein-enter-active {
-  transition: opacity .5s
+  transition: opacity .5s $easeOutQuint;
 }
 .fadein-enter, .fadein-leave-to {
-  opacity: 0
+  opacity: 0;
 }
 
 // REVEAL : a slide down/up effect

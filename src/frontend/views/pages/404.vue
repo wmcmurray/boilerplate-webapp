@@ -1,8 +1,8 @@
 <template>
   <div class="notfound-page limit-width padded">
 
-    <div class="center animated pulse">
-      <h1 class="animated pulse">Error 404 !</h1>
+    <div class="center">
+      <h1>Error 404</h1>
       <p>The requested page was not found</p>
     </div>
 
@@ -25,22 +25,15 @@ export default {
 @import "~ROOT/styles/config.scss";
 
 .notfound-page {
-  overflow: hidden;
   text-align: center;
   font-size: 26px;
+  line-height: $globalLineHeight;
 
   .center {
-    margin: 50px 0px;
+    color: $colorBad;
 
     h1, p {
       margin: 0px;
-    }
-
-    h1 {
-      margin-bottom: 20px;
-      font-size: 46px;
-      color: $colorBad;
-      text-shadow: 0px 4px 0px rgba(black, 0.15);
     }
   }
 }

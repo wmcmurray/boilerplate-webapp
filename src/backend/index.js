@@ -11,6 +11,7 @@ const app = express();
 const port = normalizePort(process.env.PORT || config.port);
 
 app.set('port', port);
+app.enable('trust proxy');
 
 // sessions
 if(config.sessions_enabled){

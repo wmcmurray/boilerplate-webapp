@@ -1,5 +1,5 @@
 <template>
-  <div :class="'hero-picture bg-inverted content-align-'+alignContent" :style="backgroundImage ? 'background-image: url('+backgroundImage+');' : ''">
+  <div :class="'hero-picture content-align-'+alignContent" :style="backgroundImage ? 'background-image: url('+backgroundImage+');' : ''">
     <div v-if="shadowGradient" class="shadow-gradient" />
     <div class="inner-limit">
       <div class="inner-content">

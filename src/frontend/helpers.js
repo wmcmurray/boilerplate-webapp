@@ -15,3 +15,13 @@ export function getDifferencesBetweenTwoObjects(object, base) {
   }
   return changes(object, base);
 }
+
+/**
+* Transform an array of strings into a human readable list of elements (in string format)
+*/
+export function toHumanReadableList(arr, sepMid = ', ', sepLast = ' et ') {
+  const elements = arr.slice(0, -2);
+  elements.push( arr.slice(-2).join(sepLast) );
+
+  return elements.join(sepMid);
+}
