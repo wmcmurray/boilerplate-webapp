@@ -120,7 +120,7 @@ export default {
           ctx.textAlign = 'center';
           ctx.font = fontSize + 'px \'Oxygen\', sans-serif';
           ctx.fillStyle = '#eeeeee';
-          ctx.fillText('Image not found', w * 0.5, (h * 0.5) + (fontSize * 0.4));
+          ctx.fillText(this.$t('image_not_found'), w * 0.5, (h * 0.5) + (fontSize * 0.4));
 
           this.placeholderUrl = canvas.toDataURL();
           this.loaded = true;

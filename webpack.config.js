@@ -39,6 +39,11 @@ module.exports = {
           'sass-loader'
         ],
       },
+      {
+        test: /\.ya?ml$/,
+        type: 'json',
+        loader: 'yaml-loader',
+      },
     ],
   },
   plugins: [

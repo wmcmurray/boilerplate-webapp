@@ -7,9 +7,16 @@ const packageJson = require(path.join(process.cwd(), '/package.json'));
  * Set variables into the views of whe main entry point of the SPA
  */
 module.exports = function(req, res, next) {
+  const supportedLocales = [
+    'fr',
+    'en',
+  ];
+  const locale = req.acceptsLanguages(supportedLocales) || supportedLocales[0];
+
   const JS_VARS = {
     // session     : req.session ? true : false,
     about       : config.about,
+    locale      : locale,
     seo         : _pick(config.seo, ['title', 'description', 'keywords', 'og_image']),
     app_version : packageJson.version || null,
     ga_account  : config.google_analytics.account,

@@ -24,6 +24,7 @@ Vue.use(Snotify, {toast: {showProgressBar: false, icon: false, position: 'rightT
 import App from 'ROOT/views/App.vue'
 import Router from 'ROOT/router.js'
 import Store from 'ROOT/store.js'
+import I18n from 'ROOT/i18n.js'
 
 // components
 import IconComponent from 'COMMON/views/components/Icon.vue'
@@ -54,6 +55,7 @@ const app = new Vue({
   el      : '#app',
   router  : Router,
   store   : Store,
+  i18n    : I18n,
   render(h) {
     return h(App);
   },

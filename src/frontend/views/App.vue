@@ -22,7 +22,8 @@
         </main>
 
         <footer id="footer">
-          <p v-html="copyrightNotice"></p>
+          <copyright-notice />
+          <locale-switcher class="hidden-sm-down" />
         </footer>
       </div>
 
@@ -37,6 +38,7 @@
             :link="link"
           />
         </ul>
+        <locale-switcher class="bg-inverted" />
       </nav>
       <div id="mainmenu-mobile-btn" @click="toggleMainMenu()">
         <icon v-if="!mainMenuOpened" name="menu" />
@@ -54,14 +56,15 @@
 
 <script>
 import _filter from 'lodash/filter.js'
-// import dayjs from 'dayjs'
 import { mapGetters, mapActions } from 'vuex'
 import Mediator from 'ROOT/mediator.js'
 import WindowFocusMixin from 'COMMON/mixins/WindowFocus.js'
 import WindowResizeMixin from 'COMMON/mixins/WindowResize.js'
 import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js'
 import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
+import LocaleSwitcher from 'COMMON/views/components/LocaleSwitcher.vue'
 import MenuItem from 'COMMON/views/components/MenuItem.vue'
+import CopyrightNotice from 'COMMON/views/components/CopyrightNotice.vue'
 
 export default {
   name: 'app',
@@ -72,7 +75,9 @@ export default {
   ],
   components: {
     ScrollToTopBtn,
+    LocaleSwitcher,
     MenuItem,
+    CopyrightNotice,
   },
   data(){
     return {
@@ -108,15 +113,6 @@ export default {
 
       return this.sanitizeLinks(links);
     },
-    copyrightNotice(){
-      const currentYear = (new Date()).getFullYear();
-      const launched = this.about.website.launched;
-      let author = this.about.author.name;
-      if(this.about.author.website){
-        author = '<a href="'+this.about.author.website+'" target="_blank" rel="noopener">'+author+'</a>';
-      }
-      return '&copy; ' + launched + (currentYear > launched ? '-'+currentYear : '') + ' '+author+' - All rights reserved';
-    },
   },
   methods: {
     ...mapActions([
@@ -136,9 +132,6 @@ export default {
     },
   },
   created(){
-    // define default locale
-    // dayjs.locale('en');
-
     // the app is ready
     this.ready = true;
   },
@@ -284,13 +277,21 @@ export default {
   }
 
   #footer {
+    $color: rgba($colorText, 0.75);
+
     padding: $globalPadding;
     text-align: center;
     font-size: 13px;
-    color: rgba($colorText, 0.75);
+    color: $color;
 
     > p {
+      display: inline-block;
       margin: 0.5em;
+    }
+
+    .locale-switcher {
+      border: 1px solid $color;
+      border-radius: $globalRoundness;
     }
   }
 
@@ -354,6 +355,19 @@ export default {
           padding: $globalPadding * 0.5 0px;
           font-size: 22px;
         }
+      }
+    }
+
+    .locale-switcher {
+      position: absolute;
+      z-index: 999999;
+      bottom: $globalPadding;
+      left: $globalPadding;
+      border-radius: $globalRoundness;
+      overflow: hidden;
+
+      > span {
+        padding: $globalPadding * 0.5;
       }
     }
   }

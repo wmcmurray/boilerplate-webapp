@@ -7,7 +7,7 @@ module.exports = {
   about: {
     website: {
       name: 'boilerplate-webapp',
-      launched: 2017,
+      launched: 2021,
     },
     author: {
       name: 'William McMurray',

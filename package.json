@@ -38,6 +38,7 @@
     "serve-favicon": "^2.5.0",
     "three": "^0.130.0",
     "vue": "2.6.11",
+    "vue-i18n": "^8.25.0",
     "vue-js-modal": "^2.0.0-rc.6",
     "vue-router": "^3.0.6",
     "vue-smoothscroll": "^0.2.0",
@@ -58,6 +59,7 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "2.6.11",
     "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "yaml-loader": "^0.6.0"
   }
 }
