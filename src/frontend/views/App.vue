@@ -3,7 +3,7 @@
     <template v-if="ready">
       <div id="app-content">
         <header id="header">
-          <router-link :to="{name:'home'}" class="logo" exact>{{ about.website.name }}<sub>v{{ appVersion }}</sub></router-link>
+          <main-logo />
         </header>
 
         <nav id="mainmenu-desktop">
@@ -17,7 +17,7 @@
 
         <main id="main">
           <transition name="fadein" mode="out-in">
-            <router-view/>
+            <router-view />
           </transition>
         </main>
 
@@ -64,6 +64,7 @@ import WindowScrollMixin from 'COMMON/mixins/WindowScroll.js'
 import ScrollToTopBtn from 'COMMON/views/components/ScrollToTopBtn.vue'
 import LocaleSwitcher from 'COMMON/views/components/LocaleSwitcher.vue'
 import MenuItem from 'COMMON/views/components/MenuItem.vue'
+import MainLogo from 'COMMON/views/components/MainLogo.vue'
 import CopyrightNotice from 'COMMON/views/components/CopyrightNotice.vue'
 
 export default {
@@ -77,13 +78,12 @@ export default {
     ScrollToTopBtn,
     LocaleSwitcher,
     MenuItem,
+    MainLogo,
     CopyrightNotice,
   },
   data(){
     return {
       ready: false,
-      about: JS_VARS.about,
-      appVersion: JS_VARS.app_version,
     };
   },
   computed: {
@@ -155,14 +155,6 @@ export default {
 @import "~ROOT/styles/forms.scss";
 
 #app {
-  $mainMenuMobileTransition: 0.35s $easeOutQuint;
-  $mainMenuMobileTransitionPerspective: 0.2;
-  $mainMenuMobileSide: right; // left | right
-  $mainMenuMobileMaxWidth: 400px;
-  $mainMenuMobileZIndex: 99999;
-  $mainMenuMobileStartAt: $sm;
-  $mainMenuMobileIconSize: 40px;
-
   overflow: hidden;
   padding-top: 0px;
 
@@ -188,61 +180,6 @@ export default {
     padding: $globalPadding;
     box-sizing: border-box;
     text-align: center;
-
-    > .logo {
-      $color: lighten($colorHighlight, 5%);
-      $gradientStart: 15%;
-      $gradientSpeed: 5%;
-
-      $gradient1: $gradientStart;
-      $gradient2: ($gradientStart + ($gradientSpeed * 1));
-      $gradient3: ($gradientStart + ($gradientSpeed * 2));
-
-      white-space: nowrap;
-      font-size: 60px;
-      line-height: $globalLineHeight;
-      font-weight: bold;
-      text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
-      color: $color;
-      transition: all $mouseEffectsDuration ease-out;
-      @include clickable;
-
-      sub {
-        display: inline-block;
-        width: 0px;
-        height: 0px;
-        font-weight: normal;
-        font-size: 10px;
-        opacity: 0.5;
-        color: $colorText;
-        text-shadow: none;
-      }
-
-      @media (max-width: $md - 1px){
-        font-size: 50px;
-      }
-
-      @media (max-width: $mainMenuMobileStartAt - 1px){
-        font-size: 30px;
-        line-height: 1em;
-        white-space: normal;
-        color: #fff;
-        text-shadow: 0px 1px 0px darken($color, 25%);
-        transition: none;
-
-        sub {
-          display: none;
-        }
-      }
-
-      @media (min-width: $mainMenuMobileStartAt){
-        &:hover {
-          $color: lighten($color, $mouseEffectsLightnessIncrease);
-          color: $color;
-          text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
-        }
-      }
-    }
 
     @media (max-width: $mainMenuMobileStartAt - 1px){
       position: fixed;

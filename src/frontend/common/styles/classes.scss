@@ -19,9 +19,11 @@
 
   a {
     border-bottom: 1px dashed rgba($colorText, 0.2);
+
     &:hover, &.router-link-active {
       border-bottom-color: rgba($colorHighlight, 0.5);
       border-bottom-style: solid;
+      color: darken($colorHighlight, 15%);
     }
   }
 }

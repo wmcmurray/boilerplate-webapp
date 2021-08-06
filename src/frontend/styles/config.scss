@@ -1,3 +1,5 @@
+@import "~COMMON/styles/easings.scss";
+
 // Sizes
 // -----------------------------------------
 $maxWidth: 1150px;
@@ -33,3 +35,13 @@ $colorBad: #af5050;
 // -----------------------------------------
 $mouseEffectsLightnessIncrease: 10%;
 $mouseEffectsDuration: 0.15s;
+
+// UI
+// -----------------------------------------
+$mainMenuMobileTransition: 0.35s $easeOutQuint;
+$mainMenuMobileTransitionPerspective: 0.2;
+$mainMenuMobileSide: right; // left | right
+$mainMenuMobileMaxWidth: 400px;
+$mainMenuMobileZIndex: 99999;
+$mainMenuMobileStartAt: $sm;
+$mainMenuMobileIconSize: 40px;
