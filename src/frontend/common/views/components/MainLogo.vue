@@ -35,7 +35,7 @@ export default {
 
   white-space: nowrap;
   font-size: 60px;
-  line-height: $globalLineHeight;
+  line-height: $globalLineHeightTitle;
   font-weight: bold;
   text-shadow: 0px 1px 0px darken($color, $gradient1), 0px 2px 0px darken($color, $gradient2), 0px 3px 0px darken($color, $gradient3), 0px 7px 0px rgba(black, 0.1);
   color: $color;

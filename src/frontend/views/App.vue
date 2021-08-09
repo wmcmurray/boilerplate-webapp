@@ -218,7 +218,7 @@ export default {
 
     padding: $globalPadding;
     text-align: center;
-    font-size: 13px;
+    font-size: $globalMinimumFontSize;
     color: $color;
 
     > p {

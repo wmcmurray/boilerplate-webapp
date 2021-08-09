@@ -27,7 +27,7 @@ export default {
 .notfound-page {
   text-align: center;
   font-size: 26px;
-  line-height: $globalLineHeight;
+  line-height: $globalLineHeightText;
 
   .center {
     color: $colorBad;

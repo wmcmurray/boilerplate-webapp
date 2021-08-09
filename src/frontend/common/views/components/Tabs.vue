@@ -139,7 +139,7 @@ export default {
 
       @media (max-width: $sm - 1px){
         // border-top: 1px solid rgba(black, 0.1);
-        font-size: 13px;
+        font-size: $globalMinimumFontSize;
         line-height: 1em;
         padding: $globalPadding * 0.75;
       }

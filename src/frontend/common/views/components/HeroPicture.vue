@@ -85,7 +85,7 @@ export default {
     > .inner-content {
       max-width: $maxWidth * 0.5;
       font-size: 1.25em;
-      line-height: $globalLineHeight;
+      line-height: $globalLineHeightText;
       text-shadow: 0px 1px 0px rgba(black, 0.2);
     }
   }

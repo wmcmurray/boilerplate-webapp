@@ -20,8 +20,13 @@ body, input, textarea, button, select {
   font-family: 'Oxygen', sans-serif;
   font-weight: 300;
   font-size: $globalFontSize;
-  line-height: $globalLineHeight;
+  line-height: $globalLineHeightText;
   color: $colorText;
+
+  @media (max-width: $sm - 1px) {
+    font-size: $globalMinimumFontSize;
+    line-height: $globalLineHeightText;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,14 +37,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2em;
-  line-height: $globalLineHeight;
+  line-height: $globalLineHeightTitle;
   margin-top: 1.5em;
   margin-bottom: $globalPadding;
 }
 
 h2 {
   font-size: 1.75em;
-  line-height: $globalLineHeight;
+  line-height: $globalLineHeightTitle;
   margin-top: 1.25em;
   margin-bottom: $globalPadding;
 }
